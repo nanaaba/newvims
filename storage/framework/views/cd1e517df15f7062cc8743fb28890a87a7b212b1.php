@@ -1,12 +1,12 @@
-@extends('layouts.master')
+<?php $__env->startSection('content'); ?>
 
-@section('content')
+
 
 
 <ol class="breadcrumb">
     <li class="breadcrumb-item">Home</li>
-    <li class="breadcrumb-item"><a href="#">Vehicles</a></li>
-    <li class="breadcrumb-item active">All Vehicles</li>
+    <li class="breadcrumb-item"><a href="#">Trips</a></li>
+    <li class="breadcrumb-item active">All Trips</li>
     <!-- Breadcrumb Menu-->
 
 </ol>
@@ -42,34 +42,59 @@
 
 
 
+  <?php
 
+$trips = json_decode($details, true);
+?>
         <div class="row">
             <div class="col-md-12">
 
             <div class="card">
                 <div class="card-header">
-                    <i class="fa fa-edit"></i> Vehicles
+                    <i class="fa fa-edit"></i> Trips
 
                 </div>
                 <div class="card-body table-responsive">
-                        <table id="vehicleTbl" class="table table-condensed table-hover table-bordered table-striped">
+                      <table id="vehicleTbl" class="table table-condensed table-hover table-bordered table-striped">
                                     <thead>
-                                        <tr>
+                                         <tr>
 
-                                            <th>Chasis No</th>  
-                                            <th>Make</th>  
-                                            <th>Model</th>  
-                                            <th>Color</th>  
-                                            <th>Action</th>
+                                        <th>Trip Type</th>  
+                                        <th>Final Country</th>  
+                                        <th>Vehicle(Front Plate)</th>  
+                                        <th>Driver</th> 
+                                        <th>Check In</th> 
 
-                                        </tr>
+                                        <th>Action</th>
                                     </thead>
                                     <tbody>
 
-
+   <?php
+                                    foreach ($trips['data'] as $value) {
+                                        echo '<tr>'
+                                        . '<td>'
+                                        . $value['tripType']
+                                        . '</td>'
+                                        . '<td>'
+                                        . $value['finalCountry']
+                                        . '</td>'
+                                        . '<td>'
+                                        . $value['vehicle']['frontPlateNo']
+                                        . '</td>'
+                                        . '<td>'
+                                        . $value['driver']['othernames'].' '.$value['driver']['surname']
+                                        . '</td>'
+                                        . '<td>'
+                                        . $value['checkInOn']
+                                        . '</td>'
+                                        . '<td><a   href="../trip/' . $value['tripNo'] . '"    type="button" class=" btn  btn-primary " ><i class="fa fa-search-plus"></i> </a></td> ' 
+                                         
+                                        . '</tr>';
+                                    }
+                                    ?>
                                     </tbody>
                                 </table>
-                    
+                  
                 </div>
             </div>
 
@@ -88,9 +113,10 @@
 
 
 
-@endsection
 
-@section('customjs')
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('customjs'); ?>
 
 <script type="text/javascript">
 
@@ -99,57 +125,12 @@
 
 
     var datatable = $('#vehicleTbl').DataTable({
-         "pageLength": 20
+        "pageLength": 20
     });
 
 
 
 
-    getVehicles();
-
-    function getVehicles() {
-        $('#loaderModal').modal('show');
-
-        $.ajax({
-            url: "{{url('vehicles/getall')}}",
-            type: "GET",
-            dataType: 'json',
-            success: function (data) {
-
-                $('#loaderModal').modal('hide');
-
-                console.log('server data :' + data.data);
-                var dataSet = data.data;
-                console.log(dataSet);
-                datatable.clear().draw();
-                console.log('size' + dataSet.length);
-                if (dataSet.length == 0) {
-                    console.log("NO DATA!");
-                } else {
-                    $.each(dataSet, function (key, value) {
-
-
-                        var j = -1;
-                        var r = new Array();
-                        // represent columns as array
-                        r[++j] = '<td class="subject"> ' + value.chasisNo + '</td>';
-                        r[++j] = '<td class="subject">' + value.make + '</td>';
-                        r[++j] = '<td class="subject">' + value.model + '</td>';
-                        r[++j] = '<td class="subject">' + value.colour + '</td>';
-
-                        r[++j] = '<td class="actions">' +
-                                '<a  href="information/' + value.vehicleNo + '"    type="button" class="btn btn-success" >  <i class="fa fa-search-plus "></i> </a> ' +
-                                '<a  href="#" onclick="deleteType(\'' + value.vehicleNo + '\',\'' + value.chasisNo + '\')" type="button" class="btn btn-danger" > <i class="fa fa-trash-o "></i></a> ' +
-                                '</td>';
-                        rowNode = datatable.row.add(r);
-                    });
-                    rowNode.draw().node();
-                }
-
-            }
-
-        });
-    }
 
     function deleteType(code, title) {
         console.log(code + title);
@@ -205,6 +186,8 @@
 
 
 </script>
-@endsection
+<?php $__env->stopSection(); ?>
 
 
+
+<?php echo $__env->make('layouts.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

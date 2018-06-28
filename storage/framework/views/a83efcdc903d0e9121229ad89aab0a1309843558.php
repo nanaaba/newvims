@@ -1,17 +1,12 @@
-@extends('layouts.master')
-
-@section('content')
-
+<?php $__env->startSection('content'); ?>
 
 <ol class="breadcrumb">
     <li class="breadcrumb-item">Home</li>
-    <li class="breadcrumb-item"><a href="#">Vehicles</a></li>
-    <li class="breadcrumb-item active">All Vehicles</li>
+    <li class="breadcrumb-item"><a href="#">Drivers</a></li>
+    <li class="breadcrumb-item active">All Drivers</li>
     <!-- Breadcrumb Menu-->
 
 </ol>
-
-
 
 
 
@@ -48,28 +43,28 @@
 
             <div class="card">
                 <div class="card-header">
-                    <i class="fa fa-edit"></i> Vehicles
+                    <i class="fa fa-edit"></i> Drivers
 
                 </div>
                 <div class="card-body table-responsive">
-                        <table id="vehicleTbl" class="table table-condensed table-hover table-bordered table-striped">
-                                    <thead>
-                                        <tr>
+                    <table id="driverTbl" class="table table-condensed table-hover table-bordered table-striped">
+                        <thead>
+                            <tr>
 
-                                            <th>Chasis No</th>  
-                                            <th>Make</th>  
-                                            <th>Model</th>  
-                                            <th>Color</th>  
-                                            <th>Action</th>
+                                <th>Name</th>  
+                                <th>Email</th>  
+                                <th>Country</th>  
+                                <th>License No</th>  
+                                <th>Action</th>
 
-                                        </tr>
-                                    </thead>
-                                    <tbody>
+                            </tr>
+                        </thead>
+                        <tbody>
 
 
-                                    </tbody>
-                                </table>
-                    
+                        </tbody>
+                    </table>
+
                 </div>
             </div>
 
@@ -87,10 +82,9 @@
 </div>
 
 
+<?php $__env->stopSection(); ?>
 
-@endsection
-
-@section('customjs')
+<?php $__env->startSection('customjs'); ?>
 
 <script type="text/javascript">
 
@@ -98,25 +92,25 @@
 
 
 
-    var datatable = $('#vehicleTbl').DataTable({
-         "pageLength": 20
+    var datatable = $('#driverTbl').DataTable({
+        "pageLength": 20
+
     });
 
 
 
 
-    getVehicles();
+    getDrivers();
 
-    function getVehicles() {
+    function getDrivers() {
         $('#loaderModal').modal('show');
 
         $.ajax({
-            url: "{{url('vehicles/getall')}}",
+            url: "<?php echo e(url('drivers/getall')); ?>",
             type: "GET",
             dataType: 'json',
             success: function (data) {
 
-                $('#loaderModal').modal('hide');
 
                 console.log('server data :' + data.data);
                 var dataSet = data.data;
@@ -127,29 +121,32 @@
                     console.log("NO DATA!");
                 } else {
                     $.each(dataSet, function (key, value) {
-
+                        var name = value.othernames + ' ' + value.surname;
 
                         var j = -1;
                         var r = new Array();
                         // represent columns as array
-                        r[++j] = '<td class="subject"> ' + value.chasisNo + '</td>';
-                        r[++j] = '<td class="subject">' + value.make + '</td>';
-                        r[++j] = '<td class="subject">' + value.model + '</td>';
-                        r[++j] = '<td class="subject">' + value.colour + '</td>';
+                        r[++j] = '<td class="subject"> ' + name + '</td>';
+                        r[++j] = '<td class="subject">' + value.email + '</td>';
+                        r[++j] = '<td class="subject">' + value.country + '</td>';
+                        r[++j] = '<td class="subject">' + value.licenceNo + '</td>';
 
                         r[++j] = '<td class="actions">' +
-                                '<a  href="information/' + value.vehicleNo + '"    type="button" class="btn btn-success" >  <i class="fa fa-search-plus "></i> </a> ' +
-                                '<a  href="#" onclick="deleteType(\'' + value.vehicleNo + '\',\'' + value.chasisNo + '\')" type="button" class="btn btn-danger" > <i class="fa fa-trash-o "></i></a> ' +
+                                '<a  href="information/' + value.driverRegNo + '"   type="button" class="btn btn-success" >  <i class="fa fa-search-plus "></i> </a> ' +
+                                '<a  href="#" onclick="deleteType(\'' + value.driverRegNo + '\',\'' + name + '\')"    type="button" class="btn btn-danger" > <i class="fa fa-trash-o "></i></a> ' +
                                 '</td>';
                         rowNode = datatable.row.add(r);
                     });
                     rowNode.draw().node();
                 }
 
+                $('#loaderModal').modal('hide');
             }
 
         });
     }
+    
+
 
     function deleteType(code, title) {
         console.log(code + title);
@@ -203,8 +200,9 @@
     });
 
 
-
 </script>
-@endsection
+<?php $__env->stopSection(); ?>
 
 
+
+<?php echo $__env->make('layouts.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

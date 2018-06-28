@@ -14,19 +14,21 @@
         <!-- Main styles for this application -->
         <link href="{{ asset('css/style.css')}}" rel="stylesheet">
         <link rel="shortcut icon" href="{{ asset('img/favicon.ico')}}">
+        <link href="{{ asset('css/custom.css')}}" rel="stylesheet">
 
         <style type="text/css">
-            #centeredDiv { margin-right: auto; margin-left: auto; width: 400px;margin-top: 80px }
-            img{
-                margin-right: auto; margin-left: 150px;
-            }
+            .loginlayout {
+    background-image: url(public/img/LogInScreen%20.png);
+
+}
+
         </style>
     </head>
 
 
 
 
-    <body class="app flex-row align-items-center">
+    <body class="app flex-row align-items-center loginlayout">
         <div class="container">
             @yield('content')
         </div>
@@ -64,35 +66,35 @@
 
     <script type="text/javascript">
 
-        $('#loginForm').submit(function (e) {
-        e.preventDefault();
-        var formData = $(this).serialize();
-        console.log(formData);
-        $('#loaderModal').modal('show');
+$('#loginForm').submit(function (e) {
+    e.preventDefault();
+    var formData = $(this).serialize();
+    console.log(formData);
+    $('#loaderModal').modal('show');
 
-        $('input:submit').attr("disabled", true);
-        $.ajax({
+    $('input:submit').attr("disabled", true);
+    $.ajax({
         url: "{{url('authenticateuser')}}",
-                type: "POST",
-                data: formData,
-                dataType: "json",
-                success: function (data) {
-                 $('#loaderModal').modal('hide');
+        type: "POST",
+        data: formData,
+        dataType: "json",
+        success: function (data) {
+            $('#loaderModal').modal('hide');
 
-                console.log('data : ' + data.status);
-                if (data.status == 0) {
+            console.log('data : ' + data.status);
+            if (data.status == 0) {
                 window.location = "dashboard";
-                } else {
+            } else {
                 $('#errordiv').show();
                 $('#errormsg').html(data.message);
-                }
+            }
 
-                },
-                error: function (jXHR, textStatus, errorThrown) {
-                console.log(errorThrown);
-                }
-        });
-        });
+        },
+        error: function (jXHR, textStatus, errorThrown) {
+            console.log(errorThrown);
+        }
+    });
+});
 
     </script>
 

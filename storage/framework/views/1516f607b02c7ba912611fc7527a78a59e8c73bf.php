@@ -1,6 +1,4 @@
-@extends('layouts.master')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
 
 <ol class="breadcrumb">
     <li class="breadcrumb-item">Vehicle</li>
@@ -277,10 +275,10 @@
 </div>
 
 
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('customjs')
-<script type="text/javascript" src="{{ asset('js/custom.js')}}"></script>
+<?php $__env->startSection('customjs'); ?>
+<script type="text/javascript" src="<?php echo e(asset('js/custom.js')); ?>"></script>
 <script type="text/javascript">
 
 $('.datepicker').datepicker({
@@ -293,7 +291,7 @@ $('#vehicleForm').on('submit', function (e) {
     $('#loaderModal').modal('show');
 
     $.ajax({
-        url: "{{url('vehicle/new')}}",
+        url: "<?php echo e(url('vehicle/new')); ?>",
         type: "POST",
         data: formData,
         dataType: "json",
@@ -324,4 +322,5 @@ $('#vehicleForm').on('submit', function (e) {
 
 });
 </script>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

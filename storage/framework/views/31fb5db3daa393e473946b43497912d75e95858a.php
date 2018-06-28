@@ -25,6 +25,7 @@
     </li>
 </ol>
 
+
 <div class="container-fluid">
 
     <div class="animated fadeIn">
@@ -35,7 +36,7 @@
                     <div class="h1 text-muted text-right mb-4">
                         <i class="icon-screen-desktop"></i>
                     </div>
-                    <div class="h4 mb-0">87</div>
+                    <div class="h4 mb-0"><?php echo e($data['carsEntered']['year']); ?></div>
                     <small class="text-muted text-uppercase font-weight-bold">Cars Entering</small>
                     <div class="progress progress-xs mt-3 mb-0">
                         <div class="progress-bar bg-info" role="progressbar" style="width: 100%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
@@ -47,7 +48,7 @@
                     <div class="h1 text-muted text-right mb-4">
                         <i class="icon-calculator"></i>
                     </div>
-                    <div class="h4 mb-0">385</div>
+                    <div class="h4 mb-0"><?php echo e($data['carsExpiring']['year']); ?></div>
                     <small class="text-muted text-uppercase font-weight-bold">Cars Expiring</small>
                     <div class="progress progress-xs mt-3 mb-0">
                         <div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
@@ -59,7 +60,7 @@
                     <div class="h1 text-muted text-right mb-4">
                         <i class="icon-basket-loaded"></i>
                     </div>
-                    <div class="h4 mb-0">200</div>
+                    <div class="h4 mb-0"><?php echo e($data['carsOverStayed']['year']); ?></div>
                     <small class="text-muted text-uppercase font-weight-bold">Cars Overstayed</small>
                     <div class="progress progress-xs mt-3 mb-0">
                         <div class="progress-bar bg-warning" role="progressbar" style="width: 100%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
@@ -83,8 +84,8 @@
                     <div class="h1 text-muted text-right mb-4">
                         <i class="icon-speedometer"></i>
                     </div>
-                    <div class="h4 mb-0">50</div>
-                    <small class="text-muted text-uppercase font-weight-bold">New Vehicles</small>
+                    <div class="h4 mb-0"><?php echo e($data['carsExited']['year']); ?></div>
+                    <small class="text-muted text-uppercase font-weight-bold">Cars Exited</small>
                     <div class="progress progress-xs mt-3 mb-0">
                         <div class="progress-bar bg-danger" role="progressbar" style="width: 100%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
@@ -120,7 +121,7 @@
         </div>
         <div class="row">
 
-            <div class="col-md-6">
+<!--            <div class="col-md-6">
                 <div class="card">
                     <div class="card-header">
                         OverStayed Cars           
@@ -137,8 +138,8 @@
                     </div>
                 </div>
             </div>
-            
-             <div class="col-md-6">
+
+            <div class="col-md-6">
                 <div class="card">
                     <div class="card-header">
                         Expiring Cars           
@@ -154,8 +155,8 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        
+            </div>-->
+
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
@@ -196,18 +197,150 @@
 
 
 
-<!--   Plugins and scripts required by this views 
-  <script src="<?php echo e(asset('vendors/js/toastr.min.js')); ?>"></script>
-  <script src="<?php echo e(asset('vendors/js/gauge.min.js')); ?>"></script>
-  <script src="<?php echo e(asset('vendors/js/moment.min.js')); ?>"></script>
-
-   Custom scripts required by this view 
-  <script src="<?php echo e(asset('js/views/main.js')); ?>"></script>
-  
--->
-
 <!-- Custom scripts required by this view -->
-<script src="<?php echo e(asset('js/views/charts.js')); ?>"></script>
+<!--<script src="<?php echo e(asset('js/views/charts.js')); ?>"></script>-->
+
+
+<script type="text/javascript">
+
+function getApi() {
+    return    $.ajax({
+        url: "<?php echo e(url('graphapi')); ?>",
+        type: "GET",
+        dataType: 'json'
+    });
+}
+$.when(getApi()).done(function (response) {
+    console.log(response);
+
+    console.log(response.period);
+
+    var lineChartData = {
+        labels: response.period,
+        datasets: [
+            {
+                label: 'Cars Entering',
+                backgroundColor: 'rgba(220,220,220,0.2)',
+                borderColor: 'rgba(220,220,220,1)',
+                pointBackgroundColor: 'rgba(220,220,220,1)',
+                pointBorderColor: '#fff',
+                data: response.carsEntering
+            },
+            {
+                label: 'Cars Exiting',
+                backgroundColor: 'rgba(151,187,205,0.2)',
+                borderColor: 'rgba(151,187,205,1)',
+                pointBackgroundColor: 'rgba(151,187,205,1)',
+                pointBorderColor: '#fff',
+                data: response.carsExiting
+
+            }
+        ]
+    }
+
+    var ctx = document.getElementById('canvas-1');
+    var chart = new Chart(ctx, {
+        type: 'line',
+        data: lineChartData,
+        options: {
+            responsive: true
+        }
+    });
+
+
+
+    //bar graph
+
+
+    var barChartData = {
+        labels: response.period,
+        datasets: [
+            {
+                label: 'Cars OverStayed',
+                backgroundColor: 'rgba(220,220,220,0.5)',
+                borderColor: 'rgba(220,220,220,0.8)',
+                highlightFill: 'rgba(220,220,220,0.75)',
+                highlightStroke: 'rgba(220,220,220,1)',
+                data: response.carsOverStaying
+
+            },
+            {
+                label: 'Cars Expiring',
+                backgroundColor: 'rgba(151,187,205,0.5)',
+                borderColor: 'rgba(151,187,205,0.8)',
+                highlightFill: 'rgba(151,187,205,0.75)',
+                highlightStroke: 'rgba(151,187,205,1)',
+                data: response.carsExpiring
+            }
+        ]
+    }
+    var ctx = document.getElementById('canvas-2');
+    var chart2 = new Chart(ctx, {
+        
+        type: 'bar',
+        data: barChartData,
+        options: {
+            responsive: true
+        }
+    });
+
+
+    // the code here will be executed when all four ajax requests resolve.
+    // a1, a2, a3 and a4 are lists of length 3 containing the response text,
+    // status, and jqXHR object for each of the four ajax calls respectively.
+    /* var dataSet = response.data;
+     var cashiers = [];
+     var figures = [];
+     console.log('data her: ' + response);
+     $.each(dataSet, function (i, item) {
+     cashiers.push(item.cashier_name);
+     figures.push(item.volume);
+     });
+     figures = figures.map(Number);
+     console.log('figures: ' + figures);
+     console.log('regions:' + cashiers);
+     var ctx = document.getElementById("cashiersPerformance");
+     new Chart(ctx, {
+     type: 'horizontalBar',
+     data: {
+     labels: cashiers,
+     datasets: [{
+     backgroundColor: [
+     'rgba(255, 99, 132, 0.2)',
+     'rgba(54, 162, 235, 0.2)',
+     'rgba(255, 206, 86, 0.2)',
+     'rgba(75, 192, 192, 0.2)',
+     'rgba(153, 102, 255, 0.2)',
+     'rgba(255, 159, 64, 0.2)'
+     ],
+     borderColor: [
+     'rgba(255,99,132,1)',
+     'rgba(54, 162, 235, 1)',
+     'rgba(255, 206, 86, 1)',
+     'rgba(75, 192, 192, 1)',
+     'rgba(153, 102, 255, 1)',
+     'rgba(255, 159, 64, 1)'
+     ],
+     "borderWidth": 1,
+     "pointRadius": 1,
+     "label": "Performig Cashiers",
+     "data": figures
+     }]
+     },
+     options: {
+     scales: {
+     yAxes: [{
+     ticks: {
+     beginAtZero: true
+     }
+     }]
+     }
+     }
+     });*/
+});
+
+
+</script>
 
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('layouts.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

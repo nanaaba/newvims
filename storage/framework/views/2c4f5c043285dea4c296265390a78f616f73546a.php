@@ -1,6 +1,4 @@
-@extends('layouts.master')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
 
 <!-- Breadcrumb -->
 <ol class="breadcrumb">
@@ -281,10 +279,10 @@
 
 
 
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('customjs')
-<script type="text/javascript" src="{{ asset('js/custom.js')}}"></script>
+<?php $__env->startSection('customjs'); ?>
+<script type="text/javascript" src="<?php echo e(asset('js/custom.js')); ?>"></script>
 
 
 <script type="text/javascript">
@@ -299,7 +297,7 @@ $('#driverForm').on('submit', function (e) {
     console.log('server data: ' + formData);
     $('#loaderModal').modal('show');
     $.ajax({
-        url: "{{url('driver/new')}}",
+        url: "<?php echo e(url('driver/new')); ?>",
         type: "POST",
         data: formData,
         dataType: "json",
@@ -325,4 +323,5 @@ $('#driverForm').on('submit', function (e) {
     });
 });
 </script>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

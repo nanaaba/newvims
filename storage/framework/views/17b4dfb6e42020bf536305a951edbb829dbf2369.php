@@ -1,6 +1,4 @@
-@extends('layouts.master')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
 
 
 
@@ -276,10 +274,10 @@
 
 
 
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('customjs')
-<script type="text/javascript" src="{{ asset('js/custom.js')}}"></script>
+<?php $__env->startSection('customjs'); ?>
+<script type="text/javascript" src="<?php echo e(asset('js/custom.js')); ?>"></script>
 <script type="text/javascript">
 
 runConfig();
@@ -299,7 +297,7 @@ $('#tripForm').on('submit', function (e) {
     $('#loaderModal').modal('show');
 
     $.ajax({
-        url: "{{url('trips/new')}}",
+        url: "<?php echo e(url('trips/new')); ?>",
         type: "POST",
         data: formData,
         dataType: "json",
@@ -334,7 +332,7 @@ function getVehicles() {
 
 
     $.ajax({
-        url: "{{url('vehicles/getall')}}",
+        url: "<?php echo e(url('vehicles/getall')); ?>",
         type: "GET",
         dataType: 'json',
         success: function (response) {
@@ -358,7 +356,7 @@ function getDrivers() {
 
 
     $.ajax({
-        url: "{{url('drivers/getall')}}",
+        url: "<?php echo e(url('drivers/getall')); ?>",
         type: "GET",
         dataType: 'json',
         success: function (response) {
@@ -378,4 +376,5 @@ function getDrivers() {
     });
 }
 </script>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

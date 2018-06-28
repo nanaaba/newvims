@@ -15,7 +15,7 @@ Route::get('/', function () {
 
     return view('login');
 });
-    Route::post('authenticateuser', 'LoginController@authenticateuser');
+Route::post('authenticateuser', 'LoginController@authenticateuser');
 
 Route::get('/logout', function() {
     Session::flush();
@@ -32,10 +32,7 @@ Route::group(['middleware' => 'check-userauth'], function () {
 
         return view('users');
     });
-    Route::get('/dashboard', function () {
-
-        return view('dashboard');
-    });
+    Route::get('/dashboard', 'DashboardController@showdashboard');
 
     Route::get('/analytics', function () {
 
@@ -112,4 +109,6 @@ Route::group(['middleware' => 'check-userauth'], function () {
 
 
     Route::get("search", "ReportController@search");
+
+    Route::get("graphapi", "DashboardController@graphApi");
 });

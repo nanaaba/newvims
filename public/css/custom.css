@@ -1,0 +1,204 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Jun 28, 2018, 9:33:15 AM
+    Author     : naby
+*/
+
+.sidebar {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    padding: 0 0 0 1rem;
+    color: #f8f9fa;
+    background: #47a1d2;
+}
+
+
+#centeredDiv { margin-right: auto; margin-left: auto; width: 400px;margin-top: 80px }
+/*            img{
+                margin-right: auto; margin-left: 150px;
+            }*/
+
+.page-login-main {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: auto;
+    min-height: 100%;
+    padding: 100px 60px 80px;
+    color: #757575;
+    background: #fff;
+}
+
+.centerdiv {
+    margin: auto;
+    width: 80%;
+    /*    border: 3px solid green;*/
+    padding: 10px;
+    text-align: center;
+
+}
+
+.app-header.navbar .navbar-brand {
+
+    background-color: #47a1d2;
+    border-bottom: 1px solid #479bd245;
+        background-size: 100px auto;
+
+}
+
+.sidebar .nav-title {
+
+    color: #fff;
+}
+
+.sidebar .nav-link.active, .sidebar .navbar .active.dropdown-toggle, .navbar .sidebar .active.dropdown-toggle {
+    color: #fff;
+    background: #066CA3;
+}
+
+.sidebar .nav-dropdown.open {
+    background: #066CA3;
+    border-radius: 0.25rem;
+}
+
+
+.sidebar .nav-link, .sidebar .navbar .dropdown-toggle, .navbar .sidebar .dropdown-toggle {
+
+    color: #fff;   
+}
+
+.sidebar .nav-link i, .sidebar .navbar .dropdown-toggle i, .navbar .sidebar .dropdown-toggle i {
+
+    color: #fff;
+
+}
+
+.sidebar .nav-link:hover, .sidebar .navbar .dropdown-toggle:hover, .navbar .sidebar .dropdown-toggle:hover {
+    color: #fff;
+    background: #066CA3;
+}
+.select2{
+    width:100%;   
+}         
+
+
+
+
+.container-2{
+  width: 300px;
+  vertical-align: middle;
+  white-space: nowrap;
+  position: relative;
+}
+
+container-2 input#search{
+  width: 50px;
+  height: 50px;
+  background: #2b303b;
+  border: none;
+  font-size: 10pt;
+  float: left;
+  color: #262626;
+  padding-left: 35px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  color: #fff;
+ 
+  -webkit-transition: width .55s ease;
+  -moz-transition: width .55s ease;
+  -ms-transition: width .55s ease;
+  -o-transition: width .55s ease;
+  transition: width .55s ease;
+}
+
+
+.card-header {
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 0;
+    background-color: #fff;
+    border-bottom: 1px solid #d1d4d7;
+    color: #888;
+}
+
+textarea {
+  resize: none;
+}
+
+
+@media (max-width: 991.98px){
+.app-header.navbar {
+    position: fixed !important;
+    z-index: 1020;
+    width: 100%;
+    text-align: center;
+    background-color: #fff;
+    border-bottom: 1px solid #fff;
+}
+
+.app-header.navbar .navbar-brand {
+    background-color: #fff;
+    border-bottom: 1px solid #fff;
+    background-size: 50px auto;
+}
+
+}
+
+
+
+
+
+@media (min-width:500px){
+  #search-chassis{
+    display: none;
+}  
+
+}
+@media (max-width:499px){
+    #search-chassis{
+    display: none;
+}
+}
+
+
+
+input.search-query {
+    padding-left:26px;
+}
+
+form.form-search {
+    position: relative;
+  
+}
+
+ #search {
+    border: 2px solid #eee;
+    padding: 8px;
+    border-radius: 25px;
+    width:450px;
+}
+/*
+form.form-search:after {
+    content:'';
+    display: block;
+    width: 14px;
+    height: 14px;
+    background-image: url(http://getbootstrap.com/2.3.2/assets/img/glyphicons-halflings.png);
+    background-position: -48px 0;
+    position: absolute;
+    top:8px;
+    left:8px;
+    opacity: .5;
+    padding-right: 5px;
+    z-index: 1000;
+}*/
+
+input::-webkit-input-placeholder{
+  text-indent: 10px;
+}

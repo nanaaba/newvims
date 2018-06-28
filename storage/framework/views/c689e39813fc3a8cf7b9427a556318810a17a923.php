@@ -1,6 +1,4 @@
-@extends('layouts.master')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
 
 
 <ol class="breadcrumb">
@@ -88,9 +86,9 @@
 
 
 
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('customjs')
+<?php $__env->startSection('customjs'); ?>
 
 <script type="text/javascript">
 
@@ -111,7 +109,7 @@
         $('#loaderModal').modal('show');
 
         $.ajax({
-            url: "{{url('vehicles/getall')}}",
+            url: "<?php echo e(url('vehicles/getall')); ?>",
             type: "GET",
             dataType: 'json',
             success: function (data) {
@@ -205,6 +203,8 @@
 
 
 </script>
-@endsection
+<?php $__env->stopSection(); ?>
 
 
+
+<?php echo $__env->make('layouts.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

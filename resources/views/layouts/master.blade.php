@@ -22,56 +22,19 @@
         <!-- FAVICONS -->
         <link rel="shortcut icon" href="{{asset('img/favicon/favicon.ico')}}" type="image/x-icon">
         <link rel="icon" href="{{asset('img/favicon/favicon.ico')}}" type="image/x-icon">
-        <link href="{{asset('vendors/css/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
-
+        <!--        <link href="{{asset('vendors/css/dataTables.bootstrap4.min.css')}}" rel="stylesheet">-->
+<!--        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>-->
+              <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css"/>
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css"/>
+       
+        
         <!-- Styles required by this views -->
         <link href="{{asset('vendors/css/daterangepicker.min.css')}}" rel="stylesheet">
         <link href="{{asset('vendors/css/gauge.min.css')}}" rel="stylesheet">
         <link href="{{asset('vendors/css/toastr.min.css')}}" rel="stylesheet">
-        <style type="text/css">
-            
-
-            .app-header.navbar .navbar-brand {
+        <link href="{{ asset('css/custom.css')}}" rel="stylesheet">
 
 
-                background-color:#20a8d8;
-
-            }
-
-            .app-header.navbar {
-                position: fixed !important;
-                z-index: 1020;
-                width: 100%;
-                text-align: center;
-                background-color: #20a8d8;
-                border-bottom: 1px solid #20a8d8;
-            }
-
-
-
-            .sidebar .nav-link.active, .sidebar .navbar .active.dropdown-toggle, .navbar .sidebar .active.dropdown-toggle {
-                color: #fff;
-                background: #4d9ad1;
-            }
-
-            .navbar-nav .nav-link, .navbar-nav .navbar .dropdown-toggle, .navbar .navbar-nav .dropdown-toggle {
-                color: rgba(255, 255, 255, 0.7);
-            }
-
-            .sidebar .nav-dropdown.open {
-                background: #20a8d8;
-                border-radius: 0.25rem;
-            }
-
-            .sidebar .nav-link:hover, .sidebar .navbar .dropdown-toggle:hover, .navbar .sidebar .dropdown-toggle:hover {
-                color: #fff;
-                background: #20a8d8;
-            }
-            
-            .select2{
-                width:100%;   
-            }
-        </style>
         @yield('styles')
     </head>
 

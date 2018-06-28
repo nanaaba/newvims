@@ -1,6 +1,4 @@
-@extends('layouts.master')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
 
 
 
@@ -116,7 +114,8 @@
             </div>
             <form id="userForm">
                 <div class="modal-body">
-                    {{ csrf_field() }}
+                    <?php echo e(csrf_field()); ?>
+
 
 
                     <div class="form-group">
@@ -181,7 +180,8 @@
             </div>
             <form id="updateuserForm">
                 <div class="modal-body">
-                    {{ csrf_field() }}
+                    <?php echo e(csrf_field()); ?>
+
 
                     <input type="hidden" id="userid" name="userid"/>
                     <div class="form-group">
@@ -225,9 +225,9 @@
     </div>
 </div>
 
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('customjs')
+<?php $__env->startSection('customjs'); ?>
 
 <script type="text/javascript">
 
@@ -266,7 +266,7 @@
         var confirm_password = $('#confirm_password').val();
         if (password == confirm_password) {
             $.ajax({
-                url: "{{url('users/save')}}",
+                url: "<?php echo e(url('users/save')); ?>",
                 type: "POST",
                 data: formData,
                 dataType: 'json',
@@ -314,7 +314,7 @@
 
         $('.loader').addClass('be-loading-active');
         $.ajax({
-            url: "{{url('users/update')}}",
+            url: "<?php echo e(url('users/update')); ?>",
             type: "PUT",
             data: formData,
             dataType: 'json',
@@ -433,7 +433,7 @@
 
     function getUsers() {
         $.ajax({
-            url: "{{url('users/all')}}",
+            url: "<?php echo e(url('users/all')); ?>",
             type: "GET",
             dataType: 'json',
             success: function (data) {
@@ -520,6 +520,8 @@
         alert('reset: ' + id);
     }
 </script>
-@endsection
+<?php $__env->stopSection(); ?>
 
 
+
+<?php echo $__env->make('layouts.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
