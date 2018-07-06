@@ -108,7 +108,7 @@
     getVehicles();
 
     function getVehicles() {
-       $('#loaderModal').modal('show');
+      // $('#loaderModal').modal('show');
 
         $.ajax({
             url: "{{url('vehicles/getall')}}",
@@ -144,7 +144,7 @@
                     });
                     rowNode.draw().node();
                 }
-                $('#loaderModal').modal('hide');
+               // $('#loaderModal').modal('hide');
 
             }
 
