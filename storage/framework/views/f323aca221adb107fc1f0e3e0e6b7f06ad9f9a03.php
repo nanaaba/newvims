@@ -51,17 +51,27 @@
                                         <div class="form-group">
                                             <label class=" control-label">Report Type</label>
 
-                                            <select class="select2 " name="reportlevel" id="reportlevel" tabindex="-1" aria-hidden="true" required>
+                                            <select class="select2 form-control" name="reportlevel"    required>
 
                                                 <option value="">Select ---</option>
                                                 <option value="Over Stayed Cars">Over Stayed Cars</option> 
                                                 <option value="New Entry">New Entry</option>
 
                                             </select>
+                                            
+                                            
 
                                         </div>
                                     </div>
 
+                                    
+                                    
+                                    
+                                     
+                                    
+                                    
+                                    
+                                    
                                     <div class="col-sm-4">
                                         <div class="form-group">
                                             <label class=" control-label">Car Types</label>
@@ -81,7 +91,7 @@
                                         <div class="form-group">
                                             <label class=" control-label">Car Brand</label>
 
-                                            <select class="select2 " name="car_brand" id="reportlevel" tabindex="-1" aria-hidden="true" required>
+                                            <select class="select2 " name="car_brand"  tabindex="-1" aria-hidden="true" required>
 
                                                 <option value="">Select ---</option>
                                                 <option value="Nissan">Nissan</option> 
@@ -121,7 +131,7 @@
 
 
 
-
+                                <br><br>
 
                                 <div class="row xs-pt-15">
                                     <div class="col-xs-6">

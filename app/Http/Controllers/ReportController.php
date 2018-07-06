@@ -303,6 +303,13 @@ class ReportController extends Controller {
 
     public function search(Request $request) {
         $param = $request->input('searchparam');
+        
+        if(empty($param)){
+            
+                return redirect('/');
+
+        }
+        
         $results = $this->searchQuery($param);
 
         return view('searchresults')
