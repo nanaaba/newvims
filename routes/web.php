@@ -15,7 +15,15 @@ Route::get('/', function () {
 
     return view('login');
 });
+
+Route::get('/forgotpassword', function () {
+
+    return view('forgotpassword');
+});
 Route::post('authenticateuser', 'LoginController@authenticateuser');
+Route::post('forgotpassword', 'ConfigurationController@forgotpassword');
+
+
 
 Route::get('/logout', function() {
     Session::flush();

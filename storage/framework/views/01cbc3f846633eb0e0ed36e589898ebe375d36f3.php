@@ -18,9 +18,9 @@
 
         <style type="text/css">
             .loginlayout {
-    background-image: url(public/img/LogInScreen%20.png);
+                background-image: url(public/img/LogInScreen%20.png);
 
-}
+            }
 
         </style>
     </head>
@@ -95,6 +95,44 @@ $('#loginForm').submit(function (e) {
         }
     });
 });
+
+
+
+$('#forgotPasswordForm').submit(function (e) {
+    e.preventDefault();
+    var formData = $(this).serialize();
+    console.log(formData);
+   // $('#loaderModal').modal('show');
+
+    $('input:submit').attr("disabled", true);
+    $.ajax({
+        url: "<?php echo e(url('forgotpassword')); ?>",
+        type: "POST",
+        data: formData,
+        dataType: "json",
+        success: function (data) {
+
+
+            console.log('data : ' + data);
+            if (data.status == 0) {
+                $('#successdiv').show();
+                $('#successmsg').html(data.message);
+
+            } else {
+                $('#errordiv').show();
+                $('#errormsg').html(data.message);
+            }
+
+          //  $('#loaderModal').modal('hide');
+
+
+        },
+        error: function (jXHR, textStatus, errorThrown) {
+            console.log(errorThrown);
+        }
+    });
+});
+
 
     </script>
 

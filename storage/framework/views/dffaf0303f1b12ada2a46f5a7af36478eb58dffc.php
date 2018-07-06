@@ -51,7 +51,7 @@
                         <input type="checkbox" id="remember" name="checkbox">
                         <label for="inputCheckbox">Remember me</label>
                     </div>
-                    <a class="pull-right" href="forgot-password.php">Forgot password?</a>
+                    <a class="pull-right" href="<?php echo e(url('forgotpassword')); ?>">Forgot password?</a>
                 </div>
                 <div class="form-group clearfix">
                     <div class="pull-left">

@@ -78,8 +78,8 @@ class ConfigurationController extends Controller {
         }
     }
 
-   public function settingsSession() {
-        
+    public function settingsSession() {
+
         $countries = session('countries');
         $gender = session('gender');
         $models = session('models');
@@ -92,21 +92,63 @@ class ConfigurationController extends Controller {
         $regime = session('regime');
 
         $dataArray = array(
-        'countries' => $countries,
-        'gender' => $gender,
-        'models' => $models,
-        'vehiclemakes' => $vehiclemakes,
-        'vehicletypes' => $vehicletypes,
-        'idtypes' => $idtypes,
-        'status' => $status,
-        'tvi' => $tvi,
-        'office' => $office,
-        'regime' => $regime
-
+            'countries' => $countries,
+            'gender' => $gender,
+            'models' => $models,
+            'vehiclemakes' => $vehiclemakes,
+            'vehicletypes' => $vehicletypes,
+            'idtypes' => $idtypes,
+            'status' => $status,
+            'tvi' => $tvi,
+            'office' => $office,
+            'regime' => $regime
         );
 
 
         return json_encode($dataArray);
+    }
+
+    public function forgotpassword(Request $request) {
+
+        $data = $request->all();
+        $email = $data['email'];
+
+        $reset = $this->resetForgetPassword($email);
+        return $reset;
+    }
+
+    private function resetForgetPassword($email) {
+
+        return '{"status":0,"message":"reset link sent to email"}';
+
+        $url = config('constants.TEST_URL');
+
+        $baseurl = $url . 'settings/tvi';
+
+        $client = new Client([
+            'headers' => [
+                'Accept' => 'application/json',
+                'Authorization' => 'Bearer ' . session('token')
+            ],
+            'http_errors' => false
+        ]);
+        try {
+
+            $response = $client->request('GET', $baseurl);
+
+            $body = $response->getBody();
+            //$bodyObj = json_decode($body);
+
+            if ($response->getStatusCode() == 200) {
+
+                return $body;
+            }
+            return $response->getStatusCode();
+        } catch (RequestException $e) {
+            return 'Http Exception : ' . $e->getMessage();
+        } catch (Exception $e) {
+            return 'Internal Server Error:' . $e->getMessage();
+        }
     }
 
 }

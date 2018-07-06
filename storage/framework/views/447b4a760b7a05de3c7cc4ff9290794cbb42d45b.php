@@ -32,8 +32,8 @@
             <div class="dropdown-menu dropdown-menu-right">
 
 
-                <a class="dropdown-item" href="#"><i class="fa fa-shield"></i> Profile</a>
-                <a class="dropdown-item" href="#"><i class="fa fa-lock"></i> Logout</a>
+<!--                <a class="dropdown-item" href="#"><i class="fa fa-shield"></i> Profile</a>-->
+                <a class="dropdown-item" href="<?php echo e(url('logout')); ?>"><i class="fa fa-lock"></i> Logout</a>
             </div>
         </li>
         <button class="navbar-toggler aside-menu-toggler" type="button">
