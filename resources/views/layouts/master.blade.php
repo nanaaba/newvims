@@ -20,8 +20,8 @@
         <link href="{{asset('css/style.css')}}" rel="stylesheet">
 
         <!-- FAVICONS -->
-        <link rel="shortcut icon" href="{{asset('img/favicon/favicon.ico')}}" type="image/x-icon">
-        <link rel="icon" href="{{asset('img/favicon/favicon.ico')}}" type="image/x-icon">
+                <link rel="shortcut icon" href="{{ asset('img/favicon.ico')}}">
+
         <!--        <link href="{{asset('vendors/css/dataTables.bootstrap4.min.css')}}" rel="stylesheet">-->
 <!--        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>-->
               <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css"/>
