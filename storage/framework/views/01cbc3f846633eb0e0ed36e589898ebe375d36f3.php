@@ -19,6 +19,7 @@
         <style type="text/css">
             .loginlayout {
                 background-image: url(public/img/LogInScreen%20.png);
+    background-repeat: repeat;
 
             }
 

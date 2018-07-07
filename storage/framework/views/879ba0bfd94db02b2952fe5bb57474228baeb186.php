@@ -1,7 +1,4 @@
-@extends('layouts.master')
-
-
-@section('content')
+<?php $__env->startSection('content'); ?>
 
 
 
@@ -70,13 +67,13 @@ $driver = $data['driver'];
 
                                             <div class="row">
 
-                                                <input type="hidden" name="tripid" value="{{$data['tripNo']}}" class="form-control">
+                                                <input type="hidden" name="tripid" value="<?php echo e($data['tripNo']); ?>" class="form-control">
 
                                                 <div class="col-sm-4">
                                                     <div class="form-group">
                                                         <label class=" control-label">Trip Type </label>
 
-                                                        <input type="text" name="tripType" value="{{$data['tripType']}}" class="form-control">
+                                                        <input type="text" name="tripType" value="<?php echo e($data['tripType']); ?>" class="form-control">
                                                     </div>
                                                 </div>
 
@@ -84,7 +81,7 @@ $driver = $data['driver'];
                                                     <div class="form-group">
                                                         <label class=" control-label">Regime</label>
 
-                                                        <input type="text" name="regime" value="{{$data['regime']}}" class="form-control">
+                                                        <input type="text" name="regime" value="<?php echo e($data['regime']); ?>" class="form-control">
                                                     </div>
                                                 </div>
 
@@ -92,7 +89,7 @@ $driver = $data['driver'];
                                                     <div class="form-group">
                                                         <label class=" control-label">Customs Office</label>
 
-                                                        <input type="text" name="customsOffice" value="{{$data['customsOffice']}}" class="form-control">
+                                                        <input type="text" name="customsOffice" value="<?php echo e($data['customsOffice']); ?>" class="form-control">
                                                     </div>
                                                 </div>
 
@@ -102,7 +99,7 @@ $driver = $data['driver'];
                                                     <div class="form-group">
                                                         <label class=" control-label">Trade Ref No </label>
 
-                                                        <input type="text" name="tradeRefNo" value="{{$data['tradeRefNo']}}" class="form-control">
+                                                        <input type="text" name="tradeRefNo" value="<?php echo e($data['tradeRefNo']); ?>" class="form-control">
                                                     </div>
                                                 </div>
 
@@ -110,7 +107,7 @@ $driver = $data['driver'];
                                                     <div class="form-group">
                                                         <label class=" control-label">Country of Consignment </label>
 
-                                                        <input type="text" name="consCountry"  value="{{$data['consCountry']}}" class="form-control">
+                                                        <input type="text" name="consCountry"  value="<?php echo e($data['consCountry']); ?>" class="form-control">
                                                     </div>
                                                 </div>
 
@@ -118,14 +115,14 @@ $driver = $data['driver'];
                                                     <div class="form-group">
                                                         <label class=" control-label">Last Country</label>
 
-                                                        <input type="text" name="lastCountry" value="{{$data['lastCountry']}}" class="form-control">
+                                                        <input type="text" name="lastCountry" value="<?php echo e($data['lastCountry']); ?>" class="form-control">
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-4">
                                                     <div class="form-group">
                                                         <label class=" control-label">Next Country</label>
 
-                                                        <input type="text" name="nextCountry" value="{{$data['nextCountry']}}" class="form-control">
+                                                        <input type="text" name="nextCountry" value="<?php echo e($data['nextCountry']); ?>" class="form-control">
                                                     </div>
                                                 </div>
 
@@ -134,79 +131,79 @@ $driver = $data['driver'];
                                                     <div class="form-group">
                                                         <label class=" control-label">Final Country</label>
 
-                                                        <input type="text" name="finalCountry" value="{{$data['finalCountry']}}" class="form-control">
+                                                        <input type="text" name="finalCountry" value="<?php echo e($data['finalCountry']); ?>" class="form-control">
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-4">
                                                     <div class="form-group">
                                                         <label class=" control-label">Entry Office</label>
 
-                                                        <input type="text" name="entryOffice" value="{{$data['entryOffice']}}" class="form-control">
+                                                        <input type="text" name="entryOffice" value="<?php echo e($data['entryOffice']); ?>" class="form-control">
                                                     </div>
                                                 </div><div class="col-sm-4">
                                                     <div class="form-group">
                                                         <label class=" control-label">Exit Office</label>
 
-                                                        <input type="text" name="exitOffice" value="{{$data['exitOffice']}}" class="form-control">
+                                                        <input type="text" name="exitOffice" value="<?php echo e($data['exitOffice']); ?>" class="form-control">
                                                     </div>
                                                 </div><div class="col-sm-4">
                                                     <div class="form-group">
                                                         <label class=" control-label">Car NetNo</label>
 
-                                                        <input type="text" name="carnetNo" value="{{$data['carnetNo']}}" class="form-control">
+                                                        <input type="text" name="carnetNo" value="<?php echo e($data['carnetNo']); ?>" class="form-control">
                                                     </div>
                                                 </div><div class="col-sm-4">
                                                     <div class="form-group">
                                                         <label class=" control-label">Check In</label>
 
-                                                        <input type="text" name="checkInDate" value="{{$data['checkInDate']}}" class="form-control datepicker">
+                                                        <input type="text" name="checkInDate" value="<?php echo e($data['checkInDate']); ?>" class="form-control datepicker">
                                                     </div>
                                                 </div><div class="col-sm-4">
                                                     <div class="form-group">
                                                         <label class=" control-label">Stay Duration</label>
 
-                                                        <input type="text" name="stayDuration" value="{{$data['stayDuration']}}" class="form-control">
+                                                        <input type="text" name="stayDuration" value="<?php echo e($data['stayDuration']); ?>" class="form-control">
                                                     </div>
                                                 </div><div class="col-sm-4">
                                                     <div class="form-group">
                                                         <label class=" control-label">Import Duration</label>
 
-                                                        <input type="text" name="importDuration" value="{{$data['importDuration']}}" class="form-control">
+                                                        <input type="text" name="importDuration" value="<?php echo e($data['importDuration']); ?>" class="form-control">
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-4">
                                                     <div class="form-group">
                                                         <label class=" control-label">Permit Expiry Date</label>
 
-                                                        <input type="text" name="permExpiryDate" value="{{$data['permExpiryDate']}}" class="form-control datepicker">
+                                                        <input type="text" name="permExpiryDate" value="<?php echo e($data['permExpiryDate']); ?>" class="form-control datepicker">
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-4">
                                                     <div class="form-group">
                                                         <label class=" control-label">Purpose</label>
 
-                                                        <input type="text" name="purpose" value="{{$data['purpose']}}" class="form-control">
+                                                        <input type="text" name="purpose" value="<?php echo e($data['purpose']); ?>" class="form-control">
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-4">
                                                     <div class="form-group">
                                                         <label class=" control-label">Remarks</label>
 
-                                                        <input type="text" name="remarks" value="{{$data['remarks']}}" class="form-control">
+                                                        <input type="text" name="remarks" value="<?php echo e($data['remarks']); ?>" class="form-control">
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-4">
                                                     <div class="form-group">
                                                         <label class=" control-label">CheckIn By</label>
 
-                                                        <input type="text" name="checkInBy" value="{{$data['checkInBy']}}" class="form-control">
+                                                        <input type="text" name="checkInBy" value="<?php echo e($data['checkInBy']); ?>" class="form-control">
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-4">
                                                     <div class="form-group">
                                                         <label class=" control-label">CheckIn On</label>
 
-                                                        <input type="text" name="checkInOn" value="{{$data['checkInOn']}}" class="form-control datepicker">
+                                                        <input type="text" name="checkInOn" value="<?php echo e($data['checkInOn']); ?>" class="form-control datepicker">
                                                     </div>
                                                 </div>
                                             </div>
@@ -219,7 +216,7 @@ $driver = $data['driver'];
 
                                                         <select class="select2  vehicletypes" name="vehicleTypeId"  tabindex="-1" aria-hidden="true" required style="width: 100%"> 
 
-                                                            <option value="{{$vehicle['vehicleType']}}">{{$vehicle['vehicleType']}}</option>
+                                                            <option value="<?php echo e($vehicle['vehicleType']); ?>"><?php echo e($vehicle['vehicleType']); ?></option>
 
                                                         </select>
 
@@ -230,14 +227,14 @@ $driver = $data['driver'];
                                                     <div class="form-group">
                                                         <label class=" control-label">Hs Code</label>
 
-                                                        <input type="text" name="hsCode" value="{{$vehicle['hsCode']}}" class="form-control">
+                                                        <input type="text" name="hsCode" value="<?php echo e($vehicle['hsCode']); ?>" class="form-control">
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-4">
                                                     <div class="form-group">
                                                         <label class=" control-label">Status Code</label>
 
-                                                        <input type="text" name="statusCode" value="{{$vehicle['statusCode']}}" class="form-control datepicker">
+                                                        <input type="text" name="statusCode" value="<?php echo e($vehicle['statusCode']); ?>" class="form-control datepicker">
                                                     </div>
                                                 </div>
 
@@ -245,7 +242,7 @@ $driver = $data['driver'];
                                                     <div class="form-group">
                                                         <label class=" control-label">CPC Code</label>
 
-                                                        <input type="text" name="cpcCode" value="{{$vehicle['cpcCode']}}" class="form-control">
+                                                        <input type="text" name="cpcCode" value="<?php echo e($vehicle['cpcCode']); ?>" class="form-control">
                                                     </div>
                                                 </div>
 
@@ -267,7 +264,7 @@ $driver = $data['driver'];
                                                     <div class="form-group">
                                                         <label class=" control-label">Origin Make</label>
 
-                                                        <input type="text" name="make" value="{{$vehicle['make']}}" class="form-control">
+                                                        <input type="text" name="make" value="<?php echo e($vehicle['make']); ?>" class="form-control">
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-4">
@@ -276,7 +273,7 @@ $driver = $data['driver'];
 
                                                         <select class="select2  models" name="model"  tabindex="-1" aria-hidden="true" required style="width: 100%">
 
-                                                            <option value="{{$vehicle['model']}}">{{$vehicle['model']}}</option>
+                                                            <option value="<?php echo e($vehicle['model']); ?>"><?php echo e($vehicle['model']); ?></option>
 
                                                         </select>
 
@@ -288,7 +285,7 @@ $driver = $data['driver'];
 
                                                         <select class="select2 " name="color"  tabindex="-1" aria-hidden="true" required style="width: 100%">
 
-                                                            <option value="{{$vehicle['colour']}}">{{$vehicle['colour']}}</option>
+                                                            <option value="<?php echo e($vehicle['colour']); ?>"><?php echo e($vehicle['colour']); ?></option>
 
                                                         </select>
 
@@ -300,7 +297,7 @@ $driver = $data['driver'];
                                                     <div class="form-group">
                                                         <label class=" control-label">Chassis Number</label>
 
-                                                        <input type="text" name="chasisNo" value="{{$vehicle['chasisNo']}}" class="form-control">
+                                                        <input type="text" name="chasisNo" value="<?php echo e($vehicle['chasisNo']); ?>" class="form-control">
                                                     </div>
                                                 </div>
 
@@ -308,7 +305,7 @@ $driver = $data['driver'];
                                                     <div class="form-group">
                                                         <label class=" control-label">Engine Number</label>
 
-                                                        <input type="text" name="engineNo" value="{{$vehicle['engineNo']}}" class="form-control">
+                                                        <input type="text" name="engineNo" value="<?php echo e($vehicle['engineNo']); ?>" class="form-control">
                                                     </div>
                                                 </div>
 
@@ -316,14 +313,14 @@ $driver = $data['driver'];
                                                     <div class="form-group">
                                                         <label class=" control-label">Front Plate Number</label>
 
-                                                        <input type="text" name="frontPlateNo" value="{{$vehicle['frontPlateNo']}}" class="form-control">
+                                                        <input type="text" name="frontPlateNo" value="<?php echo e($vehicle['frontPlateNo']); ?>" class="form-control">
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-4">
                                                     <div class="form-group">
                                                         <label class=" control-label">Back Plate Number</label>
 
-                                                        <input type="text" name="backPlateNo" value="{{$vehicle['backPlateNo']}}" class="form-control">
+                                                        <input type="text" name="backPlateNo" value="<?php echo e($vehicle['backPlateNo']); ?>" class="form-control">
                                                     </div>
                                                 </div>
 
@@ -331,7 +328,8 @@ $driver = $data['driver'];
                                                     <div class="form-group">
                                                         <label class=" control-label">Description</label>
                                                         <textarea name="description" rows="8" class="form-control">
-                                                    {{trim($vehicle['description'])}}
+                                                    <?php echo e(trim($vehicle['description'])); ?>
+
                                                         </textarea>
 
                                                     </div>
@@ -342,13 +340,13 @@ $driver = $data['driver'];
                                                     <div class="form-group">
                                                         <label class=" control-label">Issue Date</label>
 
-                                                        <input type="text" name="regIssueDate"  value="{{$vehicle['regIssueDate']}}" class="form-control datepicker">
+                                                        <input type="text" name="regIssueDate"  value="<?php echo e($vehicle['regIssueDate']); ?>" class="form-control datepicker">
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-6">
                                                     <div class="form-group">
                                                         <label class=" control-label">Expiry Date</label>
-                                                        <input type="text" name="regExpiryDate" value="{{$vehicle['regExpiryDate']}}" class="form-control datepicker">
+                                                        <input type="text" name="regExpiryDate" value="<?php echo e($vehicle['regExpiryDate']); ?>" class="form-control datepicker">
 
                                                     </div>
                                                 </div>
@@ -357,20 +355,20 @@ $driver = $data['driver'];
                                                     <div class="form-group">
                                                         <label class=" control-label">Permit No </label>
 
-                                                        <input type="text" name="permitNo" value="{{$vehicle['permitNo']}}" class="form-control">
+                                                        <input type="text" name="permitNo" value="<?php echo e($vehicle['permitNo']); ?>" class="form-control">
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-4">
                                                     <div class="form-group">
                                                         <label class=" control-label">Issue Date</label>
 
-                                                        <input type="text" name="permitIssueDate" value="{{$vehicle['permitIssueDate']}}" class="form-control datepicker">
+                                                        <input type="text" name="permitIssueDate" value="<?php echo e($vehicle['permitIssueDate']); ?>" class="form-control datepicker">
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-4">
                                                     <div class="form-group">
                                                         <label class=" control-label">Expiry Date</label>
-                                                        <input type="text" name="permitExpiryDate" value="{{$vehicle['permitExpiryDate']}}" class="form-control datepicker">
+                                                        <input type="text" name="permitExpiryDate" value="<?php echo e($vehicle['permitExpiryDate']); ?>" class="form-control datepicker">
 
                                                     </div>
                                                 </div>
@@ -379,20 +377,20 @@ $driver = $data['driver'];
                                                     <div class="form-group">
                                                         <label class=" control-label">Ecowas No </label>
 
-                                                        <input type="text" name="ecowasNo" value="{{$vehicle['ecowasNo']}}" class="form-control">
+                                                        <input type="text" name="ecowasNo" value="<?php echo e($vehicle['ecowasNo']); ?>" class="form-control">
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-4">
                                                     <div class="form-group">
                                                         <label class=" control-label">Issue Date</label>
 
-                                                        <input type="text" name="ecowasIssueDate" value="{{$vehicle['ecowasIssueDate']}}" class="form-control datepicker">
+                                                        <input type="text" name="ecowasIssueDate" value="<?php echo e($vehicle['ecowasIssueDate']); ?>" class="form-control datepicker">
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-4">
                                                     <div class="form-group">
                                                         <label class=" control-label">Expiry Date</label>
-                                                        <input type="text" name="ecowasExpiryDate" value="{{$vehicle['ecowasExpiryDate']}}" class="form-control datepicker">
+                                                        <input type="text" name="ecowasExpiryDate" value="<?php echo e($vehicle['ecowasExpiryDate']); ?>" class="form-control datepicker">
 
                                                     </div>
                                                 </div>
@@ -400,7 +398,8 @@ $driver = $data['driver'];
                                                     <div class="form-group">
                                                         <label class=" control-label">Remarks</label>
                                                         <textarea name="remarks" rows="8" class="form-control">
-                                                    {{$vehicle['remarks']}}
+                                                    <?php echo e($vehicle['remarks']); ?>
+
 
                                                         </textarea>
 
@@ -417,14 +416,14 @@ $driver = $data['driver'];
                                                     <div class="form-group">
                                                         <label class=" control-label">Surname</label>
 
-                                                        <input type="text" name="surname" value="{{$driver['surname']}}" class="form-control">
+                                                        <input type="text" name="surname" value="<?php echo e($driver['surname']); ?>" class="form-control">
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-4">
                                                     <div class="form-group">
                                                         <label class=" control-label">Other Names</label>
 
-                                                        <input type="text" name="othernames" value="{{$driver['othernames']}}" class="form-control">
+                                                        <input type="text" name="othernames" value="<?php echo e($driver['othernames']); ?>" class="form-control">
                                                     </div>
                                                 </div>
 
@@ -435,7 +434,7 @@ $driver = $data['driver'];
 
                                                         <select class="select2  gender" name="gender"  tabindex="-1" aria-hidden="true" required style="width: 100%">
 
-                                                            <option value="{{$driver['gender']}}">{{$driver['gender']}}</option>
+                                                            <option value="<?php echo e($driver['gender']); ?>"><?php echo e($driver['gender']); ?></option>
 
                                                         </select>
 
@@ -446,7 +445,7 @@ $driver = $data['driver'];
                                                     <div class="form-group">
                                                         <label class=" control-label">Date Of Birth</label>
 
-                                                        <input type="text" name="dob" value="{{$driver['dob']}}"  class="form-control datepicker" data-dateformat="yy-mm-dd">
+                                                        <input type="text" name="dob" value="<?php echo e($driver['dob']); ?>"  class="form-control datepicker" data-dateformat="yy-mm-dd">
                                                     </div>
                                                 </div>
 
@@ -454,21 +453,21 @@ $driver = $data['driver'];
                                                     <div class="form-group">
                                                         <label class=" control-label">Email Address</label>
 
-                                                        <input type="email" name="email" value="{{$driver['email']}}"  class="form-control">
+                                                        <input type="email" name="email" value="<?php echo e($driver['email']); ?>"  class="form-control">
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-4">
                                                     <div class="form-group">
                                                         <label class=" control-label">Local Phone No</label>
 
-                                                        <input type="text" name="localPhone" value="{{$driver['localPhone']}}"  class="form-control">
+                                                        <input type="text" name="localPhone" value="<?php echo e($driver['localPhone']); ?>"  class="form-control">
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-4">
                                                     <div class="form-group">
                                                         <label class=" control-label">Overseas Phone No</label>
 
-                                                        <input type="text" name="foreignPhone"  value="{{$driver['foreignPhone']}}" class="form-control">
+                                                        <input type="text" name="foreignPhone"  value="<?php echo e($driver['foreignPhone']); ?>" class="form-control">
                                                     </div>
                                                 </div>
 
@@ -479,7 +478,7 @@ $driver = $data['driver'];
 
                                                         <select class="select2  countries" name="residentCountryId"  tabindex="-1" aria-hidden="true" required style="width: 100%">
 
-                                                            <option value="{{$driver['residentCountry']}}">{{$driver['residentCountry']}}</option>
+                                                            <option value="<?php echo e($driver['residentCountry']); ?>"><?php echo e($driver['residentCountry']); ?></option>
 
                                                         </select>
                                                     </div>
@@ -491,7 +490,7 @@ $driver = $data['driver'];
 
                                                         <select class="select2  countries" name="countryCode"  tabindex="-1" aria-hidden="true" required style="width: 100%">
 
-                                                            <option value="{{$driver['country']}}">{{$driver['country']}}</option>
+                                                            <option value="<?php echo e($driver['country']); ?>"><?php echo e($driver['country']); ?></option>
 
                                                         </select>
                                                     </div>
@@ -500,7 +499,8 @@ $driver = $data['driver'];
                                                     <div class="form-group">
                                                         <label class=" control-label">Local Address</label>
                                                         <textarea name="localAddress" rows="10" class="form-control">
-                                        {{$driver['localAddress']}}
+                                        <?php echo e($driver['localAddress']); ?>
+
                                                         </textarea>
 
                                                     </div>
@@ -510,7 +510,8 @@ $driver = $data['driver'];
                                                     <div class="form-group">
                                                         <label class=" control-label">Overseas Address</label>
                                                         <textarea name="foreignAddress" rows="10" class="form-control">
-                                         {{$driver['foreignAddress']}}
+                                         <?php echo e($driver['foreignAddress']); ?>
+
                                                         </textarea>
 
                                                     </div>
@@ -521,7 +522,7 @@ $driver = $data['driver'];
 
                                                         <select class="select2  idtypes" name="nationalIdType"  required style="width: 100%">
 
-                                                            <option value="{{$driver['nationalIdType']}}">{{$driver['nationalIdType']}}</option>
+                                                            <option value="<?php echo e($driver['nationalIdType']); ?>"><?php echo e($driver['nationalIdType']); ?></option>
 
                                                         </select>
 
@@ -531,7 +532,7 @@ $driver = $data['driver'];
                                                     <div class="form-group">
                                                         <label class=" control-label">Nationality ID Number</label>
 
-                                                        <input type="text" value="{{$driver['nationalId']}}"  name="nationalId" class="form-control">
+                                                        <input type="text" value="<?php echo e($driver['nationalId']); ?>"  name="nationalId" class="form-control">
                                                     </div>
                                                 </div>
 
@@ -540,21 +541,21 @@ $driver = $data['driver'];
                                                     <div class="form-group">
                                                         <label class=" control-label">License Number</label>
 
-                                                        <input type="text" name="licenceNo" value="{{$driver['licenceNo']}}"  class="form-control">
+                                                        <input type="text" name="licenceNo" value="<?php echo e($driver['licenceNo']); ?>"  class="form-control">
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-4">
                                                     <div class="form-group">
                                                         <label class=" control-label">Date of Issue </label>
 
-                                                        <input type="text" name="issueDate" value="{{$driver['issueDate']}}" class="form-control datepicker" data-dateformat="yy-mm-dd">
+                                                        <input type="text" name="issueDate" value="<?php echo e($driver['issueDate']); ?>" class="form-control datepicker" data-dateformat="yy-mm-dd">
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-4">
                                                     <div class="form-group">
                                                         <label class=" control-label">Date of Expiry </label>
 
-                                                        <input type="text" name="expiryDate" value="{{$driver['expiryDate']}}" class="form-control datepicker" data-dateformat="yy-mm-dd">
+                                                        <input type="text" name="expiryDate" value="<?php echo e($driver['expiryDate']); ?>" class="form-control datepicker" data-dateformat="yy-mm-dd">
                                                     </div>
                                                 </div>
 
@@ -562,21 +563,21 @@ $driver = $data['driver'];
                                                     <div class="form-group">
                                                         <label class=" control-label">Passport Number</label>
 
-                                                        <input type="text" name="passportNo" value="{{$driver['passportNo']}}"  class="form-control">
+                                                        <input type="text" name="passportNo" value="<?php echo e($driver['passportNo']); ?>"  class="form-control">
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-4">
                                                     <div class="form-group">
                                                         <label class=" control-label">Date of Issue </label>
 
-                                                        <input type="text" data-dateformat="yy-mm-dd" value="{{$driver['passportIssueDate']}}" name="passportIssueDate" class="form-control datepicker">
+                                                        <input type="text" data-dateformat="yy-mm-dd" value="<?php echo e($driver['passportIssueDate']); ?>" name="passportIssueDate" class="form-control datepicker">
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-4">
                                                     <div class="form-group">
                                                         <label class=" control-label">Date of Expiry </label>
 
-                                                        <input type="text" data-dateformat="yy-mm-dd" value="{{$driver['passportExpiryDate']}}" name="passportExpiryDate" class="form-control datepicker">
+                                                        <input type="text" data-dateformat="yy-mm-dd" value="<?php echo e($driver['passportExpiryDate']); ?>" name="passportExpiryDate" class="form-control datepicker">
                                                     </div>
                                                 </div>
 
@@ -584,12 +585,12 @@ $driver = $data['driver'];
                                                     <div class="form-group">
                                                         <label class=" control-label">Reg. Date of Issue </label>
 
-                                                        <input type="text"  name="regIssueDate"  value="{{$driver['regIssueDate']}}" class="form-control datepicker">
+                                                        <input type="text"  name="regIssueDate"  value="<?php echo e($driver['regIssueDate']); ?>" class="form-control datepicker">
                                                     </div>
                                                     <div class="form-group">
                                                         <label class=" control-label">Reg. Date of  Expiry </label>
 
-                                                        <input type="text" data-dateformat="yyyy-mm-dd" value="{{$driver['regExpiryDate']}}" name="regExpiryDate" class="form-control datepicker">
+                                                        <input type="text" data-dateformat="yyyy-mm-dd" value="<?php echo e($driver['regExpiryDate']); ?>" name="regExpiryDate" class="form-control datepicker">
                                                     </div>
 
 
@@ -601,7 +602,8 @@ $driver = $data['driver'];
                                                         <label class=" control-label">Remarks</label>
                                                         <textarea name="remarks" rows="10" class="form-control">
                                                  
-                                             {{$driver['remarks']}}
+                                             <?php echo e($driver['remarks']); ?>
+
 
 
                                                         </textarea>
@@ -660,10 +662,10 @@ $driver = $data['driver'];
 
 
 
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('customjs')
-<script type="text/javascript" src="{{ asset('js/custom.js')}}"></script>
+<?php $__env->startSection('customjs'); ?>
+<script type="text/javascript" src="<?php echo e(asset('js/custom.js')); ?>"></script>
 <script type="text/javascript">
 
    // $('#tabs').tabs();
@@ -680,7 +682,7 @@ $driver = $data['driver'];
         $('#loaderModal').modal('show');
 
         $.ajax({
-            url: "{{url('trips/new')}}",
+            url: "<?php echo e(url('trips/new')); ?>",
             type: "POST",
             data: formData,
             dataType: "json",
@@ -711,4 +713,5 @@ $driver = $data['driver'];
 
     });
 </script>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

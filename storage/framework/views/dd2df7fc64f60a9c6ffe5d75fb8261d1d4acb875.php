@@ -151,12 +151,13 @@
 
                     <div class="form-group">
                         <label>Role</label>
-                        <select class="select2" name="role" id="roles" required>
-                            <option value="">Select ---</option>
-                            <option value="Admin">Administrator</option>
-                            <option value="Supervisor">Supervisor</option>
+                            <select class="form-control select2" name="role" style="width: 100%"  id="roles" required>
 
-                        </select>
+                                <option value="">Select ---</option>
+                                <option value="Admin">Administrator</option>
+                                <option value="Supervisor">Supervisor</option>
+
+                            </select>
                     </div>
 
 
@@ -206,7 +207,7 @@
 
                     <div class="form-group">
                         <label>Role</label>
-                        <select class="form-control select2" name="role" id="editrole" required>
+                        <select class="form-control select2" name="role" style="width: 100%"  id="editrole" required>
                             <option value="">Select ---</option>
                             <option value="Admin">Administrator</option>
                             <option value="Supervisor">Supervisor</option>

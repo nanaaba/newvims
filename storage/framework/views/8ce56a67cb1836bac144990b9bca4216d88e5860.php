@@ -1,6 +1,4 @@
-@extends('layouts.master')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
 
 
 <ol class="breadcrumb">
@@ -49,10 +47,10 @@ $trips = json_decode($trips, true);
                 <div class="col-sm-12">
                     <div class="card">
                         <div class="card-header">
-                            <strong>{{$details['chasisNo']}}'s Information</strong>
+                            <strong><?php echo e($details['chasisNo']); ?>'s Information</strong>
                         </div>
                         <div class="card-body">
-                            <input type="hidden" name="vehicleno" value="{{$details['vehicleNo']}}"/>
+                            <input type="hidden" name="vehicleno" value="<?php echo e($details['vehicleNo']); ?>"/>
 
 
                             <div class="row">
@@ -84,7 +82,7 @@ $trips = json_decode($trips, true);
 
                                                         <select class="select2  vehicletypes" name="vehicleTypeId"  tabindex="-1" aria-hidden="true" required>
 
-                                                            <option value="{{$details['vehicleType']}}">{{$details['vehicleType']}}</option>
+                                                            <option value="<?php echo e($details['vehicleType']); ?>"><?php echo e($details['vehicleType']); ?></option>
 
                                                         </select>
 
@@ -95,14 +93,14 @@ $trips = json_decode($trips, true);
                                                     <div class="form-group">
                                                         <label class=" control-label">Hs Code</label>
 
-                                                        <input type="text" name="hsCode" value="{{$details['hsCode']}}" class="form-control">
+                                                        <input type="text" name="hsCode" value="<?php echo e($details['hsCode']); ?>" class="form-control">
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-4">
                                                     <div class="form-group">
                                                         <label class=" control-label">Status Code</label>
 
-                                                        <input type="text" name="statusCode" value="{{$details['statusCode']}}" class="form-control datepicker">
+                                                        <input type="text" name="statusCode" value="<?php echo e($details['statusCode']); ?>" class="form-control datepicker">
                                                     </div>
                                                 </div>
 
@@ -110,7 +108,7 @@ $trips = json_decode($trips, true);
                                                     <div class="form-group">
                                                         <label class=" control-label">CPC Code</label>
 
-                                                        <input type="text" name="cpcCode" value="{{$details['cpcCode']}}" class="form-control">
+                                                        <input type="text" name="cpcCode" value="<?php echo e($details['cpcCode']); ?>" class="form-control">
                                                     </div>
                                                 </div>
 
@@ -132,7 +130,7 @@ $trips = json_decode($trips, true);
                                                     <div class="form-group">
                                                         <label class=" control-label">Origin Make</label>
 
-                                                        <input type="text" name="make" value="{{$details['make']}}" class="form-control">
+                                                        <input type="text" name="make" value="<?php echo e($details['make']); ?>" class="form-control">
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-4">
@@ -141,7 +139,7 @@ $trips = json_decode($trips, true);
 
                                                         <select class="select2  models" name="model"  tabindex="-1" aria-hidden="true" required>
 
-                                                            <option value="{{$details['model']}}">{{$details['model']}}</option>
+                                                            <option value="<?php echo e($details['model']); ?>"><?php echo e($details['model']); ?></option>
 
                                                         </select>
 
@@ -150,7 +148,7 @@ $trips = json_decode($trips, true);
                                                 <div class="col-sm-4">
                                                     <div class="form-group">
                                                         <label class=" control-label">Color</label>
-                                                        <input type="text" name="color" value="{{$details['colour']}}" class="form-control">
+                                                        <input type="text" name="color" value="<?php echo e($details['colour']); ?>" class="form-control">
 
 
 
@@ -162,7 +160,7 @@ $trips = json_decode($trips, true);
                                                     <div class="form-group">
                                                         <label class=" control-label">Chassis Number</label>
 
-                                                        <input type="text" name="chasisNo" value="{{$details['chasisNo']}}" class="form-control">
+                                                        <input type="text" name="chasisNo" value="<?php echo e($details['chasisNo']); ?>" class="form-control">
                                                     </div>
                                                 </div>
 
@@ -170,7 +168,7 @@ $trips = json_decode($trips, true);
                                                     <div class="form-group">
                                                         <label class=" control-label">Engine Number</label>
 
-                                                        <input type="text" name="engineNo" value="{{$details['engineNo']}}" class="form-control">
+                                                        <input type="text" name="engineNo" value="<?php echo e($details['engineNo']); ?>" class="form-control">
                                                     </div>
                                                 </div>
 
@@ -178,14 +176,14 @@ $trips = json_decode($trips, true);
                                                     <div class="form-group">
                                                         <label class=" control-label">Front Plate Number</label>
 
-                                                        <input type="text" name="frontPlateNo" value="{{$details['frontPlateNo']}}" class="form-control">
+                                                        <input type="text" name="frontPlateNo" value="<?php echo e($details['frontPlateNo']); ?>" class="form-control">
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-4">
                                                     <div class="form-group">
                                                         <label class=" control-label">Back Plate Number</label>
 
-                                                        <input type="text" name="backPlateNo" value="{{$details['backPlateNo']}}" class="form-control">
+                                                        <input type="text" name="backPlateNo" value="<?php echo e($details['backPlateNo']); ?>" class="form-control">
                                                     </div>
                                                 </div>
 
@@ -193,7 +191,8 @@ $trips = json_decode($trips, true);
                                                     <div class="form-group">
                                                         <label class=" control-label">Description</label>
                                                         <textarea name="description" rows="8" class="form-control">
-                                                    {{trim($details['description'])}}
+                                                    <?php echo e(trim($details['description'])); ?>
+
                                                         </textarea>
 
                                                     </div>
@@ -210,13 +209,13 @@ $trips = json_decode($trips, true);
                                                     <div class="form-group">
                                                         <label class=" control-label">Issue Date</label>
 
-                                                        <input type="text" name="regIssueDate"  value="{{$details['regIssueDate']}}" class="form-control datepicker">
+                                                        <input type="text" name="regIssueDate"  value="<?php echo e($details['regIssueDate']); ?>" class="form-control datepicker">
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-6">
                                                     <div class="form-group">
                                                         <label class=" control-label">Expiry Date</label>
-                                                        <input type="text" name="regExpiryDate" value="{{$details['regExpiryDate']}}" class="form-control datepicker">
+                                                        <input type="text" name="regExpiryDate" value="<?php echo e($details['regExpiryDate']); ?>" class="form-control datepicker">
 
                                                     </div>
                                                 </div>
@@ -229,20 +228,20 @@ $trips = json_decode($trips, true);
                                                     <div class="form-group">
                                                         <label class=" control-label">Permit No </label>
 
-                                                        <input type="text" name="permitNo" value="{{$details['permitNo']}}" class="form-control">
+                                                        <input type="text" name="permitNo" value="<?php echo e($details['permitNo']); ?>" class="form-control">
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-4">
                                                     <div class="form-group">
                                                         <label class=" control-label">Issue Date</label>
 
-                                                        <input type="text" name="permitIssueDate" value="{{$details['permitIssueDate']}}" class="form-control datepicker">
+                                                        <input type="text" name="permitIssueDate" value="<?php echo e($details['permitIssueDate']); ?>" class="form-control datepicker">
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-4">
                                                     <div class="form-group">
                                                         <label class=" control-label">Expiry Date</label>
-                                                        <input type="text" name="permitExpiryDate" value="{{$details['permitExpiryDate']}}" class="form-control datepicker">
+                                                        <input type="text" name="permitExpiryDate" value="<?php echo e($details['permitExpiryDate']); ?>" class="form-control datepicker">
 
                                                     </div>
                                                 </div>
@@ -257,20 +256,20 @@ $trips = json_decode($trips, true);
                                                     <div class="form-group">
                                                         <label class=" control-label">Ecowas No </label>
 
-                                                        <input type="text" name="ecowasNo" value="{{$details['ecowasNo']}}" class="form-control">
+                                                        <input type="text" name="ecowasNo" value="<?php echo e($details['ecowasNo']); ?>" class="form-control">
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-4">
                                                     <div class="form-group">
                                                         <label class=" control-label">Issue Date</label>
 
-                                                        <input type="text" name="ecowasIssueDate" value="{{$details['ecowasIssueDate']}}" class="form-control datepicker">
+                                                        <input type="text" name="ecowasIssueDate" value="<?php echo e($details['ecowasIssueDate']); ?>" class="form-control datepicker">
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-4">
                                                     <div class="form-group">
                                                         <label class=" control-label">Expiry Date</label>
-                                                        <input type="text" name="ecowasExpiryDate" value="{{$details['ecowasExpiryDate']}}" class="form-control datepicker">
+                                                        <input type="text" name="ecowasExpiryDate" value="<?php echo e($details['ecowasExpiryDate']); ?>" class="form-control datepicker">
 
                                                     </div>
                                                 </div>
@@ -278,7 +277,8 @@ $trips = json_decode($trips, true);
                                                     <div class="form-group">
                                                         <label class=" control-label">Remarks</label>
                                                         <textarea name="remarks" rows="8" class="form-control">
-                                                    {{$details['remarks']}}
+                                                    <?php echo e($details['remarks']); ?>
+
 
                                                         </textarea>
 
@@ -394,10 +394,11 @@ $trips = json_decode($trips, true);
             <form id="tripForm" novalidate>
                 <!-- START ROW -->
 
-                {{csrf_field()}}
+                <?php echo e(csrf_field()); ?>
+
                 <div class="modal-body">
 
-                    <input type="hidden" name="vehicleRegNo" value="{{$details['vehicleNo']}}"/>
+                    <input type="hidden" name="vehicleRegNo" value="<?php echo e($details['vehicleNo']); ?>"/>
 
                     <div class="row">
 
@@ -615,10 +616,10 @@ $trips = json_decode($trips, true);
 
 
 
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('customjs')
-<!--<script type="text/javascript" src="{{ asset('js/custom.js')}}"></script>-->
+<?php $__env->startSection('customjs'); ?>
+<!--<script type="text/javascript" src="<?php echo e(asset('js/custom.js')); ?>"></script>-->
 
 <script type="text/javascript">
     $('#tripsTbl').DataTable();
@@ -630,7 +631,7 @@ $trips = json_decode($trips, true);
 
 
         $.ajax({
-            url: "{{url('settings/all')}}",
+            url: "<?php echo e(url('settings/all')); ?>",
             type: "GET",
             dataType: 'json',
             success: function (response) {
@@ -673,7 +674,7 @@ $trips = json_decode($trips, true);
         $('#loaderModal').modal('show');
 
         $.ajax({
-            url: "{{url('vehicle/update')}}",
+            url: "<?php echo e(url('vehicle/update')); ?>",
             type: "PUT",
             data: formData,
             dataType: "json",
@@ -712,7 +713,7 @@ $trips = json_decode($trips, true);
 
 
         $.ajax({
-            url: "{{url('drivers/getall')}}",
+            url: "<?php echo e(url('drivers/getall')); ?>",
             type: "GET",
             dataType: 'json',
             success: function (response) {
@@ -741,7 +742,7 @@ $trips = json_decode($trips, true);
         $('#loaderModal').modal('show');
 
         $.ajax({
-            url: "{{url('trips/new')}}",
+            url: "<?php echo e(url('trips/new')); ?>",
             type: "POST",
             data: formData,
             dataType: "json",
@@ -775,4 +776,5 @@ $trips = json_decode($trips, true);
 
     });
 </script>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -1,21 +1,20 @@
 <?php $__env->startSection('content'); ?>
 
 
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">Home</li>
+    <li class="breadcrumb-item active">Search</li>
+    <!-- Breadcrumb Menu-->
 
-<div id="content">
-    <div class="page-head">
-        <ol class="breadcrumb page-head-nav">
-            <li><a href="#">Home</a></li>
-            <li class="active">Search</li>
-        </ol>
-    </div>
+</ol>
+<div class="container-fluid">
+    <div class="animated fadeIn">
 
 
     <?php
     $data = json_decode($results, true);
     $resultdata = $data['data'];
     ?>
-    <div class="main-content container-fluid">
 
         <div class="row">
 
@@ -23,23 +22,7 @@
 
                 <h1> Search Results -  <span class="semi-bold"><?php echo e($searchparam); ?></span></h1>
                 <br>
-                <form  action="<?php echo e(url('search')); ?>" method="get" >
-
-                    <div class="input-group input-group-lg">
-                        <input class="form-control input-lg" type="text" name="searchparam" placeholder="Search again..." id="search-user">
-                        <div class="input-group-btn">
-                            <button type="submit" class="btn btn-default">
-                                <i class="fa fa-fw fa-search fa-lg"></i>
-                            </button>
-                        </div>
-                        <!--                    </form>-->
-
-
-                    </div>
-
-                </form>
-                <br>
-                <div class="table-responsive">
+              <div class="table-responsive">
 
                     <table id="resultTable" class="table table-striped table-bordered table-hover">
                         <thead>
@@ -70,7 +53,7 @@
                                 . '<td>'
                                 . $value['colour']
                                 . '</td>'
-                                . '<td><a  href="vehicles/information/' . $value['vehicleNo'] . '"   type="button" class=" btn btn-labeled btn-primary btn-sm  col-sm-6" ><i class="glyphicon glyphicon-eye-open"></i> </a> ' 
+                                . '<td><a  href="vehicles/information/' . $value['vehicleNo'] . '"   type="button" class=" btn btn-labeled btn-primary btn-sm  col-sm-6" >View </a> ' 
                                  
                                 . '</td>'
                                 . '</tr>';
