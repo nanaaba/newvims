@@ -28,6 +28,11 @@
                         <a href="<?php echo e(url('drivers/assign')); ?>"  class="nav-link">
                             Assign Vehicles</a>
                     </li>
+                    
+                     <li class="nav-item <?php echo e(Request::is('drivers/blacklisted') ? 'active' : ''); ?>">
+                        <a href="<?php echo e(url('drivers/blacklisted')); ?>"  class="nav-link">
+                            Blacklisted Drivers</a>
+                    </li>
 
                 </ul>
             </li>

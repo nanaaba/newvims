@@ -284,7 +284,7 @@
 
 runConfig();
 function runConfig() {
-    $('#loaderModal').modal('show');
+   // $('#loaderModal').modal('show');
 
     getVehicles();
     getDrivers();

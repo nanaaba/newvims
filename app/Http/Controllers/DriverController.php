@@ -31,6 +31,10 @@ class DriverController extends Controller {
         return view('alldrivers');
     }
 
+    public function showblacklisteddrivers() {
+        return view('blacklisteddrivers');
+    }
+
     public function getDrivers() {
         $url = config('constants.TEST_URL');
 
@@ -244,9 +248,9 @@ class DriverController extends Controller {
 
         $baseurl = $url . 'drivers/' . $driver_no;
 
-        
+
         print_r(json_encode($data));
-        
+
         return;
 
 

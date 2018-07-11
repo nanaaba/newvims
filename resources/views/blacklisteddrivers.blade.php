@@ -1,9 +1,11 @@
-<?php $__env->startSection('content'); ?>
+@extends('layouts.master')
+
+@section('content')
 
 <ol class="breadcrumb">
     <li class="breadcrumb-item">Home</li>
     <li class="breadcrumb-item"><a href="#">Drivers</a></li>
-    <li class="breadcrumb-item active">All Drivers</li>
+    <li class="breadcrumb-item active">Blacklisted Drivers</li>
     <!-- Breadcrumb Menu-->
 
 </ol>
@@ -43,7 +45,7 @@
 
             <div class="card">
                 <div class="card-header">
-                    <i class="fa fa-edit"></i> Drivers
+                    <i class="fa fa-edit"></i>Blacklisted Drivers
 
                 </div>
                 <div class="card-body table-responsive">
@@ -82,9 +84,9 @@
 </div>
 
 
-<?php $__env->stopSection(); ?>
+@endsection
 
-<?php $__env->startSection('customjs'); ?>
+@section('customjs')
 
 <script type="text/javascript">
 
@@ -92,10 +94,7 @@
 
 
 
-    var datatable = $('#driverTbl').DataTable({
-        "pageLength": 20
-
-    });
+    var datatable = $('#driverTbl').DataTable();
 
 
 
@@ -106,7 +105,7 @@
        // $('#loaderModal').modal('show');
 
         $.ajax({
-            url: "<?php echo e(url('drivers/getall')); ?>",
+            url: "{{url('drivers/getall')}}",
             type: "GET",
             dataType: 'json',
             success: function (data) {
@@ -194,15 +193,14 @@
                 $('#loaderModal').modal('hide');
 
                 alert(errorThrown);
-            }
+            } 
         });
 
     });
 
 
 </script>
-<?php $__env->stopSection(); ?>
+@endsection
 
 
-
-<?php echo $__env->make('layouts.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+ 

@@ -65,6 +65,7 @@ Route::group(['middleware' => 'check-userauth'], function () {
     Route::get('drivers/new', 'DriverController@showdrivers');
     Route::get('drivers/all', 'DriverController@showalldrivers');
     Route::get('drivers/assign', 'DriverController@showassignvehicles');
+    Route::get('drivers/blacklisted', 'DriverController@showblacklisteddrivers');
 
     Route::get('vehicles/new', 'VehicleController@showvehicle');
     Route::get('vehicles/all', 'VehicleController@showallvehicles');

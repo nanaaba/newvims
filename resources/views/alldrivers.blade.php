@@ -105,7 +105,7 @@
     getDrivers();
 
     function getDrivers() {
-        $('#loaderModal').modal('show');
+       // $('#loaderModal').modal('show');
 
         $.ajax({
             url: "{{url('drivers/getall')}}",

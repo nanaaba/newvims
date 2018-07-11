@@ -3,7 +3,7 @@
 <ol class="breadcrumb">
     <li class="breadcrumb-item">Home</li>
     <li class="breadcrumb-item"><a href="#">Drivers</a></li>
-    <li class="breadcrumb-item active">All Drivers</li>
+    <li class="breadcrumb-item active">Blacklisted Drivers</li>
     <!-- Breadcrumb Menu-->
 
 </ol>
@@ -43,7 +43,7 @@
 
             <div class="card">
                 <div class="card-header">
-                    <i class="fa fa-edit"></i> Drivers
+                    <i class="fa fa-edit"></i>Blacklisted Drivers
 
                 </div>
                 <div class="card-body table-responsive">
@@ -92,10 +92,7 @@
 
 
 
-    var datatable = $('#driverTbl').DataTable({
-        "pageLength": 20
-
-    });
+    var datatable = $('#driverTbl').DataTable();
 
 
 
@@ -194,7 +191,7 @@
                 $('#loaderModal').modal('hide');
 
                 alert(errorThrown);
-            }
+            } 
         });
 
     });
@@ -204,5 +201,5 @@
 <?php $__env->stopSection(); ?>
 
 
-
+ 
 <?php echo $__env->make('layouts.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

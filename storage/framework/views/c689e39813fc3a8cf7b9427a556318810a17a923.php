@@ -106,7 +106,7 @@
     getVehicles();
 
     function getVehicles() {
-        $('#loaderModal').modal('show');
+      // $('#loaderModal').modal('show');
 
         $.ajax({
             url: "<?php echo e(url('vehicles/getall')); ?>",
@@ -114,7 +114,6 @@
             dataType: 'json',
             success: function (data) {
 
-                $('#loaderModal').modal('hide');
 
                 console.log('server data :' + data.data);
                 var dataSet = data.data;
@@ -143,6 +142,7 @@
                     });
                     rowNode.draw().node();
                 }
+               // $('#loaderModal').modal('hide');
 
             }
 

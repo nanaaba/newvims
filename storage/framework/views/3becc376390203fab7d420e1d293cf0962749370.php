@@ -53,7 +53,7 @@
                                 . '<td>'
                                 . $value['colour']
                                 . '</td>'
-                                . '<td><a  href="vehicles/information/' . $value['vehicleNo'] . '"   type="button" class=" btn btn-labeled btn-primary btn-sm  col-sm-6" >View </a> ' 
+                                . '<td><a  href="vehicles/information/' . $value['vehicleNo'] . '"   type="button" class=" btn btn-labeled btn-primary btn-sm  col-sm-6" ><i class="fa fa-search-plus "></i> </a> ' 
                                  
                                 . '</td>'
                                 . '</tr>';

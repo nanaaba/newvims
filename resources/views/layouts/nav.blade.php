@@ -28,6 +28,11 @@
                         <a href="{{ url('drivers/assign') }}"  class="nav-link">
                             Assign Vehicles</a>
                     </li>
+                    
+                     <li class="nav-item {{ Request::is('drivers/blacklisted') ? 'active' : '' }}">
+                        <a href="{{ url('drivers/blacklisted') }}"  class="nav-link">
+                            Blacklisted Drivers</a>
+                    </li>
 
                 </ul>
             </li>
