@@ -15,7 +15,7 @@
             <br><br>
 
             <h1 >VIMS</h1>
-            <small >Welcome back!Please log into your account.</small>
+            <small >Enter your official GRA email and personal password to login.</small>
             <br><br>
             <div id="errordiv" style="display: none;">
                 <div class="alert alert-danger " role="alert">

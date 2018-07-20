@@ -1,6 +1,6 @@
  <footer class="app-footer">
-    <span><a href="#">VIMS</a> © 2018 </span>
-    <span class="ml-auto">Powered by <a href="#">xenontech</a></span>
+    <span><a href="#">VIMS</a> © GRA version 1.0 </span>
+    <span class="ml-auto">Powered by <a href="#">Xenon Tech Consult Limited</a></span>
   </footer>
 
   <!-- Bootstrap and necessary plugins -->

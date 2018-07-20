@@ -95,7 +95,7 @@
 
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
+                                    <button type="button" class="btn btn-danger" data-dismiss="modal">NO</button>
                                     <button type="submit"  class="btn btn-primary">YES</button>
                                 </div>
                             </form>

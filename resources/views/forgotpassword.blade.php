@@ -15,7 +15,7 @@
             <br><br>
 
             <h1 >VIMS</h1>
-            <small >Enter official email and reset link will b sent.</small>
+            <small> Please enter your  GRA email and check your email for a password reset .</small>
             <br><br>
             <div id="errordiv" style="display: none;">
                 <div class="alert alert-danger " role="alert">

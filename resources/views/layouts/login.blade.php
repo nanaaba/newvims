@@ -19,7 +19,7 @@
         <style type="text/css">
             .loginlayout {
                 background-image: url(public/img/LogInScreen%20.png);
-    background-repeat: repeat;
+                background-repeat: repeat;
 
             }
 
@@ -103,7 +103,7 @@ $('#forgotPasswordForm').submit(function (e) {
     e.preventDefault();
     var formData = $(this).serialize();
     console.log(formData);
-   // $('#loaderModal').modal('show');
+    // $('#loaderModal').modal('show');
 
     $('input:submit').attr("disabled", true);
     $.ajax({
@@ -117,14 +117,16 @@ $('#forgotPasswordForm').submit(function (e) {
             console.log('data : ' + data);
             if (data.status == 0) {
                 $('#successdiv').show();
-                $('#successmsg').html(data.message);
-
+                $('#successmsg').html(data.message+" .Please wait whiles its redirect you to login page.");
+                window.setTimeout(function () {
+                    window.location = "login";
+                }, 2000)
             } else {
                 $('#errordiv').show();
                 $('#errormsg').html(data.message);
             }
 
-          //  $('#loaderModal').modal('hide');
+            //  $('#loaderModal').modal('hide');
 
 
         },
