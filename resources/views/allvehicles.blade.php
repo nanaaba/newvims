@@ -98,9 +98,7 @@
 
 
 
-    var datatable = $('#vehicleTbl').DataTable({
-         "pageLength": 20
-    });
+    var datatable = $('#vehicleTbl').DataTable();
 
 
 

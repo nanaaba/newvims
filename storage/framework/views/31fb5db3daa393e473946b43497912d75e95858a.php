@@ -43,7 +43,7 @@
                         <i class="icon-calculator"></i>
                     </div>
                     <div class="h4 mb-0"><?php echo e($data['carsExpiring']['year']); ?></div>
-                    <small class="text-muted text-uppercase font-weight-bold">Cars Expiring</small>
+                    <small class="text-muted text-uppercase font-weight-bold">BlackListed Drivers</small>
                     <div class="progress progress-xs mt-3 mb-0">
                         <div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>

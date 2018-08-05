@@ -49,7 +49,7 @@
                 <div class="form-group clearfix">
                     <div class="checkbox-custom checkbox-inline checkbox-primary pull-left">
                         <input type="checkbox" id="remember" name="checkbox">
-                        <label for="inputCheckbox">Remember me</label>
+                        <label for="inputCheckbox">Keep me logged in</label>
                     </div>
                     <a class="pull-right" href="<?php echo e(url('forgotpassword')); ?>">Forgot password?</a>
                 </div>
@@ -58,10 +58,10 @@
                         <button type="submit" class="btn btn-primary px-4">Login</button>
 
                     </div>
-                    <div class="pull-right">
+<!--                    <div class="pull-right">
                   
                     <button type="button" class="btn btn-outline-secondary">Request Account</button>
-                    </div>
+                    </div>-->
                 </div>
 
 

@@ -2,9 +2,7 @@
 <div class="sidebar">
     <nav class="sidebar-nav">
         <ul class="nav">
-            <li class="nav-title">
-                Dashboard
-            </li>
+           
             <li class="nav-item <?php echo e(Request::is('dashboard') ? 'active' : ''); ?>">
                 <a class="nav-link" href="<?php echo e(url('dashboard')); ?>"><i class="icon-speedometer"></i>
                     Dashboard</a>

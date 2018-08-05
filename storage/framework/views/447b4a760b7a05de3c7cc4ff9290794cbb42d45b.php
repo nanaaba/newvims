@@ -12,7 +12,7 @@
 
     <div style="padding:20px;" id="search-chassis0">
         <form class="form-search form-inline"   action="<?php echo e(url('search')); ?>" method="get">
-            <i class="fa fa-search"></i>&nbsp;
+          
             <input type="search" id="search"  name="searchparam" placeholder="Number Plate, Chasis Number etc"  />
         </form>
     </div>
@@ -33,7 +33,7 @@
 
 
 <!--                <a class="dropdown-item" href="#"><i class="fa fa-shield"></i> Profile</a>-->
-                <a class="dropdown-item" href="<?php echo e(url('logout')); ?>"><i class="fa fa-lock"></i> Logout</a>
+                <a class="dropdown-item" href="<?php echo e(url('logout')); ?>"><i class="fa fa-lock"></i> Log Out</a>
             </div>
         </li>
         <button class="navbar-toggler aside-menu-toggler" type="button">

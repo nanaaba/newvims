@@ -124,9 +124,7 @@ $trips = json_decode($details, true);
 
 
 
-    var datatable = $('#vehicleTbl').DataTable({
-        "pageLength": 20
-    });
+    var datatable = $('#vehicleTbl').DataTable();
 
 
 

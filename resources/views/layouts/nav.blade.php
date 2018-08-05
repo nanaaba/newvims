@@ -2,9 +2,7 @@
 <div class="sidebar">
     <nav class="sidebar-nav">
         <ul class="nav">
-            <li class="nav-title">
-                Dashboard
-            </li>
+           
             <li class="nav-item {{ Request::is('dashboard') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ url('dashboard') }}"><i class="icon-speedometer"></i>
                     Dashboard</a>
