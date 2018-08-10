@@ -52,7 +52,7 @@
                                         <div class="form-group">
                                             <label class=" control-label">Report Type</label>
 
-                                            <select class="select2 form-control" name="reportlevel"    required>
+                                            <select class="select2 form-control " name="reportlevel"    required>
 
                                                 <option value="">Select ---</option>
                                                 <option value="Over Stayed Cars">Over Stayed Cars</option> 
@@ -77,7 +77,7 @@
                                         <div class="form-group">
                                             <label class=" control-label">Car Types</label>
 
-                                            <select class="select2 " name="car_type" id="cartype" tabindex="-1" aria-hidden="true" required>
+                                            <select class="select2 form-control " name="car_type" id="cartype" tabindex="-1" aria-hidden="true" required>
 
                                                 <option value="">Select ---</option>
                                                 <option value="Van">Van</option>
@@ -92,7 +92,7 @@
                                         <div class="form-group">
                                             <label class=" control-label">Car Brand</label>
 
-                                            <select class="select2 " name="car_brand"  tabindex="-1" aria-hidden="true" required>
+                                            <select class="select2 form-control " name="car_brand"  tabindex="-1" aria-hidden="true" required>
 
                                                 <option value="">Select ---</option>
                                                 <option value="Nissan">Nissan</option> 
@@ -106,7 +106,7 @@
                                         <div class="form-group">
                                             <label class=" control-label">Country of Origin</label>
 
-                                            <select class="select2 " name="country_of_origin" id="reportlevel" tabindex="-1" aria-hidden="true" required>
+                                            <select class="select2 form-control " name="country_of_origin" id="reportlevel" tabindex="-1" aria-hidden="true" required>
 
                                                 <option value="">Select ---</option>
                                                 <option value="Togo">Togo</option> 

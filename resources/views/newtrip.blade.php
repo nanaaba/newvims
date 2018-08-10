@@ -52,7 +52,7 @@
                                     <div class="form-group">
                                         <label class=" control-label">Vehicle Involve </label>
 
-                                        <select class="select2 vehicles" name="vehicleRegNo"  tabindex="-1" aria-hidden="true" required>
+                                        <select class="select2 form-control vehicles" name="vehicleRegNo"  tabindex="-1" aria-hidden="true" required>
 
                                             <option value="">Select---</option>
 
@@ -62,7 +62,7 @@
                                     <div class="form-group">
                                         <label class=" control-label">Driver Involve </label>
 
-                                        <select class="select2 drivers" name="driverRegNo"  tabindex="-1" aria-hidden="true" required>
+                                        <select class="select2 form-control drivers" name="driverRegNo"  tabindex="-1" aria-hidden="true" required>
 
                                             <option value="">Select---</option>
 
@@ -71,7 +71,7 @@
                                 <div class="col-sm-3">
                                     <div class="form-group">
                                         <label class=" control-label">Trip Type </label>
-                                        <select class="select2 tviTypes" name="tripTypeId"  tabindex="-1" aria-hidden="true" required>
+                                        <select class="select2 form-control tviTypes" name="tripTypeId"  tabindex="-1" aria-hidden="true" required>
 
                                             <option value="">Select---</option>
 
@@ -83,7 +83,7 @@
                                     <div class="form-group">
                                         <label class=" control-label">Regime</label>
 
-                                        <select class="select2 regimes" name="regime"  tabindex="-1" aria-hidden="true" required>
+                                        <select class="select2 form-control regimes" name="regime"  tabindex="-1" aria-hidden="true" required>
 
                                             <option value="">Select---</option>
 
@@ -97,7 +97,7 @@
                                         <label class=" control-label">Customs Office</label>
 
 
-                                        <select class="select2 offices" name="customsOfficeCode"  tabindex="-1" aria-hidden="true" required>
+                                        <select class="select2 form-control offices" name="customsOfficeCode"  tabindex="-1" aria-hidden="true" required>
 
                                             <option value="">Select---</option>
 
@@ -119,7 +119,7 @@
                                 <div class="col-sm-3">
                                     <div class="form-group">
                                         <label class=" control-label">Country of Consignment </label>
-                                        <select class="select2 country" name="consCountryCode"  tabindex="-1" aria-hidden="true" required>
+                                        <select class="select2 form-control country" name="consCountryCode"  tabindex="-1" aria-hidden="true" required>
 
                                             <option value="">Select ---</option>
 
@@ -130,7 +130,7 @@
                                 <div class="col-sm-3">
                                     <div class="form-group">
                                         <label class=" control-label">Last Country</label>
-                                        <select class="select2 country" name="lastCountryCode"  tabindex="-1" aria-hidden="true" required>
+                                        <select class="select2 form-control country" name="lastCountryCode"  tabindex="-1" aria-hidden="true" required>
 
                                             <option value="">Select ---</option>
 
@@ -140,7 +140,7 @@
                                 <div class="col-sm-3">
                                     <div class="form-group">
                                         <label class=" control-label">Next Country</label>
-                                        <select class="select2 country" name="nextCountryCode"  tabindex="-1" aria-hidden="true" required>
+                                        <select class="select2 form-control country" name="nextCountryCode"  tabindex="-1" aria-hidden="true" required>
 
                                             <option value="">Select ---</option>
 
@@ -152,7 +152,7 @@
                                 <div class="col-sm-3">
                                     <div class="form-group">
                                         <label class=" control-label">Final Country</label>
-                                        <select class="select2 country" name="finalCountryCode"  tabindex="-1" aria-hidden="true" required>
+                                        <select class="select2 form-control country" name="finalCountryCode"  tabindex="-1" aria-hidden="true" required>
 
                                             <option value="">Select ---</option>
 

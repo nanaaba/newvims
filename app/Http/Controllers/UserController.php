@@ -69,6 +69,7 @@ class UserController extends Controller {
         $url = config('constants.TEST_URL');
         $baseurl = $url . '/account/users';
 
+        
 
 
         $client = new Client([
@@ -91,7 +92,7 @@ class UserController extends Controller {
             'addedby' => session('userid')
         );
 
-
+       
         try {
 
             $response = $client->request('POST', $baseurl, ['json' => $dataArray, 'verify' => false]);

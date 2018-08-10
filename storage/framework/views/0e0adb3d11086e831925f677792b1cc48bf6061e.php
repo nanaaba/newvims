@@ -22,10 +22,11 @@
         <!-- FAVICONS -->
                 <link rel="shortcut icon" href="<?php echo e(asset('img/favicon.ico')); ?>">
 
-        <!--        <link href="<?php echo e(asset('vendors/css/dataTables.bootstrap4.min.css')); ?>" rel="stylesheet">-->
+                <link href="<?php echo e(asset('vendors/css/dataTables.bootstrap4.min.css')); ?>" rel="stylesheet">
 <!--        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>-->
-              <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css"/>
-        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css"/>
+<!--              <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css"/>-->
+      
+              <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css"/>
        
         
         <!-- Styles required by this views -->

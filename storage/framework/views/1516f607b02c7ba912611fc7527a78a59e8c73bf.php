@@ -47,7 +47,7 @@
                                     <div class="form-group">
                                         <label class=" control-label">Vehicle Type</label>
 
-                                        <select class="select2 select2-hidden-accessible vehicletypes" name="vehicleTypeId"  tabindex="-1" aria-hidden="true" required
+                                        <select class="select2 form-control  vehicletypes" name="vehicleTypeId"  tabindex="-1" aria-hidden="true" required
                                                 style="width: 100%">
 
                                             <option value="">Select ---</option>
@@ -67,7 +67,7 @@
                                     <div class="form-group">
                                         <label class=" control-label">Status Code</label>
 
-                                        <select class="select2 select2-hidden-accessible statuscodes" style="width: 100%" name="statusCodeId"  tabindex="-1" aria-hidden="true" required>
+                                        <select class="select2 form-control statuscodes" style="width: 100%" name="statusCodeId"  tabindex="-1" aria-hidden="true" required>
 
                                             <option value="">Select ---</option>
 
@@ -88,7 +88,7 @@
                                         <label class=" control-label">Country Of Origin</label>
 
 
-                                        <select class="select2 select2-hidden-accessible countries"  style="width: 100%" name="resCountryId"  tabindex="-1" aria-hidden="true" required>
+                                        <select class="select2 form-control  countries"  style="width: 100%" name="resCountryId"  tabindex="-1" aria-hidden="true" required>
 
                                             <option value="">Select ---</option>
 
@@ -101,7 +101,7 @@
                                     <div class="form-group">
                                         <label class=" control-label">Model</label>
 
-                                        <select class="select2 models" name="model"  tabindex="-1" aria-hidden="true" required>
+                                        <select class="select2 form-control models" name="model"  tabindex="-1" aria-hidden="true" required>
 
                                             <option value="">Select---</option>
 
@@ -154,7 +154,7 @@
                                     <div class="form-group">
                                         <label class=" control-label">TripType</label>
 
-                                        <select class="select2 tviTypes" name="tripType"  tabindex="-1" aria-hidden="true" required>
+                                        <select class="select2 form-control tviTypes" name="tripType"  tabindex="-1" aria-hidden="true" required>
 
                                             <option value="">Select---</option>
 

@@ -61,7 +61,7 @@
                                     <div class="form-group">
                                         <label class=" control-label">Sex</label>
 
-                                        <select class="select2 gender" name="gender"
+                                        <select class="select2 form-control gender" name="gender"
                                                 tabindex="-1" aria-hidden="true" required style="width: 100%">
 
 
@@ -71,6 +71,8 @@
 
                                     </div>
                                 </div>
+
+                      
 
                                 <div class="col-sm-3">
                                     <div class="form-group">
@@ -107,7 +109,7 @@
                                         <label class=" control-label">Resident Country</label>
 
 
-                                        <select class="select2 countries" 
+                                        <select class="select2 form-control countries" 
                                                 name="residentCountryId"  tabindex="-1" aria-hidden="true" 
                                                 required style="width: 100%">
 
@@ -121,7 +123,7 @@
                                         <label class=" control-label">Country Of Origin</label>
 
 
-                                        <select class="select2 countries" 
+                                        <select class="select2 form-control countries" 
                                                 name="countryCode"  tabindex="-1" aria-hidden="true" 
                                                 required style="width: 100%">
 
@@ -141,7 +143,7 @@
                                         <label class=" control-label">National ID Type</label>
 
 
-                                        <select class="select2 idtypes" name="nationalIdType" 
+                                        <select class="select2 form-control idtypes" name="nationalIdType" 
                                                 tabindex="-1" aria-hidden="true" required
                                                 style="width: 100%">
 

@@ -25,9 +25,9 @@
   <!-- Custom scripts required by this view -->
   <script src="<?php echo e(asset('js/views/datatables.js')); ?>"></script>
   <script type="text/javascript">
-  $('.select2').select2();
-  
-  
+  //$('.select2').select2();
+
+ 
   $('.datepicker').daterangepicker({
            singleDatePicker: true,
             showDropdowns: true,

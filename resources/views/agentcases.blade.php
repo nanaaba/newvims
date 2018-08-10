@@ -31,7 +31,7 @@
                                 <div class="form-group">
                                     <label class=" control-label">Agents</label>
 
-                                    <select class="select2 " name="agents" id="agents" tabindex="-1" aria-hidden="true" required>
+                                    <select class="select2 form-control " name="agents" id="agents" tabindex="-1" aria-hidden="true" required>
 
                                         <option value="">Select ---</option>
                                         <option value="Ama">Ama</option>

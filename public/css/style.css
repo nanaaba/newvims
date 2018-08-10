@@ -86,6 +86,10 @@ html {
   -ms-overflow-style: scrollbar;
   -webkit-tap-highlight-color: transparent; }
 
+
+.bg-black{
+    background-color: #000 !important;
+}
 @-ms-viewport {
   width: device-width; }
 

@@ -59,7 +59,7 @@
                                     <div class="form-group">
                                         <label class=" control-label">Drivers</label>
 
-                                        <select class="select2 select2-hidden-accessible drivers" name="driver"  tabindex="-1" aria-hidden="true" required style="width: 100%">
+                                        <select class="select2 form-control  drivers" name="driver"  tabindex="-1" aria-hidden="true" required style="width: 100%">
 
                                             <option value="">Select ---</option>
 
@@ -72,7 +72,7 @@
                                     <div class="form-group">
                                         <label class=" control-label">Vehicles</label>
 
-                                        <select class="select2 select2-hidden-accessible vehicles" multiple name="vehicles[]"  tabindex="-1" aria-hidden="true" required style="width: 100%">
+                                        <select class="select2 form-control  vehicles" multiple name="vehicles[]"  tabindex="-1" aria-hidden="true" required style="width: 100%">
 
                                             <option value="">Select ---</option>
 

@@ -21,8 +21,8 @@ class LoginController extends Controller {
 
     public function authenticateuser(Request $request) {
 
-         $data = $request->all(); // This will get all the request data.
-       //  print_r($data);
+        $data = $request->all(); // This will get all the request data.
+        
         $username = $request['username'];
         $password = $request['password'];
 
@@ -42,10 +42,7 @@ class LoginController extends Controller {
 
         $client = new Client();
 
-
-
-
-        try {
+       try {
 
 
             $response = $client->post($baseurl, [
@@ -56,6 +53,7 @@ class LoginController extends Controller {
                 ]
             ]);
             $body = $response->getBody();
+  
             $bodyObj = json_decode($body);
 
 
@@ -68,10 +66,10 @@ class LoginController extends Controller {
                 return json_encode($data);
             }
         } catch (\GuzzleHttp\Exception\RequestException $e) {
-            $data = array('status' => 1, 'message' => "Username and password mismatch");
+            $data = array('status' => 1, 'message' => "Username and password mismatch".$e->getMessage());
             return json_encode($data);
         } catch (\GuzzleHttp\Exception\ClientException $e) {
-            $data = array('status' => 1, 'message' => "Username and password mismatch");
+            $data = array('status' => 1, 'message' => "Username and password mismatch".$e->getMessage());
             return json_encode($data);
         }
     }
