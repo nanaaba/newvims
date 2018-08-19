@@ -20,26 +20,6 @@
 
 
         <!-- START ROW -->
-        <div id="sucessdiv" style="display: none">
-
-            <div class="alert alert-success fade in">
-                <button class="close" data-dismiss="alert">
-                    ×
-                </button>
-                <i class="fa-fw fa fa-check"></i>
-                <strong>Success</strong> <span id="successmsg"> </span>
-            </div>
-        </div>
-        <div id="errordiv" style="display: none">
-            <div class="alert alert-danger fade in">
-                <button class="close" data-dismiss="alert">
-                    ×
-                </button>
-                <i class="fa-fw fa fa-times"></i>
-                <strong>Error!</strong> <span id="errormsg"> </span>
-            </div>
-        </div>
-
 
 
         <div class="row"  >
@@ -55,6 +35,27 @@
         </div>
         <br>
 
+
+        <div id="errordiv"  style="display: none;">
+            <div class="alert alert-danger " role="alert">
+                <button class="close" data-dismiss="alert">
+                    ×
+                </button>
+                <strong>Error!</strong> <span class="feedback"> </span>
+            </div>
+
+        </div>
+
+        <div id="successdiv" style="display: none;" >
+            <div class="alert alert-success " role="alert">
+                <button class="close" data-dismiss="alert">
+                    ×
+                </button>
+                <strong>Success!</strong> <span class="feedback"> </span>
+            </div>
+
+        </div>
+
         <div class="row">
             <div class="col-md-12">
 
@@ -64,6 +65,8 @@
 
                     </div>
                     <div class="card-body table-responsive">
+
+
                         <table id="usersTbl" class=" table table-condensed table-hover table-bordered table-striped">
                             <thead>
                                 <tr>
@@ -114,6 +117,8 @@
                 <button type="button" data-dismiss="modal" aria-hidden="true" class="close md-close"><span class="mdi mdi-close"></span></button>
                 <h3 class="modal-title">New User</h3>
             </div>
+
+
             <form id="userForm">
                 <div class="modal-body">
                     {{ csrf_field() }}
@@ -152,13 +157,13 @@
 
                     <div class="form-group">
                         <label>Role</label>
-                            <select class="form-control select2" name="role" style="width: 100%"  id="roles" required>
+                        <select class="form-control select2" name="role" style="width: 100%"  id="roles" required>
 
-                                <option value="">Select ---</option>
-                                <option value="Admin">Administrator</option>
-                                <option value="Supervisor">Supervisor</option>
+                            <option value="">Select ---</option>
+                            <option value="Admin">Administrator</option>
+                            <option value="Supervisor">Supervisor</option>
 
-                            </select>
+                        </select>
                     </div>
 
 
@@ -272,13 +277,15 @@
                 data: formData,
                 dataType: 'json',
                 success: function (data) {
+                    console.log('server data :' + data);
 
 
                     $('#loaderModal').modal('hide');
-                    console.log('server data :' + data);
+                    $('#newuser').modal('hide');
+
                     var status = data.status;
+
                     if (status == 0) {
-                        $('#newuser').modal('hide');
                         document.getElementById("userForm").reset();
 
                         $('.feedback').html(data.message);

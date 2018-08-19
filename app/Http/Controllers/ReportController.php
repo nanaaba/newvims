@@ -116,19 +116,19 @@ class ReportController extends Controller {
 
             $response = $client->request('POST', $baseurl, ['json' => $dataArray, 'verify' => false]);
 
-            $body = $response->getBody();
-            // $bodyObj = json_decode($body);
+           $body = $response->getBody();
 
+            return $body;
+        } catch (\RequestException $e) {
+            $data = array('status' => 1, 'message' => "Request Exception" . $e->getMessage());
+            return json_encode($data);
+        } catch (\ClientException $e) {
+            $data = array('status' => 1, 'message' => "Client Exception" . $e->getMessage());
+            return json_encode($data);
+        } catch (\Exception $e) {
+            $data = array('status' => 1, 'message' => "Internal Server Error" . $e->getMessage());
 
-            if ($response->getStatusCode() == 200) {
-
-                return $body;
-            }
-            return $response->getStatusCode();
-        } catch (RequestException $e) {
-            return 'Http Exception : ' . $e->getMessage();
-        } catch (Exception $e) {
-            return 'Internal Server Error:' . $e->getMessage();
+            return redirect('errorpage')->with('errordata', $e->getMessage());
         }
     }
 
@@ -230,19 +230,19 @@ class ReportController extends Controller {
 
             $response = $client->request('POST', $baseurl, ['json' => $dataArray, 'verify' => false]);
 
-            $body = $response->getBody();
-            // $bodyObj = json_decode($body);
+             $body = $response->getBody();
 
+            return $body;
+        } catch (\RequestException $e) {
+            $data = array('status' => 1, 'message' => "Request Exception" . $e->getMessage());
+            return json_encode($data);
+        } catch (\ClientException $e) {
+            $data = array('status' => 1, 'message' => "Client Exception" . $e->getMessage());
+            return json_encode($data);
+        } catch (\Exception $e) {
+            $data = array('status' => 1, 'message' => "Internal Server Error" . $e->getMessage());
 
-            if ($response->getStatusCode() == 200) {
-
-                return $body;
-            }
-            return $response->getStatusCode();
-        } catch (RequestException $e) {
-            return 'Http Exception : ' . $e->getMessage();
-        } catch (Exception $e) {
-            return 'Internal Server Error:' . $e->getMessage();
+            return redirect('errorpage')->with('errordata', $e->getMessage());
         }
     }
 
@@ -286,32 +286,32 @@ class ReportController extends Controller {
             $response = $client->request('POST', $baseurl, ['json' => $dataArray, 'verify' => false]);
 
             $body = $response->getBody();
-            // $bodyObj = json_decode($body);
 
+            return $body;
+        } catch (\RequestException $e) {
+            $data = array('status' => 1, 'message' => "Request Exception" . $e->getMessage());
+            return json_encode($data);
+        } catch (\ClientException $e) {
+            $data = array('status' => 1, 'message' => "Client Exception" . $e->getMessage());
+            return json_encode($data);
+        } catch (\Exception $e) {
+            $data = array('status' => 1, 'message' => "Internal Server Error" . $e->getMessage());
 
-            if ($response->getStatusCode() == 200) {
-
-                return $body;
-            }
-            return $response->getStatusCode();
-        } catch (RequestException $e) {
-            return 'Http Exception : ' . $e->getMessage();
-        } catch (Exception $e) {
-            return 'Internal Server Error:' . $e->getMessage();
+            return redirect('errorpage')->with('errordata', $e->getMessage());
         }
     }
 
     public function search(Request $request) {
         $param = $request->input('searchparam');
-        
-        if(empty($param)){
-            
-                return redirect('/');
 
+        if (empty($param)) {
+
+            return redirect('/');
         }
-        
+
         $results = $this->searchQuery($param);
 
+        
         return view('searchresults')
                         ->with('searchparam', $param)
                         ->with('results', $results);
@@ -320,7 +320,7 @@ class ReportController extends Controller {
     public function searchQuery($searchparam) {
         $url = config('constants.TEST_URL');
 
-        $baseurl = $url . 'vehicles/search/'.$searchparam;
+        $baseurl = $url . 'vehicles/search/' . $searchparam;
 
         $client = new Client([
             'headers' => [
@@ -332,12 +332,19 @@ class ReportController extends Controller {
 
             $response = $client->request('GET', $baseurl);
 
-            $body = $response->getBody();
+             $body = $response->getBody();
+
             return $body;
-        } catch (RequestException $e) {
-            return 'Http Exception : ' . $e->getMessage();
-        } catch (Exception $e) {
-            return 'Internal Server Error:' . $e->getMessage();
+        } catch (\RequestException $e) {
+            $data = array('status' => 1, 'message' => "Request Exception" . $e->getMessage());
+            return json_encode($data);
+        } catch (\ClientException $e) {
+            $data = array('status' => 1, 'message' => "Client Exception" . $e->getMessage());
+            return json_encode($data);
+        } catch (\Exception $e) {
+            $data = array('status' => 1, 'message' => "Internal Server Error" . $e->getMessage());
+
+            return redirect('errorpage')->with('errordata', $e->getMessage());
         }
     }
 

@@ -11,66 +11,93 @@
     <div class="animated fadeIn">
 
 
-    <?php
-    $data = json_decode($results, true);
-    $resultdata = $data['data'];
-    ?>
+        <?php
+        $search_array = json_decode($results, true);
+        print_r($search_array);
 
-        <div class="row">
+        if (isset($search_array['data'])) {
+            $resultdata = $search_array['data'];
+            ?>
+            <div class="row">
 
-            <div class="col-sm-12">
+                <div class="col-sm-12">
 
-                <h1> Search Results -  <span class="semi-bold"><?php echo e($searchparam); ?></span></h1>
-                <br>
-              <div class="table-responsive">
+                    <h1> Search Results -  <span class="semi-bold"><?php echo e($searchparam); ?></span></h1>
+                    <br>
 
-                    <table id="resultTable" class="table table-striped table-bordered table-hover">
-                        <thead>
-                            <tr>
+                    <div class="card">
+            <div class="card-header">
+                <i class="fa fa-edit"></i> Search Results -  <span class="semi-bold"><?php echo e($searchparam); ?></span>
+                   
 
-                                <th>Chasis No</th>  
-                                <th>Make</th>  
-                                <th>Model</th>  
-                                <th>Color</th>  
-                                <th>Action</th>
+            </div>
+                    <div class="card-body ">
 
-                            </tr>
-                        </thead>
-                        <tbody>
+                        <div class="table-responsive">
 
-                            <?php
-                            foreach ($resultdata as $value) {
-                                echo '<tr>'
-                                . '<td>'
-                                . $value['chasisNo']
-                                . '</td>'
-                                . '<td>'
-                                . $value['make']
-                                . '</td>'
-                                . '<td>'
-                                . $value['model']
-                                . '</td>'
-                                . '<td>'
-                                . $value['colour']
-                                . '</td>'
-                                . '<td><a  href="vehicles/information/' . $value['vehicleNo'] . '"   type="button" class=" btn btn-labeled btn-primary btn-sm  col-sm-6" ><i class="fa fa-search-plus "></i> </a> ' 
-                                 
-                                . '</td>'
-                                . '</tr>';
-                            }
-                            ?>
+                            <table id="resultTable" class="table table-striped table-bordered table-hover">
+                                <thead>
+                                    <tr>
 
-                        </tbody>
-                    </table>
+                                        <th>Chasis No</th>  
+                                        <th>Make</th>  
+                                        <th>Model</th>  
+                                        <th>Color</th>  
+                                        <th>Action</th>
 
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    <?php
+                                    foreach ($resultdata as $value) {
+                                        echo '<tr>'
+                                        . '<td>'
+                                        . $value['chasisNo']
+                                        . '</td>'
+                                        . '<td>'
+                                        . $value['make']
+                                        . '</td>'
+                                        . '<td>'
+                                        . $value['model']
+                                        . '</td>'
+                                        . '<td>'
+                                        . $value['colour']
+                                        . '</td>'
+                                        . '<td><a  href="vehicles/information/' . $value['vehicleNo'] . '"   type="button" class=" btn btn-labeled btn-primary btn-sm  col-sm-6" ><i class="fa fa-search-plus "></i> </a> '
+                                        . '</td>'
+                                        . '</tr>';
+                                    }
+                                    ?>
+
+                                </tbody>
+                            </table>
+
+                        </div>
+
+                    </div>
+
+                    </div>
                 </div>
-
-
-
 
             </div>
 
-        </div>
+            <?php
+        } else {
+            ?>
+            <div>
+                <div class="alert alert-info " role="alert">
+                    <button class="close" data-dismiss="alert">
+                        ×
+                    </button>
+                    <strong>Info!</strong> Search for <?php echo e($searchparam); ?> not found
+                </div>
+
+            </div>
+            <?php
+        }
+        ?>
+
 
     </div>
 </div>
@@ -81,7 +108,7 @@
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('customjs'); ?>
-<script type="text/javascript" src="<?php echo e(asset('js/custom.js')); ?>"></script>
+<!--<script type="text/javascript" src="<?php echo e(asset('js/custom.js')); ?>"></script>-->
 
 
 <script type="text/javascript">

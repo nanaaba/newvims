@@ -86,12 +86,16 @@ $('#loginForm').submit(function (e) {
             if (data.status == 0) {
                 window.location = "dashboard";
             } else {
+                            $('#loaderModal').modal('hide');
+
                 $('#errordiv').show();
                 $('#errormsg').html(data.message);
             }
 
         },
         error: function (jXHR, textStatus, errorThrown) {
+                        $('#loaderModal').modal('hide');
+
             console.log(errorThrown);
         }
     });

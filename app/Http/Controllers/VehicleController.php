@@ -44,17 +44,18 @@ class VehicleController extends Controller {
             $response = $client->request('GET', $baseurl);
 
             $body = $response->getBody();
-            //$bodyObj = json_decode($body);
 
-            if ($response->getStatusCode() == 200) {
+            return $body;
+        } catch (\RequestException $e) {
+            $data = array('status' => 1, 'message' => "Request Exception" . $e->getMessage());
+            return json_encode($data);
+        } catch (\ClientException $e) {
+            $data = array('status' => 1, 'message' => "Client Exception" . $e->getMessage());
+            return json_encode($data);
+        } catch (\Exception $e) {
+            $data = array('status' => 1, 'message' => "Internal Server Error" . $e->getMessage());
 
-                return $body;
-            }
-            return $response->getStatusCode();
-        } catch (RequestException $e) {
-            return 'Http Exception : ' . $e->getMessage();
-        } catch (Exception $e) {
-            return 'Internal Server Error:' . $e->getMessage();
+            return redirect('errorpage')->with('errordata', $e->getMessage());
         }
     }
 
@@ -86,17 +87,18 @@ class VehicleController extends Controller {
             $response = $client->request('GET', $baseurl);
 
             $body = $response->getBody();
-            //$bodyObj = json_decode($body);
 
-            if ($response->getStatusCode() == 200) {
+            return $body;
+        } catch (\RequestException $e) {
+            $data = array('status' => 1, 'message' => "Request Exception" . $e->getMessage());
+            return json_encode($data);
+        } catch (\ClientException $e) {
+            $data = array('status' => 1, 'message' => "Client Exception" . $e->getMessage());
+            return json_encode($data);
+        } catch (\Exception $e) {
+            $data = array('status' => 1, 'message' => "Internal Server Error" . $e->getMessage());
 
-                return $body;
-            }
-            return $response->getStatusCode();
-        } catch (RequestException $e) {
-            return 'Http Exception : ' . $e->getMessage();
-        } catch (Exception $e) {
-            return 'Internal Server Error:' . $e->getMessage();
+            return redirect('errorpage')->with('errordata', $e->getMessage());
         }
     }
 
@@ -125,12 +127,20 @@ class VehicleController extends Controller {
 
             $response = $client->request('POST', $baseurl, ['json' => $data, 'verify' => false]);
 
+
             $body = $response->getBody();
+
             return $body;
-        } catch (RequestException $e) {
-            return 'Http Exception : ' . $e->getMessage();
-        } catch (Exception $e) {
-            return 'Internal Server Error:' . $e->getMessage();
+        } catch (\RequestException $e) {
+            $data = array('status' => 1, 'message' => "Request Exception" . $e->getMessage());
+            return json_encode($data);
+        } catch (\ClientException $e) {
+            $data = array('status' => 1, 'message' => "Client Exception" . $e->getMessage());
+            return json_encode($data);
+        } catch (\Exception $e) {
+            $data = array('status' => 1, 'message' => "Internal Server Error" . $e->getMessage());
+
+            return redirect('errorpage')->with('errordata', $e->getMessage());
         }
     }
 
@@ -156,13 +166,19 @@ class VehicleController extends Controller {
         try {
 
             $response = $client->request('DELETE', $baseurl);
-
             $body = $response->getBody();
+
             return $body;
-        } catch (RequestException $e) {
-            return 'Http Exception : ' . $e->getMessage();
-        } catch (Exception $e) {
-            return 'Internal Server Error:' . $e->getMessage();
+        } catch (\RequestException $e) {
+            $data = array('status' => 1, 'message' => "Request Exception" . $e->getMessage());
+            return json_encode($data);
+        } catch (\ClientException $e) {
+            $data = array('status' => 1, 'message' => "Client Exception" . $e->getMessage());
+            return json_encode($data);
+        } catch (\Exception $e) {
+            $data = array('status' => 1, 'message' => "Internal Server Error" . $e->getMessage());
+
+            return redirect('errorpage')->with('errordata', $e->getMessage());
         }
     }
 
@@ -193,11 +209,18 @@ class VehicleController extends Controller {
             $response = $client->request('PUT', $baseurl, ['json' => $data, 'verify' => false]);
 
             $body = $response->getBody();
+
             return $body;
-        } catch (RequestException $e) {
-            return 'Http Exception : ' . $e->getMessage();
-        } catch (Exception $e) {
-            return 'Internal Server Error:' . $e->getMessage();
+        } catch (\RequestException $e) {
+            $data = array('status' => 1, 'message' => "Request Exception" . $e->getMessage());
+            return json_encode($data);
+        } catch (\ClientException $e) {
+            $data = array('status' => 1, 'message' => "Client Exception" . $e->getMessage());
+            return json_encode($data);
+        } catch (\Exception $e) {
+            $data = array('status' => 1, 'message' => "Internal Server Error" . $e->getMessage());
+
+            return redirect('errorpage')->with('errordata', $e->getMessage());
         }
     }
 

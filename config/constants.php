@@ -8,5 +8,5 @@
 
 return [
 	
-      'TEST_URL' => 'http://18.216.240.149/vims/'
+      'TEST_URL' => 'http://18.191.194.73/vims/'
 ];

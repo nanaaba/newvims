@@ -22,7 +22,7 @@ class LoginController extends Controller {
     public function authenticateuser(Request $request) {
 
         $data = $request->all(); // This will get all the request data.
-        
+
         $username = $request['username'];
         $password = $request['password'];
 
@@ -42,7 +42,7 @@ class LoginController extends Controller {
 
         $client = new Client();
 
-       try {
+        try {
 
 
             $response = $client->post($baseurl, [
@@ -53,23 +53,23 @@ class LoginController extends Controller {
                 ]
             ]);
             $body = $response->getBody();
-  
+
             $bodyObj = json_decode($body);
 
 
             if ($response->getStatusCode() == 200) {
 
-                $this->setSettings();
+               $this->setSettings();
                 session(['username' => $bodyObj->userName]);
                 session(['token' => $bodyObj->access_token]);
                 $data = array('status' => 0, 'message' => 'success' . $bodyObj->userName);
                 return json_encode($data);
             }
         } catch (\GuzzleHttp\Exception\RequestException $e) {
-            $data = array('status' => 1, 'message' => "Username and password mismatch".$e->getMessage());
+            $data = array('status' => 1, 'message' => "Error " . $e->getMessage());
             return json_encode($data);
         } catch (\GuzzleHttp\Exception\ClientException $e) {
-            $data = array('status' => 1, 'message' => "Username and password mismatch".$e->getMessage());
+            $data = array('status' => 1, 'message' => "Error: " . $e->getMessage());
             return json_encode($data);
         }
     }

@@ -92,10 +92,7 @@
 
 
 
-    var datatable = $('#driverTbl').DataTable({
-        "pageLength": 20
-
-    });
+    var datatable = $('#driverTbl').DataTable();
 
 
 

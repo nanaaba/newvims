@@ -24,7 +24,7 @@ class DashboardController extends Controller {
 
             return view('dashboard')->with('data', $dataArray);
         }
-        return null;
+        return redirect('errorpage')->with('errordata', $dashboard_data['message']);
     }
 
     public function dashboardData() {
@@ -42,20 +42,18 @@ class DashboardController extends Controller {
         try {
 
             $response = $client->request('GET', $baseurl);
-
             $body = $response->getBody();
-            //$bodyObj = json_decode($body);
 
-            if ($response->getStatusCode() == 200) {
-
-
-                return json_decode($body, true);
-            }
-            return $response->getStatusCode();
-        } catch (RequestException $e) {
-            return 'Http Exception : ' . $e->getMessage();
-        } catch (Exception $e) {
-            return 'Internal Server Error:' . $e->getMessage();
+            return json_decode($body, true);
+        } catch (\RequestException $e) {
+            $data = array('status' => 1, 'message' => "Request Exception: " . $e->getMessage());
+            return $data;
+        } catch (\ClientException $e) {
+            $data = array('status' => 1, 'message' => "Client Exception:" . $e->getMessage());
+            return $data;
+        } catch (\Exception $e) {
+            $data = array('status' => 1, 'message' => "Internal Server Error: " . $e->getMessage());
+            return $data;
         }
     }
 

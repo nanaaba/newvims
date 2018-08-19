@@ -48,17 +48,18 @@ class UserController extends Controller {
             $response = $client->request('GET', $baseurl);
 
             $body = $response->getBody();
-            //$bodyObj = json_decode($body);
 
-            if ($response->getStatusCode() == 200) {
+            return $body;
+        } catch (\RequestException $e) {
+            $data = array('status' => 1, 'message' => "Request Exception" . $e->getMessage());
+            return json_encode($data);
+        } catch (\ClientException $e) {
+            $data = array('status' => 1, 'message' => "Client Exception" . $e->getMessage());
+            return json_encode($data);
+        } catch (\Exception $e) {
+            $data = array('status' => 1, 'message' => "Internal Server Error" . $e->getMessage());
 
-                return $body;
-            }
-            return $response->getStatusCode();
-        } catch (RequestException $e) {
-            return 'Http Exception : ' . $e->getMessage();
-        } catch (Exception $e) {
-            return 'Internal Server Error:' . $e->getMessage();
+            return redirect('errorpage')->with('errordata', $e->getMessage());
         }
     }
 
@@ -69,7 +70,7 @@ class UserController extends Controller {
         $url = config('constants.TEST_URL');
         $baseurl = $url . '/account/users';
 
-        
+
 
 
         $client = new Client([
@@ -92,7 +93,7 @@ class UserController extends Controller {
             'addedby' => session('userid')
         );
 
-       
+
         try {
 
             $response = $client->request('POST', $baseurl, ['json' => $dataArray, 'verify' => false]);
@@ -100,10 +101,16 @@ class UserController extends Controller {
             $body = $response->getBody();
 
             return $body;
-        } catch (RequestException $e) {
-            return 'Http Exception : ' . $e->getMessage();
-        } catch (Exception $e) {
-            return 'Internal Server Error:' . $e->getMessage();
+        } catch (\RequestException $e) {
+            $data = array('status' => 1, 'message' => "Request Exception" . $e->getMessage());
+            return json_encode($data);
+        } catch (\ClientException $e) {
+            $data = array('status' => 1, 'message' => "Client Exception" . $e->getMessage());
+            return json_encode($data);
+        } catch (\Exception $e) {
+            $data = array('status' => 1, 'message' => "Internal Server Error" . $e->getMessage());
+
+            return redirect('errorpage')->with('errordata', $e->getMessage());
         }
     }
 
@@ -142,15 +149,17 @@ class UserController extends Controller {
 
             $body = $response->getBody();
 
-            if ($response->getStatusCode() == 200) {
+            return $body;
+        } catch (\RequestException $e) {
+            $data = array('status' => 1, 'message' => "Request Exception" . $e->getMessage());
+            return json_encode($data);
+        } catch (\ClientException $e) {
+            $data = array('status' => 1, 'message' => "Client Exception" . $e->getMessage());
+            return json_encode($data);
+        } catch (\Exception $e) {
+            $data = array('status' => 1, 'message' => "Internal Server Error" . $e->getMessage());
 
-                return $body;
-            }
-            return $response->getStatusCode();
-        } catch (RequestException $e) {
-            return 'Http Exception : ' . $e->getMessage();
-        } catch (Exception $e) {
-            return 'Internal Server Error:' . $e->getMessage();
+            return redirect('errorpage')->with('errordata', $e->getMessage());
         }
     }
 
@@ -174,15 +183,17 @@ class UserController extends Controller {
 
             $body = $response->getBody();
 
-            if ($response->getStatusCode() == 200) {
+            return $body;
+        } catch (\RequestException $e) {
+            $data = array('status' => 1, 'message' => "Request Exception" . $e->getMessage());
+            return json_encode($data);
+        } catch (\ClientException $e) {
+            $data = array('status' => 1, 'message' => "Client Exception" . $e->getMessage());
+            return json_encode($data);
+        } catch (\Exception $e) {
+            $data = array('status' => 1, 'message' => "Internal Server Error" . $e->getMessage());
 
-                return $body;
-            }
-            return $response->getStatusCode();
-        } catch (RequestException $e) {
-            return 'Http Exception : ' . $e->getMessage();
-        } catch (Exception $e) {
-            return 'Internal Server Error:' . $e->getMessage();
+            return redirect('errorpage')->with('errordata', $e->getMessage());
         }
     }
 
@@ -206,17 +217,18 @@ class UserController extends Controller {
             $response = $client->request('GET', $baseurl);
 
             $body = $response->getBody();
-            //$bodyObj = json_decode($body);
 
-            if ($response->getStatusCode() == 200) {
+            return $body;
+        } catch (\RequestException $e) {
+            $data = array('status' => 1, 'message' => "Request Exception" . $e->getMessage());
+            return json_encode($data);
+        } catch (\ClientException $e) {
+            $data = array('status' => 1, 'message' => "Client Exception" . $e->getMessage());
+            return json_encode($data);
+        } catch (\Exception $e) {
+            $data = array('status' => 1, 'message' => "Internal Server Error" . $e->getMessage());
 
-                return $body;
-            }
-            return $response->getStatusCode();
-        } catch (RequestException $e) {
-            return 'Http Exception : ' . $e->getMessage();
-        } catch (Exception $e) {
-            return 'Internal Server Error:' . $e->getMessage();
+            return redirect('errorpage')->with('errordata', $e->getMessage());
         }
     }
 
@@ -247,15 +259,17 @@ class UserController extends Controller {
 
             $body = $response->getBody();
 
-            if ($response->getStatusCode() == 200) {
+            return $body;
+        } catch (\RequestException $e) {
+            $data = array('status' => 1, 'message' => "Request Exception" . $e->getMessage());
+            return json_encode($data);
+        } catch (\ClientException $e) {
+            $data = array('status' => 1, 'message' => "Client Exception" . $e->getMessage());
+            return json_encode($data);
+        } catch (\Exception $e) {
+            $data = array('status' => 1, 'message' => "Internal Server Error" . $e->getMessage());
 
-                return $body;
-            }
-            return $response->getStatusCode();
-        } catch (RequestException $e) {
-            return 'Http Exception : ' . $e->getMessage();
-        } catch (Exception $e) {
-            return 'Internal Server Error:' . $e->getMessage();
+            return redirect('errorpage')->with('errordata', $e->getMessage());
         }
     }
 
@@ -285,17 +299,18 @@ class UserController extends Controller {
             $response = $client->request('GET', $baseurl);
 
             $body = $response->getBody();
-            //$bodyObj = json_decode($body);
 
-            if ($response->getStatusCode() == 200) {
+            return $body;
+        } catch (\RequestException $e) {
+            $data = array('status' => 1, 'message' => "Request Exception" . $e->getMessage());
+            return json_encode($data);
+        } catch (\ClientException $e) {
+            $data = array('status' => 1, 'message' => "Client Exception" . $e->getMessage());
+            return json_encode($data);
+        } catch (\Exception $e) {
+            $data = array('status' => 1, 'message' => "Internal Server Error" . $e->getMessage());
 
-                return $body;
-            }
-            return $response->getStatusCode();
-        } catch (RequestException $e) {
-            return 'Http Exception : ' . $e->getMessage();
-        } catch (Exception $e) {
-            return 'Internal Server Error:' . $e->getMessage();
+            return redirect('errorpage')->with('errordata', $e->getMessage());
         }
     }
 
