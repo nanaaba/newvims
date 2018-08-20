@@ -84,7 +84,7 @@ class UserController extends Controller {
         $dataArray = array(
             'UserName' => $request['username'],
             'Email' => $request['email'],
-            'contact' => $request['contact'],
+            'phone' => $request['contact'],
             'Role' => $request['role'],
             'Surname' => $request['surname'],
             'Othernames' => $request['othernames'],
