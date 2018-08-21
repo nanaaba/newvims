@@ -109,8 +109,9 @@ class UserController extends Controller {
             return json_encode($data);
         } catch (\Exception $e) {
             $data = array('status' => 1, 'message' => "Internal Server Error" );
+            return json_encode($data);
 
-            return redirect('errorpage')->with('errordata', $e->getMessage());
+           // return redirect('errorpage')->with('errordata', $e->getMessage());
         }
     }
 

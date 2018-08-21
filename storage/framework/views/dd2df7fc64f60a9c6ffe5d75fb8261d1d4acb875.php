@@ -215,7 +215,7 @@
                         <select class="form-control select2" name="role" style="width: 100%"  id="editrole" required>
                             <option value="">Select ---</option>
                             <option value="Admin">Administrator</option>
-                            <option value="Supervisor">Supervisor</option>
+                            <option value="Agents">Agents</option>
 
                         </select>
                     </div>
@@ -309,6 +309,14 @@
                         $('#successdiv').hide();
                     }
 
+                },
+
+                error: function (jXHR, textStatus, errorThrown) {
+                    $('#loaderModal').modal('hide');
+
+                    $('.feedback').html(textStatus);
+                    $('#errordiv').show();
+                    $('#successdiv').hide();
                 }
 
             });

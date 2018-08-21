@@ -100,7 +100,7 @@ $trips = json_decode($trips, true);
                                                     <div class="form-group">
                                                         <label class=" control-label">Status Code</label>
 
-                                                        <input type="text" name="statusCode" value="<?php echo e($details['statusCode']); ?>" class="form-control datepicker">
+                                                        <input type="text" name="statusCode" value="<?php echo e($details['statusCode']); ?>" class="form-control ">
                                                     </div>
                                                 </div>
 
@@ -300,47 +300,49 @@ $trips = json_decode($trips, true);
 
                                             </div>
                                             <br>
-                                            <table id="tripsTbl" class="table table-condensed table-hover table-bordered table-striped">
-                                                <thead>
-                                                    <tr>
+                                            <div class="table-responsive">
+                                                <table id="tripsTbl" class="table table-condensed table-hover table-bordered table-striped">
+                                                    <thead>
+                                                        <tr>
 
-                                                        <th>Trip Type</th>  
-                                                        <th>Final Country</th>  
-                                                        <th>Vehicle(Front Plate)</th>  
-                                                        <th>Driver</th> 
-                                                        <th>Check In</th> 
+                                                            <th>Trip Type</th>  
+                                                            <th>Final Country</th>  
+                                                            <th>Vehicle(Front Plate)</th>  
+                                                            <th>Driver</th> 
+                                                            <th>Check In</th> 
 
-                                                        <th>Action</th>
+                                                            <th>Action</th>
 
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <?php
-                                                    foreach ($trips['data'] as $value) {
-                                                        echo '<tr>'
-                                                        . '<td>'
-                                                        . $value['tripType']
-                                                        . '</td>'
-                                                        . '<td>'
-                                                        . $value['finalCountry']
-                                                        . '</td>'
-                                                        . '<td>'
-                                                        . $value['vehicle']['frontPlateNo']
-                                                        . '</td>'
-                                                        . '<td>'
-                                                        . $value['driver']['othernames'] . ' ' . $value['driver']['surname']
-                                                        . '</td>'
-                                                        . '<td>'
-                                                        . $value['checkInOn']
-                                                        . '</td>'
-                                                        . '<td><a   href="../../trip/' . $value['tripNo'] . '"    type="button" class=" btn btn-labeled btn-primary btn-sm  col-sm-6" ><i class="glyphicon glyphicon-eye-open"></i> </a></td> '
-                                                        . '</tr>';
-                                                    }
-                                                    ?>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <?php
+                                                        foreach ($trips['data'] as $value) {
+                                                            echo '<tr>'
+                                                            . '<td>'
+                                                            . $value['tripType']
+                                                            . '</td>'
+                                                            . '<td>'
+                                                            . $value['finalCountry']
+                                                            . '</td>'
+                                                            . '<td>'
+                                                            . $value['vehicle']['frontPlateNo']
+                                                            . '</td>'
+                                                            . '<td>'
+                                                            . $value['driver']['othernames'] . ' ' . $value['driver']['surname']
+                                                            . '</td>'
+                                                            . '<td>'
+                                                            . $value['checkInOn']
+                                                            . '</td>'
+                                                            . '<td><a   href="../../trip/' . $value['tripNo'] . '"    type="button" class="btn btn-success" > <i class="fa fa-search-plus "></i>  </a></td> '
+                                                            . '</tr>';
+                                                        }
+                                                        ?>
 
 
-                                                </tbody>
-                                            </table>
+                                                    </tbody>
+                                                </table>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -414,7 +416,7 @@ $trips = json_decode($trips, true);
                                 </select>                                       
                             </div>
                         </div>
-                        
+
                         <div class="col-sm-3">
                             <div class="form-group">
                                 <label class=" control-label">Trip Type </label>
@@ -622,10 +624,10 @@ $trips = json_decode($trips, true);
 <!--<script type="text/javascript" src="<?php echo e(asset('js/custom.js')); ?>"></script>-->
 
 <script type="text/javascript">
-    $('#tripsTbl').DataTable();
-   // $('#tabs').tabs();
+  
+    // $('#tabs').tabs();
     getSettings();
-   // getTVISettings();
+    // getTVISettings();
     getDrivers();
     function getSettings() {
 

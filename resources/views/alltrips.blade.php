@@ -44,61 +44,59 @@
 
 
 
-  <?php
-
-$trips = json_decode($details, true);
-?>
+        <?php
+        $trips = json_decode($details, true);
+        ?>
         <div class="row">
             <div class="col-md-12">
 
-            <div class="card">
-                <div class="card-header">
-                    <i class="fa fa-edit"></i> Trips
+                <div class="card">
+                    <div class="card-header">
+                        <i class="fa fa-edit"></i> Trips
 
+                    </div>
+                    <div class="card-body table-responsive">
+                        <table id="vehicleTbl" class="table table-condensed table-hover table-bordered table-striped">
+                            <thead>
+                                <tr>
+
+                                    <th>Trip Type</th>  
+                                    <th>Final Country</th>  
+                                    <th>Vehicle(Front Plate)</th>  
+                                    <th>Driver</th> 
+                                    <th>Check In</th> 
+
+                                    <th>Action</th>
+                            </thead>
+                            <tbody>
+
+                                <?php
+                                foreach ($trips['data'] as $value) {
+                                    echo '<tr>'
+                                    . '<td>'
+                                    . $value['tripType']
+                                    . '</td>'
+                                    . '<td>'
+                                    . $value['finalCountry']
+                                    . '</td>'
+                                    . '<td>'
+                                    . $value['vehicle']['frontPlateNo']
+                                    . '</td>'
+                                    . '<td>'
+                                    . $value['driver']['othernames'] . ' ' . $value['driver']['surname']
+                                    . '</td>'
+                                    . '<td>'
+                                    . $value['checkInDate']
+                                    . '</td>'
+                                    . '<td><a   href="../trip/' . $value['tripNo'] . '"    type="button" class=" btn  btn-primary " ><i class="fa fa-search-plus"></i> </a></td> '
+                                    . '</tr>';
+                                }
+                                ?>
+                            </tbody>
+                        </table>
+
+                    </div>
                 </div>
-                <div class="card-body table-responsive">
-                      <table id="vehicleTbl" class="table table-condensed table-hover table-bordered table-striped">
-                                    <thead>
-                                         <tr>
-
-                                        <th>Trip Type</th>  
-                                        <th>Final Country</th>  
-                                        <th>Vehicle(Front Plate)</th>  
-                                        <th>Driver</th> 
-                                        <th>Check In</th> 
-
-                                        <th>Action</th>
-                                    </thead>
-                                    <tbody>
-
-   <?php
-                                    foreach ($trips['data'] as $value) {
-                                        echo '<tr>'
-                                        . '<td>'
-                                        . $value['tripType']
-                                        . '</td>'
-                                        . '<td>'
-                                        . $value['finalCountry']
-                                        . '</td>'
-                                        . '<td>'
-                                        . $value['vehicle']['frontPlateNo']
-                                        . '</td>'
-                                        . '<td>'
-                                        . $value['driver']['othernames'].' '.$value['driver']['surname']
-                                        . '</td>'
-                                        . '<td>'
-                                        . $value['checkInOn']
-                                        . '</td>'
-                                        . '<td><a   href="../trip/' . $value['tripNo'] . '"    type="button" class=" btn  btn-primary " ><i class="fa fa-search-plus"></i> </a></td> ' 
-                                         
-                                        . '</tr>';
-                                    }
-                                    ?>
-                                    </tbody>
-                                </table>
-                  
-                </div>
-            </div>
 
 
             </div>
