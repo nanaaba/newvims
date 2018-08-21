@@ -35,13 +35,13 @@ class ConfigurationController extends Controller {
 
             return $body;
         } catch (\RequestException $e) {
-            $data = array('status' => 1, 'message' => "Request Exception" . $e->getMessage());
+            $data = array('status' => 1, 'message' => "Request Exception" );
             return json_encode($data);
         } catch (\ClientException $e) {
-            $data = array('status' => 1, 'message' => "Client Exception" . $e->getMessage());
+            $data = array('status' => 1, 'message' => "Client Exception" );
             return json_encode($data);
         } catch (\Exception $e) {
-            $data = array('status' => 1, 'message' => "Internal Server Error" . $e->getMessage());
+            $data = array('status' => 1, 'message' => "Internal Server Error");
 
             return redirect('errorpage')->with('errordata', $e->getMessage());
         }
@@ -66,14 +66,14 @@ class ConfigurationController extends Controller {
 
             return $body;
         } catch (\RequestException $e) {
-            $data = array('status' => 1, 'message' => "Request Exception" . $e->getMessage());
+            $data = array('status' => 1, 'message' => "Request Exception" );
             return json_encode($data);
         } catch (\ClientException $e) {
-            $data = array('status' => 1, 'message' => "Client Exception" . $e->getMessage());
+            $data = array('status' => 1, 'message' => "Client Exception" );
             return json_encode($data);
         } catch (\Exception $e) {
-            $data = array('status' => 1, 'message' => "Internal Server Error" . $e->getMessage());
-            return redirect('errorpage')->with('errordata', $e->getMessage());
+            $data = array('status' => 1, 'message' => "Internal Server Error" );
+            return json_encode($data);
         }
     }
 

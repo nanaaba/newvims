@@ -114,8 +114,6 @@
             dataType: 'json',
             success: function (data) {
 
-
-                console.log('server data :' + data.data);
                 var dataSet = data.data;
                 console.log(dataSet);
                 datatable.clear().draw();

@@ -25,8 +25,8 @@
                         <strong>Agent Cases</strong>
                     </div>
                     <div class="card-body">
-                        
-                   
+
+
                         <div class="row">
 
                             <div class="col-sm-4">
@@ -151,7 +151,6 @@
 
 
                 $('.loader').removeClass('be-loading-active');
-                console.log('server data :' + data.data);
                 var dataSet = data.data;
                 console.log(dataSet);
                 datatable.clear().draw();

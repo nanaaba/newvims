@@ -56,19 +56,20 @@ class LoginController extends Controller {
 
             $bodyObj = json_decode($body);
 
-
             if ($response->getStatusCode() == 200) {
 
                 $this->setSettings();
-                session(['username' => $bodyObj->userName]);
+                session(['username' => $bodyObj->fullname]);
+                session(['role' => $bodyObj->role]);
+
                 session(['token' => $bodyObj->access_token]);
                 $data = array('status' => 0, 'message' => 'success' . $bodyObj->userName);
                 return json_encode($data);
             }
         } catch (\GuzzleHttp\Exception\RequestException $e) {
 
-           
-            $data = array('status' => 1, 'message' =>"Username or password mismatch");
+
+            $data = array('status' => 1, 'message' => "Username or password mismatch".$e->getMessage());
             return json_encode($data);
         } catch (\GuzzleHttp\Exception\ClientException $e) {
             $data = array('status' => 1, 'message' => "System Error.PLease Contact System Administrator.");

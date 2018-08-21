@@ -134,7 +134,7 @@ class UserController extends Controller {
             'userId' => $request['userid'],
             'username' => $request['username'],
             'Email' => $request['email'],
-            'contact' => $request['contact'],
+            'phone' => $request['contact'],
             'role' => $request['role'],
             'surname' => $request['surname'],
             'othernames' => $request['othernames'],
@@ -169,7 +169,7 @@ class UserController extends Controller {
 
         $url = config('constants.TEST_URL');
 
-        $baseurl = $url . '/account/users/' . $userid;
+        $baseurl = $url . '/Account/users/'.$userid;
 
         $client = new Client([
             'headers' => [
@@ -194,7 +194,7 @@ class UserController extends Controller {
         } catch (\Exception $e) {
             $data = array('status' => 1, 'message' => "Internal Server Error" );
 
-            return redirect('errorpage')->with('errordata', $e->getMessage());
+            return json_encode($data);
         }
     }
 

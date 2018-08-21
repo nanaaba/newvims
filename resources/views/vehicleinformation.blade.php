@@ -692,7 +692,6 @@ $trips = json_decode($trips, true);
             success: function (data) {
                 $('#loaderModal').modal('hide');
 
-                console.log(data);
                 var status = data.status;
                 console.log('status is :' + status);
 
@@ -763,7 +762,6 @@ $trips = json_decode($trips, true);
                 $('#tripForm select').val('').trigger('change');
                 $('#newtrip').modal('hide');
 
-                console.log(data);
                 var status = data.status;
                 console.log('status is :' + status);
 

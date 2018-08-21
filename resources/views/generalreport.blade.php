@@ -33,98 +33,35 @@
                 <strong>Error!</strong> <span id="errormsg"> </span>
             </div>
         </div>
-        
+
         <div class="row">
-                <div class="col-sm-12">
-                    <div class="card">
-                        <div class="card-header">
-                            <strong>General Report</strong>
-                        </div>
-                        <div class="card-body">
-                            
-                               <form id="reportForm" >
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header">
+                        <strong>General Report</strong>
+                    </div>
+                    <div class="card-body">
 
-                                {{ csrf_field() }}
+                        <form id="reportForm" >
 
-                                <div class="row">
+                            {{ csrf_field() }}
 
-                                    <div class="col-sm-4">
-                                        <div class="form-group">
-                                            <label class=" control-label">Report Type</label>
+                            <div class="row">
 
-                                            <select class="select2 form-control " name="reportlevel"    required>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label class=" control-label">Report Type</label>
 
-                                                <option value="">Select ---</option>
-                                                <option value="Over Stayed Cars">Over Stayed Cars</option> 
-                                                <option value="New Entry">New Entry</option>
+                                        <select class="select2 form-control " name="reportlevel"    required>
 
-                                            </select>
-                                            
-                                            
+                                            <option value="">Select ---</option>
+                                            <option value="Over Stayed Cars">Over Stayed Cars</option> 
+                                            <option value="New Entry">New Entry</option>
 
-                                        </div>
-                                    </div>
-
-                                    
-                                    
-                                    
-                                     
-                                    
-                                    
-                                    
-                                    
-                                    <div class="col-sm-4">
-                                        <div class="form-group">
-                                            <label class=" control-label">Car Types</label>
-
-                                            <select class="select2 form-control " name="car_type" id="cartype" tabindex="-1" aria-hidden="true" required>
-
-                                                <option value="">Select ---</option>
-                                                <option value="Van">Van</option>
-                                                <option value="Sports Car">Sports Car</option>
+                                        </select>
 
 
-                                            </select>
 
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <div class="form-group">
-                                            <label class=" control-label">Car Brand</label>
-
-                                            <select class="select2 form-control " name="car_brand"  tabindex="-1" aria-hidden="true" required>
-
-                                                <option value="">Select ---</option>
-                                                <option value="Nissan">Nissan</option> 
-                                                <option value="Toyota">Toyota</option>
-
-                                            </select>
-
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <div class="form-group">
-                                            <label class=" control-label">Country of Origin</label>
-
-                                            <select class="select2 form-control " name="country_of_origin" id="reportlevel" tabindex="-1" aria-hidden="true" required>
-
-                                                <option value="">Select ---</option>
-                                                <option value="Togo">Togo</option> 
-                                                <option value="Cote Dvoire">Cote Dvoire</option>
-                                            </select>
-
-                                        </div>
-                                    </div>
-
-                                    <div class="col-sm-6">
-                                            <label class=" control-label">Date Range</label>
-
-                                       <div class="input-group">
-                                    <span class="input-group-prepend">
-                                        <span class="input-group-text"><i class="fa fa-calendar"></i></span>
-                                    </span>
-                                    <input name="daterange" class="form-control" type="text">
-                                </div>
                                     </div>
                                 </div>
 
@@ -132,29 +69,92 @@
 
 
 
-                                <br><br>
 
-                                <div class="row xs-pt-15">
-                                    <div class="col-xs-6">
 
-                                    </div>
-                                    <div class="col-xs-6">
-                                        <p class="text-right">
-                                            <button type="submit" class="btn btn-space btn-primary">Spool Result</button>
 
-                                        </p>
+
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label class=" control-label">Car Types</label>
+
+                                        <select class="select2 form-control " name="car_type" id="cartype" tabindex="-1" aria-hidden="true" required>
+
+                                            <option value="">Select ---</option>
+                                            <option value="Van">Van</option>
+                                            <option value="Sports Car">Sports Car</option>
+
+
+                                        </select>
+
                                     </div>
                                 </div>
-                            </form>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label class=" control-label">Car Brand</label>
+
+                                        <select class="select2 form-control " name="car_brand"  tabindex="-1" aria-hidden="true" required>
+
+                                            <option value="">Select ---</option>
+                                            <option value="Nissan">Nissan</option> 
+                                            <option value="Toyota">Toyota</option>
+
+                                        </select>
+
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label class=" control-label">Country of Origin</label>
+
+                                        <select class="select2 form-control " name="country_of_origin" id="reportlevel" tabindex="-1" aria-hidden="true" required>
+
+                                            <option value="">Select ---</option>
+                                            <option value="Togo">Togo</option> 
+                                            <option value="Cote Dvoire">Cote Dvoire</option>
+                                        </select>
+
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <label class=" control-label">Date Range</label>
+
+                                    <div class="input-group">
+                                        <span class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+                                        </span>
+                                        <input name="daterange" class="form-control" type="text">
+                                    </div>
+                                </div>
+                            </div>
 
 
-                        </div>
+
+
+
+                            <br><br>
+
+                            <div class="row xs-pt-15">
+                                <div class="col-xs-6">
+
+                                </div>
+                                <div class="col-xs-6">
+                                    <p class="text-right">
+                                        <button type="submit" class="btn btn-space btn-primary">Spool Result</button>
+
+                                    </p>
+                                </div>
+                            </div>
+                        </form>
+
+
                     </div>
                 </div>
+            </div>
         </div>
-        
-        
-           <div class="row">
+
+
+        <div class="row">
             <div class="col-md-12">
                 <div class="card">
 
@@ -206,7 +206,7 @@
 @section('customjs')
 <script type="text/javascript">
 
-  $('input[name="daterange"]').daterangepicker({
+    $('input[name="daterange"]').daterangepicker({
         opens: 'left',
         ranges: {
             'Today': [moment(), moment()],
@@ -254,7 +254,7 @@
                 $('.loader').removeClass('be-loading-active');
                 console.log('server data :' + data.data);
                 var dataSet = data.data;
-                console.log(dataSet);
+
                 datatable.clear().draw();
                 console.log('size' + dataSet.length);
                 if (dataSet.length == 0) {

@@ -170,7 +170,6 @@
         if (report == 'weekly') {
 
             $.when(weeklyreport(value, type)).done(function (response) {
-                console.log(response);
 // the code here will be executed when all four ajax requests resolve.
 // a1, a2, a3 and a4 are lists of length 3 containing the response text,
 // status, and jqXHR object for each of the four ajax calls respectively.
@@ -217,7 +216,6 @@
         if (report == 'monthly') {
 
             $.when(monthlyreport(value, type)).done(function (response) {
-                console.log(response);
 // the code here will be executed when all four ajax requests resolve.
 // a1, a2, a3 and a4 are lists of length 3 containing the response text,
 // status, and jqXHR object for each of the four ajax calls respectively.
@@ -272,7 +270,6 @@
         if (report == 'yearly') {
 
             $.when(yearlyreport(value, type)).done(function (response) {
-                console.log(response);
 // the code here will be executed when all four ajax requests resolve.
 // a1, a2, a3 and a4 are lists of length 3 containing the response text,
 // status, and jqXHR object for each of the four ajax calls respectively.

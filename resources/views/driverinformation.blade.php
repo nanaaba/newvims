@@ -721,7 +721,7 @@ $trips = json_decode($trips, true);
             data: formData,
             dataType: "json",
             success: function (data) {
-                console.log(data);
+
                 var status = data.status;
                 console.log('status is :' + status);
                 $('#loaderModal').modal('hide');

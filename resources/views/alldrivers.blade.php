@@ -118,16 +118,18 @@
             success: function (data) {
 
 
-                console.log('server data :' + data.data);
                 var dataSet = data.data;
-                console.log(dataSet);
+
                 datatable.clear().draw();
                 console.log('size' + dataSet.length);
                 if (dataSet.length == 0) {
                     console.log("NO DATA!");
                 } else {
                     $.each(dataSet, function (key, value) {
-                        var name = value.othernames + ' ' + value.surname;
+                        
+                        //value.othernames + ' ' + value.surname;
+
+                        var name =  value.surname;
 
                         var j = -1;
                         var r = new Array();
@@ -179,7 +181,7 @@
                 $('input:submit').attr("disabled", false);
 
                 document.getElementById("deleteForm").reset();
-                console.log(data);
+
                 var status = data.status;
                 console.log('status is :' + status);
                 $('#loaderModal').modal('hide');

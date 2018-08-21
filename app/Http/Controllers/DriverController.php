@@ -103,7 +103,7 @@ class DriverController extends Controller {
         } catch (\Exception $e) {
             $data = array('status' => 1, 'message' => "Internal Server Error" );
 
-            return redirect('errorpage')->with('errordata', $e->getMessage());
+            return json_encode($data);
         }
     }
 
@@ -147,7 +147,7 @@ class DriverController extends Controller {
         } catch (\Exception $e) {
             $data = array('status' => 1, 'message' => "Internal Server Error" );
 
-            return redirect('errorpage')->with('errordata', $e->getMessage());
+            return json_encode($data);
         }
     }
 

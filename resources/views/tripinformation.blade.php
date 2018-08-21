@@ -687,7 +687,6 @@ $('#updatetripForm').on('submit', function (e) {
         success: function (data) {
             $('#loaderModal').modal('hide');
 
-            console.log(data);
             var status = data.status;
             console.log('status is :' + status);
 

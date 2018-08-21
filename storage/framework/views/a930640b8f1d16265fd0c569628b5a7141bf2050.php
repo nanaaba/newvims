@@ -38,18 +38,18 @@
 
                         <p><a class="btn btn-primary " href="<?php echo e(url('/login')); ?>">Return to homepage</a></p>
 
-    </p>
+                        </p>
 
-</div>
+                    </div>
 
-</div>
-</div>
-</div>
+                </div>
+            </div>
+        </div>
 
-<!-- Bootstrap and necessary plugins -->
-<script src="<?php echo e(asset('vendors/js/jquery.min.js')); ?>"></script>
-<script src="<?php echo e(asset('vendors/js/popper.min.js')); ?>"></script>
-<script src="<?php echo e(asset('vendors/js/bootstrap.min.js')); ?>"></script>
+        <!-- Bootstrap and necessary plugins -->
+        <script src="<?php echo e(asset('vendors/js/jquery.min.js')); ?>"></script>
+        <script src="<?php echo e(asset('vendors/js/popper.min.js')); ?>"></script>
+        <script src="<?php echo e(asset('vendors/js/bootstrap.min.js')); ?>"></script>
 
-</body>
+    </body>
 </html>

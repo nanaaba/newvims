@@ -42,42 +42,55 @@ Route::get('/logout', function() {
 });
 Route::group(['middleware' => 'check-userauth'], function () {
 
+
+    Route::group(['middleware' => 'admin'], function () {
+
+        Route::get('/users', function () {
+
+            return view('users');
+        });
+
+        Route::get('/analytics', function () {
+
+            return view('analyticsreport');
+        });
+
+        Route::get('/reports', function () {
+
+            return view('generalreport');
+        });
+
+        Route::get('/audits', function () {
+
+            return view('auditslogs');
+        });
+
+        Route::get('drivers/new', 'DriverController@showdrivers');
+        Route::get('vehicles/new', 'VehicleController@showvehicle');
+    });
+
+
+
     Route::get('/users/changepassword', function () {
 
         return view('changepassword');
     });
-    Route::get('/users', function () {
 
-        return view('users');
-    });
     Route::get('/dashboard', 'DashboardController@showdashboard');
 
-    Route::get('/analytics', function () {
 
-        return view('analyticsreport');
-    });
 
-    Route::get('/reports', function () {
 
-        return view('generalreport');
-    });
-
-    Route::get('/audits', function () {
-
-        return view('auditslogs');
-    });
 
     Route::get('/agentcases', function () {
 
         return view('agentcases');
     });
 
-    Route::get('drivers/new', 'DriverController@showdrivers');
     Route::get('drivers/all', 'DriverController@showalldrivers');
     Route::get('drivers/assign', 'DriverController@showassignvehicles');
     Route::get('drivers/blacklisted', 'DriverController@showblacklisteddrivers');
 
-    Route::get('vehicles/new', 'VehicleController@showvehicle');
     Route::get('vehicles/all', 'VehicleController@showallvehicles');
 
 //agentcases

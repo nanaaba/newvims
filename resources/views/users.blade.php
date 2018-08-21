@@ -161,7 +161,7 @@
 
                             <option value="">Select ---</option>
                             <option value="Administrator">Administrator</option>
-                            <option value="Agent">Agents</option>
+                            <option value="Agent">Agent</option>
                         </select>
                     </div>
 
@@ -285,10 +285,9 @@
                 data: formData,
                 dataType: 'json',
                 success: function (data) {
-                    console.log('server data :' + data);
-
 
                     $('#loaderModal').modal('hide');
+
                     $('#newuser').modal('hide');
 
                     var status = data.status;
@@ -324,7 +323,6 @@
             $('#errordiv').show();
             $('#successdiv').hide();
         }
-        $('#loaderModal').modal('show');
 
     });
 
@@ -347,7 +345,6 @@
 
 
                 $('.loader').removeClass('be-loading-active');
-                console.log('server data :' + data);
                 var status = data.status;
                 if (status == 0) {
 
@@ -390,7 +387,6 @@
                 $('#confirmModal').modal('hide');
 
 
-                console.log('server data :' + data);
                 var status = data.status;
                 if (status == 0) {
                     getUsers();
@@ -433,7 +429,6 @@
                 }
 
                 $('.loader').removeClass('be-loading-active');
-                console.log('server data :' + data);
                 var status = data.status;
                 if (status == 0) {
                     getUsers();
@@ -463,7 +458,6 @@
             success: function (data) {
 
 
-                console.log('server data :' + data.data);
                 var dataSet = data.data;
                 console.log(dataSet);
                 datatable.clear().draw();
@@ -485,6 +479,7 @@
 
                         r[++j] = '<td class="actions">' +
                                 '<a   href="#"  onclick="editUser(\'' + value.userId + '\')"   type="button" class="btn btn-success" > <i class="fa fa-search-plus"></i> </a> ' +
+                                '<a   href="#"  onclick="resetUser(\'' + value.userId + '\')"   type="button" class="btn btn-info" > <i class="fa fa-edit"></i> </a> ' +
                                 '<a  href="#" onclick="deleteUser(\'' + value.id + '\')" type="button" class="btn btn-danger" > <i class="fa fa-trash-o "></i></a> ' +
                                 '</td>';
                         rowNode = datatable.row.add(r);
@@ -514,7 +509,7 @@
                     $('#errorModal').modal('show');
                 }
                 $('.loader').removeClass('be-loading-active');
-                console.log('server data :' + data);
+
                 var dataArray = data.data;
 
                 $('#othernames').val(dataArray.othernames);

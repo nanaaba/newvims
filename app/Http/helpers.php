@@ -13,3 +13,20 @@ function checkifuserisauthentcated() {
         return false;
     }
 }
+
+
+function checkAdminRole() {
+    if (Session::has('role') == "Administrator") {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function checkAgentRole() {
+    if (Session::has('role') == "Agent") {
+        return true;
+    } else {
+        return false;
+    }
+}
