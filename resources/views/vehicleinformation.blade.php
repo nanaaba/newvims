@@ -82,7 +82,7 @@ $trips = json_decode($trips, true);
                                                     <div class="form-group">
                                                         <label class=" control-label">Vehicle Type</label>
 
-                                                        <select class="select2  vehicletypes" name="vehicleTypeId"  tabindex="-1" aria-hidden="true" required>
+                                                        <select class="select2  form-control  vehicletypes" name="vehicleTypeId"  tabindex="-1" aria-hidden="true" required>
 
                                                             <option value="{{$details['vehicleType']}}">{{$details['vehicleType']}}</option>
 
@@ -119,7 +119,7 @@ $trips = json_decode($trips, true);
                                                         <label class=" control-label">Country</label>
 
 
-                                                        <select class="select2  countries" name="resCountryId"  tabindex="-1" aria-hidden="true" required>
+                                                        <select class="select2  form-control  countries" name="resCountryId"  tabindex="-1" aria-hidden="true" required>
 
                                                             <option value="">Select ---</option>
 
@@ -139,7 +139,7 @@ $trips = json_decode($trips, true);
                                                     <div class="form-group">
                                                         <label class=" control-label">Model</label>
 
-                                                        <select class="select2  models" name="model"  tabindex="-1" aria-hidden="true" required>
+                                                        <select class="select2  form-control  models" name="model"  tabindex="-1" aria-hidden="true" required>
 
                                                             <option value="{{$details['model']}}">{{$details['model']}}</option>
 
@@ -406,7 +406,7 @@ $trips = json_decode($trips, true);
                             <div class="form-group">
                                 <label class=" control-label">Driver Involve </label>
 
-                                <select class="select2 drivers" name="driverRegNo"  tabindex="-1" aria-hidden="true" required style="width: 100%">
+                                <select class="select2  form-control drivers" name="driverRegNo"  tabindex="-1" aria-hidden="true" required style="width: 100%">
 
                                     <option value="">Select---</option>
 
@@ -417,7 +417,7 @@ $trips = json_decode($trips, true);
                         <div class="col-sm-3">
                             <div class="form-group">
                                 <label class=" control-label">Trip Type </label>
-                                <select class="select2 tviTypes" name="tripTypeId"  tabindex="-1" aria-hidden="true" required style="width: 100%">
+                                <select class="select2  form-control tviTypes" name="tripTypeId"  tabindex="-1" aria-hidden="true" required style="width: 100%">
 
                                     <option value="">Select---</option>
 
@@ -429,7 +429,7 @@ $trips = json_decode($trips, true);
                             <div class="form-group">
                                 <label class=" control-label">Regime</label>
 
-                                <select class="select2 regimes" name="regime"  tabindex="-1" aria-hidden="true" required style="width: 100%">
+                                <select class="select2  form-control regimes" name="regime"  tabindex="-1" aria-hidden="true" required style="width: 100%">
 
                                     <option value="">Select---</option>
 
@@ -443,7 +443,7 @@ $trips = json_decode($trips, true);
                                 <label class=" control-label">Customs Office</label>
 
 
-                                <select class="select2 offices" name="customsOfficeCode"  tabindex="-1" aria-hidden="true" required style="width: 100%">
+                                <select class="select2  form-control offices" name="customsOfficeCode"  tabindex="-1" aria-hidden="true" required style="width: 100%">
 
                                     <option value="">Select---</option>
 
@@ -465,7 +465,7 @@ $trips = json_decode($trips, true);
                         <div class="col-sm-3">
                             <div class="form-group">
                                 <label class=" control-label">Country of Consignment </label>
-                                <select class="select2 country" name="consCountryCode"  tabindex="-1" aria-hidden="true" required style="width: 100%">
+                                <select class="select2  form-control country" name="consCountryCode"  tabindex="-1" aria-hidden="true" required style="width: 100%">
 
                                     <option value="">Select ---</option>
 
@@ -476,7 +476,7 @@ $trips = json_decode($trips, true);
                         <div class="col-sm-3">
                             <div class="form-group">
                                 <label class=" control-label">Last Country</label>
-                                <select class="select2 country" name="lastCountryCode"  tabindex="-1" aria-hidden="true" required style="width: 100%">
+                                <select class="select2  form-control country" name="lastCountryCode"  tabindex="-1" aria-hidden="true" required style="width: 100%">
 
                                     <option value="">Select ---</option>
 
@@ -486,7 +486,7 @@ $trips = json_decode($trips, true);
                         <div class="col-sm-3">
                             <div class="form-group">
                                 <label class=" control-label">Next Country</label>
-                                <select class="select2 country" name="nextCountryCode"  tabindex="-1" aria-hidden="true" required style="width: 100%">
+                                <select class="select2  form-control country" name="nextCountryCode"  tabindex="-1" aria-hidden="true" required style="width: 100%">
 
                                     <option value="">Select ---</option>
 
@@ -498,7 +498,7 @@ $trips = json_decode($trips, true);
                         <div class="col-sm-3">
                             <div class="form-group">
                                 <label class=" control-label">Final Country</label>
-                                <select class="select2 country" name="finalCountryCode"  tabindex="-1" aria-hidden="true" required style="width: 100%">
+                                <select class="select2  form-control country" name="finalCountryCode"  tabindex="-1" aria-hidden="true" required style="width: 100%">
 
                                     <option value="">Select ---</option>
 

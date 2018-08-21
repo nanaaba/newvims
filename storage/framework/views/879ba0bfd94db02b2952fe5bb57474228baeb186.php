@@ -214,7 +214,7 @@ $driver = $data['driver'];
                                                     <div class="form-group">
                                                         <label class=" control-label">Vehicle Type</label>
 
-                                                        <select class="select2  vehicletypes" name="vehicleTypeId"  tabindex="-1" aria-hidden="true" required style="width: 100%"> 
+                                                        <select class="select2  form-control  vehicletypes" name="vehicleTypeId"  tabindex="-1" aria-hidden="true" required style="width: 100%"> 
 
                                                             <option value="<?php echo e($vehicle['vehicleType']); ?>"><?php echo e($vehicle['vehicleType']); ?></option>
 
@@ -251,7 +251,7 @@ $driver = $data['driver'];
                                                         <label class=" control-label">Country</label>
 
 
-                                                        <select class="select2  countries" name="resCountryId"  tabindex="-1" aria-hidden="true" required style="width: 100%">
+                                                        <select class="select2  form-control  countries" name="resCountryId"  tabindex="-1" aria-hidden="true" required style="width: 100%">
 
                                                             <option value="">Select ---</option>
 
@@ -271,7 +271,7 @@ $driver = $data['driver'];
                                                     <div class="form-group">
                                                         <label class=" control-label">Model</label>
 
-                                                        <select class="select2  models" name="model"  tabindex="-1" aria-hidden="true" required style="width: 100%">
+                                                        <select class="select2  form-control  models" name="model"  tabindex="-1" aria-hidden="true" required style="width: 100%">
 
                                                             <option value="<?php echo e($vehicle['model']); ?>"><?php echo e($vehicle['model']); ?></option>
 
@@ -283,7 +283,7 @@ $driver = $data['driver'];
                                                     <div class="form-group">
                                                         <label class=" control-label">Color</label>
 
-                                                        <select class="select2 " name="color"  tabindex="-1" aria-hidden="true" required style="width: 100%">
+                                                        <select class="select2  form-control " name="color"  tabindex="-1" aria-hidden="true" required style="width: 100%">
 
                                                             <option value="<?php echo e($vehicle['colour']); ?>"><?php echo e($vehicle['colour']); ?></option>
 
@@ -432,7 +432,7 @@ $driver = $data['driver'];
                                                     <div class="form-group">
                                                         <label class=" control-label">Sex</label>
 
-                                                        <select class="select2  gender" name="gender"  tabindex="-1" aria-hidden="true" required style="width: 100%">
+                                                        <select class="select2  form-control  gender" name="gender"  tabindex="-1" aria-hidden="true" required style="width: 100%">
 
                                                             <option value="<?php echo e($driver['gender']); ?>"><?php echo e($driver['gender']); ?></option>
 
@@ -476,7 +476,7 @@ $driver = $data['driver'];
                                                         <label class=" control-label">Resident Country</label>
 
 
-                                                        <select class="select2  countries" name="residentCountryId"  tabindex="-1" aria-hidden="true" required style="width: 100%">
+                                                        <select class="select2  form-control  countries" name="residentCountryId"  tabindex="-1" aria-hidden="true" required style="width: 100%">
 
                                                             <option value="<?php echo e($driver['residentCountry']); ?>"><?php echo e($driver['residentCountry']); ?></option>
 
@@ -488,7 +488,7 @@ $driver = $data['driver'];
                                                         <label class=" control-label">Country Of Origin</label>
 
 
-                                                        <select class="select2  countries" name="countryCode"  tabindex="-1" aria-hidden="true" required style="width: 100%">
+                                                        <select class="select2  form-control  countries" name="countryCode"  tabindex="-1" aria-hidden="true" required style="width: 100%">
 
                                                             <option value="<?php echo e($driver['country']); ?>"><?php echo e($driver['country']); ?></option>
 
@@ -520,7 +520,7 @@ $driver = $data['driver'];
                                                     <div class="form-group">
                                                         <label class=" control-label">National ID Type</label>
 
-                                                        <select class="select2  idtypes" name="nationalIdType"  required style="width: 100%">
+                                                        <select class="select2  form-control  idtypes" name="nationalIdType"  required style="width: 100%">
 
                                                             <option value="<?php echo e($driver['nationalIdType']); ?>"><?php echo e($driver['nationalIdType']); ?></option>
 

@@ -46,13 +46,13 @@ class DashboardController extends Controller {
 
             return json_decode($body, true);
         } catch (\RequestException $e) {
-            $data = array('status' => 1, 'message' => "Request Exception: " . $e->getMessage());
+            $data = array('status' => 1, 'message' => "Request Exception: " );
             return $data;
         } catch (\ClientException $e) {
-            $data = array('status' => 1, 'message' => "Client Exception:" . $e->getMessage());
+            $data = array('status' => 1, 'message' => "Client Exception:" );
             return $data;
         } catch (\Exception $e) {
-            $data = array('status' => 1, 'message' => "Internal Server Error: " . $e->getMessage());
+            $data = array('status' => 1, 'message' => "Internal Server Error: " );
             return $data;
         }
     }

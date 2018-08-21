@@ -72,7 +72,7 @@
                                     <div class="form-group">
                                         <label class=" control-label">Vehicles</label>
 
-                                        <select class="select2 form-control  vehicles" multiple name="vehicles[]"  tabindex="-1" aria-hidden="true" required style="width: 100%">
+                                        <select class="select2 form-control  vehicles"  multiple name="vehicles[]"  tabindex="-1" aria-hidden="true" required style="width: 100%">
 
                                             <option value="">Select ---</option>
 
@@ -113,8 +113,7 @@
 
 <script type="text/javascript">
 
-
-
+    $('.select2').select2();
 
 
     var datatable = $('#vehicleTbl').DataTable();

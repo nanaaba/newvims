@@ -33,13 +33,13 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="icon-user"></i></span>
                     </div>
-                    <input type="text" name="username" class="form-control" placeholder="Username">
+                    <input type="text" name="username" class="form-control" placeholder="Username" required/>
                 </div>
                 <div class="input-group mb-4">
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="icon-lock"></i></span>
                     </div>
-                    <input type="password" name="password" class="form-control" placeholder="Password">
+                    <input type="password" name="password" class="form-control" placeholder="Password" required/>
                 </div>
 
 

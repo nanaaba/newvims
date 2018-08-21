@@ -41,32 +41,32 @@
         <div class="row">
             <div class="col-md-12">
 
-            <div class="card">
-                <div class="card-header">
-                    <i class="fa fa-edit"></i>Blacklisted Drivers
+                <div class="card">
+                    <div class="card-header">
+                        <i class="fa fa-edit"></i>Blacklisted Drivers
 
+                    </div>
+                    <div class="card-body table-responsive">
+                        <table id="driverTbl" class="table table-condensed table-hover table-bordered table-striped">
+                            <thead>
+                                <tr>
+
+                                    <th>Name</th>  
+                                    <th>Email</th>  
+                                    <th>Country</th>  
+                                    <th>License No</th>  
+                                    <th>Action</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+
+
+                            </tbody>
+                        </table>
+
+                    </div>
                 </div>
-                <div class="card-body table-responsive">
-                    <table id="driverTbl" class="table table-condensed table-hover table-bordered table-striped">
-                        <thead>
-                            <tr>
-
-                                <th>Name</th>  
-                                <th>Email</th>  
-                                <th>Country</th>  
-                                <th>License No</th>  
-                                <th>Action</th>
-
-                            </tr>
-                        </thead>
-                        <tbody>
-
-
-                        </tbody>
-                    </table>
-
-                </div>
-            </div>
 
 
             </div>
@@ -91,16 +91,23 @@
 
 
 
-
-    var datatable = $('#driverTbl').DataTable();
-
+    var datatable = $('#driverTbl').DataTable({
+        "columnDefs": [
+            {"width": "40%", "targets": 0},
+            {"width": "15%", "targets": 1},
+            {"width": "15%", "targets": 2},
+            {"width": "15%", "targets": 3},
+            {"width": "15%", "targets": 4,"className": "text-center"}
+                    
+        ]
+    });
 
 
 
     getDrivers();
 
     function getDrivers() {
-       // $('#loaderModal').modal('show');
+        // $('#loaderModal').modal('show');
 
         $.ajax({
             url: "<?php echo e(url('drivers/getall')); ?>",
@@ -128,7 +135,7 @@
                         r[++j] = '<td class="subject">' + value.country + '</td>';
                         r[++j] = '<td class="subject">' + value.licenceNo + '</td>';
 
-                        r[++j] = '<td class="actions">' +
+                        r[++j] = '<td class="actions center-div">' +
                                 '<a  href="information/' + value.driverRegNo + '"   type="button" class="btn btn-success" >  <i class="fa fa-search-plus "></i> </a> ' +
                                 '<a  href="#" onclick="deleteType(\'' + value.driverRegNo + '\',\'' + name + '\')"    type="button" class="btn btn-danger" > <i class="fa fa-trash-o "></i></a> ' +
                                 '</td>';
@@ -142,7 +149,7 @@
 
         });
     }
-    
+
 
 
     function deleteType(code, title) {
@@ -191,7 +198,7 @@
                 $('#loaderModal').modal('hide');
 
                 alert(errorThrown);
-            } 
+            }
         });
 
     });
@@ -201,5 +208,5 @@
 <?php $__env->stopSection(); ?>
 
 
- 
+
 <?php echo $__env->make('layouts.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

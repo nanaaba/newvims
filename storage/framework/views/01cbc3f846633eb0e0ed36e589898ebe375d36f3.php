@@ -82,11 +82,12 @@ $('#loginForm').submit(function (e) {
         success: function (data) {
             $('#loaderModal').modal('hide');
 
-            console.log('data : ' + data.status);
             if (data.status == 0) {
                 window.location = "dashboard";
+                
             } else {
-                            $('#loaderModal').modal('hide');
+
+
 
                 $('#errordiv').show();
                 $('#errormsg').html(data.message);
@@ -94,7 +95,7 @@ $('#loginForm').submit(function (e) {
 
         },
         error: function (jXHR, textStatus, errorThrown) {
-                        $('#loaderModal').modal('hide');
+            $('#loaderModal').modal('hide');
 
             console.log(errorThrown);
         }
@@ -121,7 +122,7 @@ $('#forgotPasswordForm').submit(function (e) {
             console.log('data : ' + data);
             if (data.status == 0) {
                 $('#successdiv').show();
-                $('#successmsg').html(data.message+" .Please wait whiles its redirect you to login page.");
+                $('#successmsg').html(data.message + " .Please wait whiles its redirect you to login page.");
                 window.setTimeout(function () {
                     window.location = "login";
                 }, 2000)

@@ -41,32 +41,32 @@
         <div class="row">
             <div class="col-md-12">
 
-            <div class="card">
-                <div class="card-header">
-                    <i class="fa fa-edit"></i> Drivers
+                <div class="card">
+                    <div class="card-header">
+                        <i class="fa fa-edit"></i> Drivers
 
+                    </div>
+                    <div class="card-body table-responsive">
+                        <table id="driverTbl" class="table table-condensed table-hover table-bordered table-striped">
+                            <thead>
+                                <tr>
+
+                                    <th>Name</th>  
+                                    <th>Email</th>  
+                                    <th>Country</th>  
+                                    <th>License No</th>  
+                                    <th class="centerdiv">Action</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+
+
+                            </tbody>
+                        </table>
+
+                    </div>
                 </div>
-                <div class="card-body table-responsive">
-                    <table id="driverTbl" class="table table-condensed table-hover table-bordered table-striped">
-                        <thead>
-                            <tr>
-
-                                <th>Name</th>  
-                                <th>Email</th>  
-                                <th>Country</th>  
-                                <th>License No</th>  
-                                <th>Action</th>
-
-                            </tr>
-                        </thead>
-                        <tbody>
-
-
-                        </tbody>
-                    </table>
-
-                </div>
-            </div>
 
 
             </div>
@@ -92,7 +92,14 @@
 
 
 
-    var datatable = $('#driverTbl').DataTable();
+    var datatable = $('#driverTbl').DataTable({
+        "columnDefs": [
+            {"width": "40%", "targets": 0},
+            {"width": "15%", "targets": 1},
+            {"width": "15%", "targets": 2},
+            {"width": "15%", "targets": 3}
+        ]
+    });
 
 
 
@@ -100,7 +107,7 @@
     getDrivers();
 
     function getDrivers() {
-       // $('#loaderModal').modal('show');
+        // $('#loaderModal').modal('show');
 
         $.ajax({
             url: "<?php echo e(url('drivers/getall')); ?>",
@@ -142,7 +149,7 @@
 
         });
     }
-    
+
 
 
     function deleteType(code, title) {

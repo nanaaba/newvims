@@ -129,7 +129,7 @@
                         <input type="text" name="surname" class="form-control " required>
                     </div>
                     <div class="form-group">
-                        <label>OtherNames</label>
+                        <label>Other Names</label>
                         <input type="text" name="othernames" class="form-control " required>
                     </div>
                     <div class="form-group">
@@ -139,12 +139,12 @@
 
                     <div class="form-group">
                         <label>Email</label>
-                        <input type="email" name="email" class="form-control" required>
+                        <input type="email" name="email" placeholder="test@gra.gov.gh" class="form-control" required>
                     </div>
 
                     <div class="form-group">
                         <label>Contact</label>
-                        <input type="text" name="contact" class="form-control" required>
+                        <input type="text" name="contact" minlength="10" maxlength="10" class="form-control" required  onkeypress="return isNumber(event)" />
                     </div>
                     <div class="form-group">
                         <label>Password</label>
@@ -195,7 +195,7 @@
                         <input type="text" name="surname" id="surname" class="form-control " required>
                     </div>
                     <div class="form-group">
-                        <label>OtherNames</label>
+                        <label>Other Names</label>
                         <input type="text" name="othernames" id="othernames" class="form-control " required>
                     </div>
                     <div class="form-group">
@@ -237,6 +237,15 @@
 
 <script type="text/javascript">
 
+
+    function isNumber(evt) {
+        evt = (evt) ? evt : window.event;
+        var charCode = (evt.which) ? evt.which : evt.keyCode;
+        if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+            return false;
+        }
+        return true;
+    }
 
     $('#roles').change(function () {
 
