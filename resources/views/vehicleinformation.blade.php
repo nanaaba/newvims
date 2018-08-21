@@ -332,7 +332,7 @@ $trips = json_decode($trips, true);
                                                             . $value['driver']['othernames'] . ' ' . $value['driver']['surname']
                                                             . '</td>'
                                                             . '<td>'
-                                                            . $value['checkInOn']
+                                                            . $value['checkInDate']
                                                             . '</td>'
                                                             . '<td><a   href="../../trip/' . $value['tripNo'] . '"    type="button" class="btn btn-success" > <i class="fa fa-search-plus "></i>  </a></td> '
                                                             . '</tr>';
@@ -626,12 +626,12 @@ $trips = json_decode($trips, true);
     $('#tripsTbl').DataTable({
         "columnDefs": [
 
-            {"width": "15%", "targets": 0},
+            {"width": "10%", "targets": 0},
             {"width": "15%", "targets": 1},
-            {"width": "15%", "targets": 2},
-            {"width": "15%", "targets": 3},
+            {"width": "20%", "targets": 2},
+            {"width": "30%", "targets": 3},
             {"width": "15%", "targets": 4},
-            {"width": "15%", "targets": 5}
+            {"width": "10%", "targets": 5}
         ]
     });
     // $('#tabs').tabs();
