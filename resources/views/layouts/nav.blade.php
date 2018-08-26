@@ -95,12 +95,12 @@
 
                     </a>
                 </li>
-                <li class="nav-item  {{ Request::is('reports*') ? 'active' : '' }}">
+<!--                <li class="nav-item  {{ Request::is('reports*') ? 'active' : '' }}">
                     <a class="nav-link" href="{{ url('reports') }}">
                         <i class="fa fa-lg fa-fw fa-file"></i>
                         Report
                     </a>
-                </li>
+                </li>-->
                 <li class="nav-item {{ Request::is('audits*') ? 'active' : '' }}">
                     <a class="nav-link" href="{{ url('audits') }}">
                         <i class="fa fa-lg fa-fw fa-clipboard"></i>
@@ -181,12 +181,12 @@
                     </a>
                 </li>
 
-                <li class="nav-item  {{ Request::is('reports*') ? 'active' : '' }}">
+<!--                <li class="nav-item  {{ Request::is('reports*') ? 'active' : '' }}">
                     <a class="nav-link" href="{{ url('reports') }}">
                         <i class="fa fa-lg fa-fw fa-file"></i>
                         Report
                     </a>
-                </li>
+                </li>-->
               
                 <?php
             }

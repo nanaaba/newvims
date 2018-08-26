@@ -410,29 +410,24 @@
     $('#resetForm').on('submit', function (e) {
 
         e.preventDefault();
-        var itemid = $('#itemid').val();
-        //var token = $('#token').val();
-        $('#resetModal').modal('hide');
+        var itemid = $('#pin_userid').val();
+        var token = $('#resettoken').val();
+        $('#deleteModal').modal('hide');
         $('.loader').addClass('be-loading-active');
         $.ajax({
-            url: "users/reset/" + itemid,
-            type: "GET",
+            url: "users/" + itemid,
+            type: "POST",
+            data: {_token: token},
             dataType: 'json',
             success: function (data) {
 
-                if (data == "401") {
-                    $('#sessionModal').modal({backdrop: 'static'}, 'show');
-                }
+                $('#resetModal').modal('hide');
 
-                if (data == "500") {
-                    $('#errorModal').modal('show');
-                }
 
-                $('.loader').removeClass('be-loading-active');
                 var status = data.status;
                 if (status == 0) {
                     getUsers();
-                    document.getElementById("deleteForm").reset();
+                    document.getElementById("resetForm").reset();
                     $('.feedback').html(data.message);
                     $('#successdiv').show();
                     $('#errordiv').hide();
@@ -459,9 +454,9 @@
 
 
                 var dataSet = data.data;
-                console.log(dataSet);
+                // console.log(dataSet);
                 datatable.clear().draw();
-                console.log('size' + dataSet.length);
+                //console.log('size' + dataSet.length);
                 if (dataSet.length == 0) {
                     console.log("NO DATA!");
                 } else {
@@ -479,7 +474,7 @@
 
                         r[++j] = '<td class="actions">' +
                                 '<a   href="#"  onclick="editUser(\'' + value.userId + '\')"   type="button" class="btn btn-success" > <i class="fa fa-search-plus"></i> </a> ' +
-                                '<a   href="#"  onclick="resetUser(\'' + value.userId + '\')"   type="button" class="btn btn-info" > <i class="fa fa-edit"></i> </a> ' +
+                                '<a   href="#"  onclick="resetPin(\'' + value.userId + '\')"   type="button" class="btn btn-info" > <i class="fa fa-edit"></i> </a> ' +
                                 '<a  href="#" onclick="deleteUser(\'' + value.id + '\')" type="button" class="btn btn-danger" > <i class="fa fa-trash-o "></i></a> ' +
                                 '</td>';
                         rowNode = datatable.row.add(r);
@@ -535,8 +530,12 @@
 
     }
 
-    function resetPassword(id) {
-        alert('reset: ' + id);
+    function resetPin(id) {
+        $('#pin_userid').val(id);
+
+
+        $('#resetModal').modal('show');
+
     }
 </script>
 <?php $__env->stopSection(); ?>

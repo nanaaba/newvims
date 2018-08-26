@@ -15,8 +15,7 @@
 <div class="container-fluid">
     <div class="animated fadeIn">
 
-
-      
+        
 
 
         <div class="card">
@@ -25,22 +24,56 @@
 
             </div>
             <div class="card-body table-responsive">
-                <table id="agentsCasesTbl" class="  table table-striped table-hover table-fw-widget">
+                <table id="agentsCasesTbl" class=" table table-condensed table-hover table-bordered table-striped">
                     <thead>
 
                         <tr>
-                            <th>Owner</th>
-                            <th>Gender</th>
-                            <th>Chassis Number</th>
-                            <th>Vehicle Type</th>
-                            <th>Entry Date</th>
+                            <th>Front Plate</th>
+                            <th>Back Plate</th>
                             <th>Country</th>
-                            <th> Action</th>
-
+                            <th>Driver RegNo</th>
+                            <th>Vehicle RegNo</th>
+                            <th>Vehicle Model</th>
+                            <th>Owner</th>
+                            <th>Days OverStayed</th>
+                            <th>Status</th>
                         </tr>
                     </thead>
-                    <tbody >
+                    <tbody>
 
+                        <?php
+                        foreach ($data as $value) {
+                            echo '<tr>'
+                            . '<td>'
+                            . $value['frontPlate']
+                            . '</td>'
+                            . '<td>'
+                            . $value['backPlate']
+                            . '</td>'
+                            . '<td>'
+                            . $value['country']
+                            . '</td>'
+                            . '<td>'
+                            . $value['driverRegNo']
+                            . '</td>'
+                            . '<td>'
+                            . $value['vehicleRegNo']
+                            . '</td>'
+                            . '<td>'
+                            . $value['vehicleModel']
+                            . '</td>'
+                            . '<td>'
+                            . $value['owner']
+                            . '</td>'
+                            . '<td>'
+                            . $value['daysOverStayed']
+                            . '</td>'
+                            . '<td> <span class="badge badge-danger">'. $value['status'].'</span>'
+                            
+                            . '</td>'
+                            . '</tr>';
+                        }
+                        ?>
                     </tbody>
 
 

@@ -314,5 +314,52 @@ class UserController extends Controller {
             return redirect('errorpage')->with('errordata', $e->getMessage());
         }
     }
+    
+    
+    
+      public function pinReset($userid) {
+
+
+
+        $url = config('constants.TEST_URL');
+        $baseurl = $url . '/Account/Users/ResetPin';
+
+
+
+
+        $client = new Client([
+            'headers' => [
+                'Accept' => 'application/json',
+                'Authorization' => 'Bearer ' . session('token')
+            ],
+            'http_errors' => false
+        ]);
+
+        $dataArray = array(
+            'userid' => $userid
+        );
+
+
+        try {
+
+            $response = $client->request('POST', $baseurl, ['json' => $dataArray, 'verify' => false]);
+
+            $body = $response->getBody();
+
+            return $body;
+        } catch (\RequestException $e) {
+            $data = array('status' => 1, 'message' => "Request Exception" );
+            return json_encode($data);
+        } catch (\ClientException $e) {
+            $data = array('status' => 1, 'message' => "Client Exception" );
+            return json_encode($data);
+        } catch (\Exception $e) {
+            $data = array('status' => 1, 'message' => "Internal Server Error" );
+            return json_encode($data);
+
+           // return redirect('errorpage')->with('errordata', $e->getMessage());
+        }
+    }
+
 
 }

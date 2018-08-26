@@ -104,6 +104,34 @@
                     </div>
                 </div>
 
+                
+                
+                
+                <div class="modal " id="resetModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <form method="post" id="resetForm">
+                                <div class="modal-body">
+                                    <div>
+                                        <p>
+                                            Are you sure you want to reset this user pin?.<span class="holder" id="holdername"></span> 
+                                        </p>
+                                    </div>
+                                    <input type="hidden" class="form-control form-control-lg input-lg" id="resettoken" name="_token" value="<?php echo csrf_token() ?>" />
+
+                                    <input type="hidden" id="pin_userid" name="code"/>
+
+
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-danger" data-dismiss="modal">NO</button>
+                                    <button type="submit"  class="btn btn-primary">YES</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
             </main>
         </div>
         @include('layouts.footer')

@@ -95,12 +95,12 @@
 
                     </a>
                 </li>
-                <li class="nav-item  <?php echo e(Request::is('reports*') ? 'active' : ''); ?>">
+<!--                <li class="nav-item  <?php echo e(Request::is('reports*') ? 'active' : ''); ?>">
                     <a class="nav-link" href="<?php echo e(url('reports')); ?>">
                         <i class="fa fa-lg fa-fw fa-file"></i>
                         Report
                     </a>
-                </li>
+                </li>-->
                 <li class="nav-item <?php echo e(Request::is('audits*') ? 'active' : ''); ?>">
                     <a class="nav-link" href="<?php echo e(url('audits')); ?>">
                         <i class="fa fa-lg fa-fw fa-clipboard"></i>
@@ -181,12 +181,12 @@
                     </a>
                 </li>
 
-                <li class="nav-item  <?php echo e(Request::is('reports*') ? 'active' : ''); ?>">
+<!--                <li class="nav-item  <?php echo e(Request::is('reports*') ? 'active' : ''); ?>">
                     <a class="nav-link" href="<?php echo e(url('reports')); ?>">
                         <i class="fa fa-lg fa-fw fa-file"></i>
                         Report
                     </a>
-                </li>
+                </li>-->
               
                 <?php
             }

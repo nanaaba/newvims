@@ -82,10 +82,7 @@ Route::group(['middleware' => 'check-userauth'], function () {
 
 
 
-    Route::get('/agentcases', function () {
-
-        return view('agentcases');
-    });
+    Route::get('/agentcases', 'ConfigurationController@showagentcases');
 
     Route::get('drivers/all', 'DriverController@showalldrivers');
     Route::get('drivers/assign', 'DriverController@showassignvehicles');
@@ -138,6 +135,7 @@ Route::group(['middleware' => 'check-userauth'], function () {
     Route::delete('users/{userid}', 'UserController@deleteUser');
     Route::post('reports/generalreport', 'ReportController@spoolGeneralReport');
     Route::post('reports/agentcases', 'ReportController@agentReport');
+    Route::post('users/{userid}', 'UserController@pinReset');
 
 
     Route::get("search", "ReportController@search");
