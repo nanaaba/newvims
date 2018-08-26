@@ -8,7 +8,7 @@
 <ol class="breadcrumb">
     <li class="breadcrumb-item">Home</li>
     <li class="breadcrumb-item"><a href="#">Report</a></li>
-    <li class="breadcrumb-item active">Agent Cases</li>
+    <li class="breadcrumb-item active"> Cases</li>
     <!-- Breadcrumb Menu-->
 
 </ol>
@@ -19,61 +19,10 @@
 
 
 
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="card">
-                    <div class="card-header">
-                        <strong>Agent Cases</strong>
-                    </div>
-                    <div class="card-body">
-
-
-                        <div class="row">
-
-                            <div class="col-sm-4">
-                                <div class="form-group">
-                                    <label class=" control-label">Agents</label>
-
-                                    <select class="select2 form-control " name="agents" id="agents" tabindex="-1" aria-hidden="true" required>
-
-                                        <option value="">Select ---</option>
-                                        <?php
-                                        foreach ($data as $value) {
-                                            echo ' <option value="' . $value['userId'] . ' ">' . $value['othernames'] . '' . $value['surname'] . '</option>';
-                                        }
-                                        ?>
-                                    </select>
-
-                                </div>
-                            </div>
-
-
-                            <div class="col-sm-6">
-
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-6 offset-6">
-                                <button type="button" id="retrieveCases" class="btn btn-primary btn-block">
-                                    Retrieve Cases
-                                </button>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-            </div>
-            <!--/.col-->
-
-
-        </div>
-
-
 
         <div class="card">
             <div class="card-header">
-                <i class="fa fa-edit"></i>Agent Cases
+                <i class="fa fa-edit"></i> Cases
 
             </div>
             <div class="card-body table-responsive">
@@ -96,7 +45,41 @@
                     </thead>
                     <tbody>
 
-
+                        <?php
+                        foreach ($data as $value) {
+                            echo '<tr>'
+                            . '<td>'
+                            . $value['frontPlate']
+                            . '</td>'
+                            . '<td>'
+                            . $value['backPlate']
+                            . '</td>'
+                            . '<td>'
+                            . $value['country']
+                            . '</td>'
+                            . '<td>'
+                            . $value['driverRegNo']
+                            . '</td>'
+                            . '<td>'
+                            . $value['vehicleRegNo']
+                            . '</td>'
+                            . '<td>'
+                            . $value['vehicleModel']
+                            . '</td>'
+                            . '<td>'
+                            . $value['owner']
+                            . '</td>'
+                            . '<td>'
+                            . $value['daysOverStayed']
+                            . '</td>'
+                            . '<td> <span class="badge badge-danger">' . $value['status'] . '</span>'
+                            . '</td>'
+                            . '<td>'
+                            . $value['reportedBy']
+                            . '</td>'
+                            . '</tr>';
+                        }
+                        ?>
                     </tbody>
 
 
@@ -110,16 +93,6 @@
 
 @section('customjs')
 <script type="text/javascript">
-
-//
-//
-    $('.select2').select();
-    $('#retrieveCases').click(function () {
-
-        var agentId = $('#agents').val();
-
-        getAgentCases(agentId);
-    });
 
     $('input[name="daterange"]').daterangepicker({
         opens: 'left',
@@ -154,8 +127,8 @@
     });
 
 
-//    datatable.buttons().container()
-//            .appendTo('#agentsCasesTbl_wrapper .col-sm-6:eq(0)');
+    datatable.buttons().container()
+            .appendTo('#agentsCasesTbl_wrapper .col-sm-6:eq(0)');
     $('#agentCasesForm').on('submit', function (e) {
         $('.loader').addClass('be-loading-active');
         e.preventDefault();
@@ -215,52 +188,6 @@
 
         $('#cainfoModal').modal('show');
     }
-
-    function getAgentCases(agentid) {
-        $.ajax({
-            url: "../agentcases/" + agentid,
-            type: "GET",
-            dataType: 'json',
-            success: function (data) {
-
-
-                var dataSet = data.data;
-                // console.log(dataSet);
-                datatable.clear().draw();
-                //console.log('size' + dataSet.length);
-                if (dataSet.length == 0) {
-                    console.log("NO DATA!");
-                } else {
-                    $.each(dataSet, function (key, value) {
-
-
-                        var j = -1;
-                        var r = new Array();
-                        // represent columns as array
-                        r[++j] = '<td class="subject">' + value.frontPlate + '</td>';
-                        r[++j] = '<td class="subject">' + value.backPlate + '</td>';
-
-                        r[++j] = '<td class="subject">' + value.country + '</td>';
-                        r[++j] = '<td class="subject">' + value.driverRegNo + '</td>';
-                        r[++j] = '<td class="subject">' + value.vehicleRegNo + '</td>';
-                        r[++j] = '<td class="subject">' + value.vehicleModel + '</td>';
-                        r[++j] = '<td class="subject">' + value.owner + '</td>';
-                        r[++j] = '<td class="subject">' + value.daysOverStayed + '</td>';
-                        r[++j] = '<td class="subject"><span class="badge badge-danger">' + value.status + '</span></td>';
-                        r[++j] = '<td class="subject">' + value.reportedBy + '</td>';
-
-
-                        rowNode = datatable.row.add(r);
-                    });
-                    rowNode.draw().node();
-                }
-
-                $('.loader').removeClass('be-loading-active');
-            }
-
-        });
-    }
-
 
 </script>
 @endsection

@@ -82,7 +82,9 @@ Route::group(['middleware' => 'check-userauth'], function () {
 
 
 
-    Route::get('/agentcases', 'ConfigurationController@showagentcases');
+    Route::get('cases/all', 'ConfigurationController@showcases');
+    Route::get('cases/agents', 'ConfigurationController@showagentcases');
+    Route::get('agentcases/{agentid}', 'ConfigurationController@getAgentCases');
 
     Route::get('drivers/all', 'DriverController@showalldrivers');
     Route::get('drivers/assign', 'DriverController@showassignvehicles');

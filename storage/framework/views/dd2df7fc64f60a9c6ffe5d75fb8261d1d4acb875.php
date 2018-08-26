@@ -475,7 +475,7 @@
                         r[++j] = '<td class="actions">' +
                                 '<a   href="#"  onclick="editUser(\'' + value.userId + '\')"   type="button" class="btn btn-success" > <i class="fa fa-search-plus"></i> </a> ' +
                                 '<a   href="#"  onclick="resetPin(\'' + value.userId + '\')"   type="button" class="btn btn-info" > <i class="fa fa-edit"></i> </a> ' +
-                                '<a  href="#" onclick="deleteUser(\'' + value.id + '\')" type="button" class="btn btn-danger" > <i class="fa fa-trash-o "></i></a> ' +
+                                '<a  href="#" onclick="deleteUser(\'' + value.userId + '\')" type="button" class="btn btn-danger" > <i class="fa fa-trash-o "></i></a> ' +
                                 '</td>';
                         rowNode = datatable.row.add(r);
                     });
@@ -524,7 +524,6 @@
 
 
     function deleteUser(id) {
-
         $('#code').val(id);
         $('#confirmModal').modal('show');
 

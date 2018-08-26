@@ -79,13 +79,29 @@
                     </ul>
                 </li>
 
-                <li class="nav-item  {{ Request::is('agentcases*') ? 'active' : '' }}">
-                    <a class="nav-link"  href="{{ url('agentcases') }}">
 
-                        <i class="fa fa-lg fa-fw fa-suitcase"></i>
-                        Reported Cases
-                    </a>
+                <li class=" nav-item nav-dropdown {{ Request::is('cases*') ? 'active' : '' }}">
+
+                    <a class="nav-link nav-dropdown-toggle" href="#"><i class="fa fa-bus"></i> Reported Cases</a>
+
+                    <ul class="nav-dropdown-items">
+
+
+                        <li class="nav-item {{ Request::is('cases/all') ? 'active' : '' }}">
+                            <a href="{{ url('cases/all') }}"  class="nav-link">
+                                All Cases</a>
+                        </li>
+                        <li class="nav-item {{ Request::is('cases/agents') ? 'active' : '' }}">
+                            <a href="{{ url('cases/agents') }}"  class="nav-link">
+                                Agents Cases</a>
+                        </li>
+
+
+                    </ul>
                 </li>
+
+
+           
 
                 <li class="nav-item {{ Request::is('users*') ? 'active' : '' }}">
                     <a class="nav-link" href="{{ url('users') }}">
@@ -95,12 +111,12 @@
 
                     </a>
                 </li>
-<!--                <li class="nav-item  {{ Request::is('reports*') ? 'active' : '' }}">
-                    <a class="nav-link" href="{{ url('reports') }}">
-                        <i class="fa fa-lg fa-fw fa-file"></i>
-                        Report
-                    </a>
-                </li>-->
+                <!--                <li class="nav-item  {{ Request::is('reports*') ? 'active' : '' }}">
+                                    <a class="nav-link" href="{{ url('reports') }}">
+                                        <i class="fa fa-lg fa-fw fa-file"></i>
+                                        Report
+                                    </a>
+                                </li>-->
                 <li class="nav-item {{ Request::is('audits*') ? 'active' : '' }}">
                     <a class="nav-link" href="{{ url('audits') }}">
                         <i class="fa fa-lg fa-fw fa-clipboard"></i>
@@ -121,7 +137,7 @@
                     <a class="nav-link nav-dropdown-toggle" href="#"><i class="fa fa-lg fa-fw fa-user"></i> Driver</a>
 
                     <ul class="nav-dropdown-items">
-                       
+
                         <li class="nav-item {{ Request::is('drivers/all') ? 'active' : '' }}">
                             <a href="{{ url('drivers/all') }}"  class="nav-link">
                                 All Drivers</a>
@@ -146,7 +162,7 @@
 
                     <ul class="nav-dropdown-items">
 
-                        
+
                         <li class="nav-item  {{ Request::is('vehicles/all') ? 'active' : '' }}">
                             <a href="{{ url('vehicles/all') }}"  class="nav-link">
                                 All Vehicles</a>
@@ -181,13 +197,13 @@
                     </a>
                 </li>
 
-<!--                <li class="nav-item  {{ Request::is('reports*') ? 'active' : '' }}">
-                    <a class="nav-link" href="{{ url('reports') }}">
-                        <i class="fa fa-lg fa-fw fa-file"></i>
-                        Report
-                    </a>
-                </li>-->
-              
+                <!--                <li class="nav-item  {{ Request::is('reports*') ? 'active' : '' }}">
+                                    <a class="nav-link" href="{{ url('reports') }}">
+                                        <i class="fa fa-lg fa-fw fa-file"></i>
+                                        Report
+                                    </a>
+                                </li>-->
+
                 <?php
             }
             ?>

@@ -16,19 +16,35 @@ use Illuminate\Support\Facades\Redirect;
 
 class ConfigurationController extends Controller {
 
-    public function showagentcases() {
+    public function showcases() {
 
-        $cases_data = $this->getAgentCases();
+        $cases_data = $this->getCases();
        
+   
         if ($cases_data['status'] == 0) {
             $dataArray = $cases_data['data'];
 
-            return view('agentcases')->with('data', $dataArray);
+            return view('cases')->with('data', $dataArray);
         }
         return redirect('errorpage')->with('errordata', $cases_data['message']);
     }
+    
+    
+    
+     public function showagentcases() {
 
-    public function getAgentCases() {
+       $agents_data = $this->getAgents();
+       
+       if ($agents_data['status'] == 0) {
+          $dataArray = $agents_data['data'];
+
+            return view('agentcases')
+                    ->with('data', $dataArray);
+        }
+        return redirect('errorpage')->with('errordata', $agents_data['message']);
+    }
+
+    public function getCases() {
         $url = config('constants.TEST_URL');
 
         $baseurl = $url . '/reports/reportedcases';
@@ -59,6 +75,41 @@ class ConfigurationController extends Controller {
         }
     }
 
+    
+    
+        public function getAgentCases($agentid) {
+        $url = config('constants.TEST_URL');
+
+        $baseurl = $url . '/reports/reportedcases/'.$agentid;
+
+        $client = new Client([
+            'headers' => [
+                'Accept' => 'application/json',
+                'Authorization' => 'Bearer ' . session('token')
+            ],
+            'http_errors' => false
+        ]);
+        try {
+
+            $response = $client->request('GET', $baseurl);
+            $body = $response->getBody();
+
+            return $body;
+        } catch (\RequestException $e) {
+            $data = array('status' => 1, 'message' => "Request Exception");
+            return json_encode($data);
+        } catch (\ClientException $e) {
+            $data = array('status' => 1, 'message' => "Client Exception");
+            return json_encode($data);
+        } catch (\Exception $e) {
+            $data = array('status' => 1, 'message' => "Internal Server Error");
+
+            return redirect('errorpage')->with('errordata', $e->getMessage());
+        }
+    }
+
+    
+    
     public function getSettings() {
         $url = config('constants.TEST_URL');
 
@@ -188,6 +239,44 @@ class ConfigurationController extends Controller {
             return json_encode($data);
         } catch (\Exception $e) {
             $data = array('status' => 1, 'message' => "Internal Server Error");
+            return redirect('errorpage')->with('errordata', $e->getMessage());
+        }
+    }
+
+    
+    
+    public function getAgents() {
+
+
+
+
+        $url = config('constants.TEST_URL');
+
+        $baseurl = $url . '/Account/Users';
+
+        $client = new Client([
+            'headers' => [
+                'Accept' => 'application/json',
+                'Authorization' => 'Bearer ' . session('token')
+            ],
+            'http_errors' => false
+        ]);
+        try {
+
+            $response = $client->request('GET', $baseurl);
+
+            $body = $response->getBody();
+
+            return json_decode($body, true);
+        } catch (\RequestException $e) {
+            $data = array('status' => 1, 'message' => "Request Exception" );
+            return json_encode($data);
+        } catch (\ClientException $e) {
+            $data = array('status' => 1, 'message' => "Client Exception" );
+            return json_encode($data);
+        } catch (\Exception $e) {
+            $data = array('status' => 1, 'message' => "Internal Server Error" );
+
             return redirect('errorpage')->with('errordata', $e->getMessage());
         }
     }
