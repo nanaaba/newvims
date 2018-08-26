@@ -19,6 +19,7 @@ class DashboardController extends Controller {
     public function showDashboard() {
 
         $dashboard_data = $this->dashboardData();
+       
         if ($dashboard_data['status'] == 0) {
             $dataArray = $dashboard_data['data'];
 

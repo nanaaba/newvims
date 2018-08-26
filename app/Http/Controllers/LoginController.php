@@ -69,7 +69,7 @@ class LoginController extends Controller {
         } catch (\GuzzleHttp\Exception\RequestException $e) {
 
 
-            $data = array('status' => 1, 'message' => "Username or password mismatch".$e->getMessage());
+            $data = array('status' => 1, 'message' => "Username or password mismatch");
             return json_encode($data);
         } catch (\GuzzleHttp\Exception\ClientException $e) {
             $data = array('status' => 1, 'message' => "System Error.PLease Contact System Administrator.");

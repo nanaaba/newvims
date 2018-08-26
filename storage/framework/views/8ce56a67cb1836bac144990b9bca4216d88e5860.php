@@ -332,7 +332,7 @@ $trips = json_decode($trips, true);
                                                             . $value['driver']['othernames'] . ' ' . $value['driver']['surname']
                                                             . '</td>'
                                                             . '<td>'
-                                                            . $value['checkInOn']
+                                                            . $value['checkInDate']
                                                             . '</td>'
                                                             . '<td><a   href="../../trip/' . $value['tripNo'] . '"    type="button" class="btn btn-success" > <i class="fa fa-search-plus "></i>  </a></td> '
                                                             . '</tr>';
@@ -624,7 +624,17 @@ $trips = json_decode($trips, true);
 <!--<script type="text/javascript" src="<?php echo e(asset('js/custom.js')); ?>"></script>-->
 
 <script type="text/javascript">
-  
+    $('#tripsTbl').DataTable({
+        "columnDefs": [
+
+            {"width": "10%", "targets": 0},
+            {"width": "15%", "targets": 1},
+            {"width": "20%", "targets": 2},
+            {"width": "30%", "targets": 3},
+            {"width": "15%", "targets": 4},
+            {"width": "10%", "targets": 5}
+        ]
+    });
     // $('#tabs').tabs();
     getSettings();
     // getTVISettings();
@@ -683,7 +693,6 @@ $trips = json_decode($trips, true);
             success: function (data) {
                 $('#loaderModal').modal('hide');
 
-                console.log(data);
                 var status = data.status;
                 console.log('status is :' + status);
 
@@ -754,7 +763,6 @@ $trips = json_decode($trips, true);
                 $('#tripForm select').val('').trigger('change');
                 $('#newtrip').modal('hide');
 
-                console.log(data);
                 var status = data.status;
                 console.log('status is :' + status);
 

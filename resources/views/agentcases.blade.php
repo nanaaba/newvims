@@ -18,58 +18,12 @@
     <div class="animated fadeIn">
 
 
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="card">
-                    <div class="card-header">
-                        <strong>Agent Cases</strong>
-                    </div>
-                    <div class="card-body">
-
-
-                        <div class="row">
-
-                            <div class="col-sm-4">
-                                <div class="form-group">
-                                    <label class=" control-label">Agents</label>
-
-                                    <select class="select2 form-control " name="agents" id="agents" tabindex="-1" aria-hidden="true" required>
-
-                                        <option value="">Select ---</option>
-                                        <option value="Ama">Ama</option>
-
-                                    </select>
-
-                                </div>
-                            </div>
-
-
-                            <div class="col-sm-6">
-                                <label class=" control-label">Date Range</label>
-
-
-                                <div class="input-group">
-                                    <span class="input-group-prepend">
-                                        <span class="input-group-text"><i class="fa fa-calendar"></i></span>
-                                    </span>
-                                    <input name="daterange" class="form-control" type="text">
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-            </div>
-            <!--/.col-->
-
-
-        </div>
+      
 
 
         <div class="card">
             <div class="card-header">
-                <i class="fa fa-edit"></i> Cases
+                <i class="fa fa-edit"></i>Agent Cases
 
             </div>
             <div class="card-body table-responsive">

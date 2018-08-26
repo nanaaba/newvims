@@ -1,337 +1,202 @@
-<div id="content">
-    <div class="page-head">
-        <h2 class="page-head-title"> {{$details['chasisNo']}}'s Information</h2>
-        <ol class="breadcrumb page-head-nav">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Vehicles</a></li>
-            <li class="active"> {{$details['chasisNo']}}'s Information</li>
-        </ol>
-    </div>
-    <div class="main-content container-fluid">
+@extends('layouts.master')
 
-        <div id="sucessdiv" style="display: none">
-
-            <div class="alert alert-success fade in">
-                <button class="close" data-dismiss="alert">
-                    ×
-                </button>
-                <i class="fa-fw fa fa-check"></i>
-                <strong>Success</strong> <span id="successmsg"> </span>
-            </div>
-        </div>
-        <div id="errordiv" style="display: none">
-            <div class="alert alert-danger fade in">
-                <button class="close" data-dismiss="alert">
-                    ×
-                </button>
-                <i class="fa-fw fa fa-times"></i>
-                <strong>Error!</strong> <span id="errormsg"> </span>
-            </div>
-        </div>
-        <form id="updateVehicleForm" novalidate>
+@section('content')
 
 
-            {{csrf_field()}}
 
-            <div class="row">
 
-                <div class="well well-sm well-light">
-                    <h3> {{$details['chasisNo']}}'s Information
-                        <br>
-    <!--                    <<small>Simple Tabs</small>
-                        -->
-                    </h3>
-                    <input type="hidden" name="vehicleno" value="{{$details['vehicleNo']}}"/>
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">Home</li>
+    <li class="breadcrumb-item"><a href="#">Report</a></li>
+    <li class="breadcrumb-item active">Agent Cases</li>
+    <!-- Breadcrumb Menu-->
 
-                    <div id="tabs">
-                        <ul>
-                            <li>
-                                <a href="#tabs-a">Vehicle Data</a>
-                            </li>
-                            <li>
-                                <a href="#tabs-b">Registration Data</a>
-                            </li>
-                            <li>
-                                <a href="#tabs-c">Permit Data</a>
-                            </li>
-                            <li>
-                                <a href="#tabs-d">Ecowas Data</a>
-                            </li>
-                            <li>
-                                <a href="#tabs-e">Trips</a>
-                            </li>
-                        </ul>
+</ol>
 
-                        <div id="tabs-a" class="panel-body">
+
+<div class="container-fluid">
+    <div class="animated fadeIn">
+
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header">
+                        <strong>Agent Cases</strong>
+                    </div>
+                    <div class="card-body">
+
+
+                        <div class="row">
 
                             <div class="col-sm-4">
                                 <div class="form-group">
-                                    <label class=" control-label">Vehicle Type</label>
+                                    <label class=" control-label">Agents</label>
 
-                                    <select class="select2 select2-hidden-accessible vehicletypes" name="vehicleTypeId"  tabindex="-1" aria-hidden="true" required>
-
-                                        <option value="{{$details['vehicleType']}}">{{$details['vehicleType']}}</option>
-
-                                    </select>
-
-
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <div class="form-group">
-                                    <label class=" control-label">Hs Code</label>
-
-                                    <input type="text" name="hsCode" value="{{$details['hsCode']}}" class="form-control">
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <div class="form-group">
-                                    <label class=" control-label">Status Code</label>
-
-                                    <input type="text" name="statusCode" value="{{$details['statusCode']}}" class="form-control datepicker">
-                                </div>
-                            </div>
-
-                            <div class="col-sm-4">
-                                <div class="form-group">
-                                    <label class=" control-label">CPC Code</label>
-
-                                    <input type="text" name="cpcCode" value="{{$details['cpcCode']}}" class="form-control">
-                                </div>
-                            </div>
-
-                            <div class="col-sm-4">
-                                <div class="form-group">
-                                    <label class=" control-label">Country</label>
-
-
-                                    <select class="select2 select2-hidden-accessible countries" name="resCountryId"  tabindex="-1" aria-hidden="true" required>
+                                    <select class="select2 form-control " name="agents" id="agents" tabindex="-1" aria-hidden="true" required>
 
                                         <option value="">Select ---</option>
+                                        <option value="Ama">Ama</option>
 
                                     </select>
 
                                 </div>
                             </div>
 
-                            <div class="col-sm-4">
-                                <div class="form-group">
-                                    <label class=" control-label">Origin Make</label>
-
-                                    <input type="text" name="make" value="{{$details['make']}}" class="form-control">
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <div class="form-group">
-                                    <label class=" control-label">Model</label>
-
-                                    <select class="select2 select2-hidden-accessible models" name="model"  tabindex="-1" aria-hidden="true" required>
-
-                                        <option value="{{$details['model']}}">{{$details['model']}}</option>
-
-                                    </select>
-
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <div class="form-group">
-                                    <label class=" control-label">Color</label>
-                                    <input type="text" name="color" value="{{$details['colour']}}" class="form-control">
-
-
-
-                                </div>
-                            </div>
-
-
-                            <div class="col-sm-4">
-                                <div class="form-group">
-                                    <label class=" control-label">Chassis Number</label>
-
-                                    <input type="text" name="chasisNo" value="{{$details['chasisNo']}}" class="form-control">
-                                </div>
-                            </div>
-
-                            <div class="col-sm-4">
-                                <div class="form-group">
-                                    <label class=" control-label">Engine Number</label>
-
-                                    <input type="text" name="engineNo" value="{{$details['engineNo']}}" class="form-control">
-                                </div>
-                            </div>
-
-                            <div class="col-sm-4">
-                                <div class="form-group">
-                                    <label class=" control-label">Front Plate Number</label>
-
-                                    <input type="text" name="frontPlateNo" value="{{$details['frontPlateNo']}}" class="form-control">
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <div class="form-group">
-                                    <label class=" control-label">Back Plate Number</label>
-
-                                    <input type="text" name="backPlateNo" value="{{$details['backPlateNo']}}" class="form-control">
-                                </div>
-                            </div>
 
                             <div class="col-sm-6">
-                                <div class="form-group">
-                                    <label class=" control-label">Description</label>
-                                    <textarea name="description" rows="8" class="form-control">
-                                                    {{trim($details['description'])}}
-                                    </textarea>
+                                <label class=" control-label">Date Range</label>
 
+
+                                <div class="input-group">
+                                    <span class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+                                    </span>
+                                    <input name="daterange" class="form-control" type="text">
                                 </div>
                             </div>
-
-                        </div>
-                        <div id="tabs-b" class="panel-body">
-
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <label class=" control-label">Issue Date</label>
-
-                                    <input type="text" name="regIssueDate"  value="{{$details['regIssueDate']}}" class="form-control datepicker">
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <label class=" control-label">Expiry Date</label>
-                                    <input type="text" name="regExpiryDate" value="{{$details['regExpiryDate']}}" class="form-control datepicker">
-
-                                </div>
-                            </div>
-                        </div>
-                        <div id="tabs-c" class="panel-body">
-                            <div class="col-sm-4">
-                                <div class="form-group">
-                                    <label class=" control-label">Permit No </label>
-
-                                    <input type="text" name="permitNo" value="{{$details['permitNo']}}" class="form-control">
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <div class="form-group">
-                                    <label class=" control-label">Issue Date</label>
-
-                                    <input type="text" name="permitIssueDate" value="{{$details['permitIssueDate']}}" class="form-control datepicker">
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <div class="form-group">
-                                    <label class=" control-label">Expiry Date</label>
-                                    <input type="text" name="permitExpiryDate" value="{{$details['permitExpiryDate']}}" class="form-control datepicker">
-
-                                </div>
-                            </div>
-                        </div>
-
-                        <div id="tabs-d" class="panel-body">
-                            <div class="col-sm-4">
-                                <div class="form-group">
-                                    <label class=" control-label">Ecowas No </label>
-
-                                    <input type="text" name="ecowasNo" value="{{$details['ecowasNo']}}" class="form-control">
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <div class="form-group">
-                                    <label class=" control-label">Issue Date</label>
-
-                                    <input type="text" name="ecowasIssueDate" value="{{$details['ecowasIssueDate']}}" class="form-control datepicker">
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <div class="form-group">
-                                    <label class=" control-label">Expiry Date</label>
-                                    <input type="text" name="ecowasExpiryDate" value="{{$details['ecowasExpiryDate']}}" class="form-control datepicker">
-
-                                </div>
-                            </div>
-                            <div class="col-sm-8">
-                                <div class="form-group">
-                                    <label class=" control-label">Remarks</label>
-                                    <textarea name="remarks" rows="8" class="form-control">
-                                                    {{$details['remarks']}}
-
-                                    </textarea>
-
-                                </div>
-                            </div>
-                        </div>    
-
-
-                        <div id="tabs-e" class="panel-body">
-                            <div class="row"  >
-                                <div class="col-lg-12">
-                                    <div class="pull-left">
-                                        <button data-toggle="modal" data-target="#newtrip" type="button" class="btn btn-space btn-primary">New Trip</button>
-                                        <!--                    <a  class="btn btn-primary" href="bulk-beneficiary-upload" >New Category</a>-->
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-                            <br>
-                            <table id="tripsTbl" class="table table-condensed table-hover table-bordered table-striped">
-                                <thead>
-                                    <tr>
-
-                                        <th>Trip Type</th>  
-                                        <th>Final Country</th>  
-                                        <th>Vehicle(Front Plate)</th>  
-                                        <th>Driver</th> 
-                                        <th>Check In</th> 
-
-                                        <th>Action</th>
-
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php
-                                    foreach ($trips['data'] as $value) {
-                                        echo '<tr>'
-                                        . '<td>'
-                                        . $value['tripType']
-                                        . '</td>'
-                                        . '<td>'
-                                        . $value['finalCountry']
-                                        . '</td>'
-                                        . '<td>'
-                                        . $value['vehicle']['frontPlateNo']
-                                        . '</td>'
-                                        . '<td>'
-                                        . $value['driver']['othernames'] . ' ' . $value['driver']['surname']
-                                        . '</td>'
-                                        . '<td>'
-                                        . $value['checkInOn']
-                                        . '</td>'
-                                        . '<td><a   href="../../trip/' . $value['tripNo'] . '"    type="button" class=" btn btn-labeled btn-primary btn-sm  col-sm-6" ><i class="glyphicon glyphicon-eye-open"></i> </a></td> '
-                                        . '</tr>';
-                                    }
-                                    ?>
-
-
-                                </tbody>
-                            </table>
                         </div>
 
                     </div>
-
-
                 </div>
 
+            </div>
+            <!--/.col-->
+
+
+        </div>
+
+
+        <div class="card">
+            <div class="card-header">
+                <i class="fa fa-edit"></i> Cases
 
             </div>
+            <div class="card-body table-responsive">
+                <table id="agentsCasesTbl" class="  table table-striped table-hover table-fw-widget">
+                    <thead>
 
-            <footer class="pull-right">
-                <button type="submit" class="btn btn-primary btn-block">
-                    Update
-                </button>
-            </footer>
-        </form>
+                        <tr>
+                            <th>Owner</th>
+                            <th>Gender</th>
+                            <th>Chassis Number</th>
+                            <th>Vehicle Type</th>
+                            <th>Entry Date</th>
+                            <th>Country</th>
+                            <th> Action</th>
+
+                        </tr>
+                    </thead>
+                    <tbody >
+
+                    </tbody>
+
+
+                </table>
+            </div>
+        </div>
     </div>
 
 </div>
+@endsection
+
+@section('customjs')
+<script type="text/javascript">
+
+    $('input[name="daterange"]').daterangepicker({
+        opens: 'left',
+        ranges: {
+            'Today': [moment(), moment()],
+            'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+            'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+            'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+            'This Month': [moment().startOf('month'), moment().endOf('month')],
+            'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+        }
+    });
+
+//$('input[name="daterange"]').daterangepicker();
+//        var datatable = $('#transactionTbl').DataTable({
+//            buttons: [
+//                'copy', 'excel', 'pdf'
+//            ]
+//        });
+//        datatable.buttons().container()
+//                .appendTo($('.col-sm-6:eq(0)', datatable.table().container()));
+
+    var datatable = $('#agentsCasesTbl').DataTable({
+        lengthChange: false,
+        buttons: [
+            {extend: 'copyHtml5', footer: true},
+            {extend: 'excelHtml5', footer: true},
+            {extend: 'csvHtml5', footer: true},
+            {extend: 'pdfHtml5', footer: true},
+            {extend: 'print', footer: true}
+        ]
+    });
+
+
+    datatable.buttons().container()
+            .appendTo('#agentsCasesTbl_wrapper .col-sm-6:eq(0)');
+    $('#agentCasesForm').on('submit', function (e) {
+        $('.loader').addClass('be-loading-active');
+        e.preventDefault();
+        var formData = $(this).serialize();
+        $.ajax({
+            url: "{{url('reports/agentcases')}}",
+            type: "POST",
+            data: formData,
+            dataType: 'json',
+            success: function (data) {
+
+
+                $('.loader').removeClass('be-loading-active');
+                var dataSet = data.data;
+                console.log(dataSet);
+                datatable.clear().draw();
+                console.log('size' + dataSet.length);
+                if (dataSet.length == 0) {
+                    $('#infoModal').modal('show');
+
+                    return;
+                } else {
+                    $.each(dataSet, function (key, value) {
+
+
+
+
+                        var j = -1;
+                        var r = new Array();
+                        // represent columns as array
+                        r[++j] = '<td>' + value.ownerName + '</td>';
+                        r[++j] = '<td>' + value.gender + '</td>';
+                        r[++j] = '<td>' + value.chassisNumber + '</td>';
+                        r[++j] = '<td class="subject">' + value.vehicleType + '</td>';
+                        r[++j] = '<td class="subject"> ' + value.entryDate + '</td>';
+                        r[++j] = '<td class="subject">' + value.country + '</td>';
+                        r[++j] = '<td class="actions">' +
+                                '<a  href="#"  onclick="viewCarDetail(' + value.id + ')"  type="button" class="icon btn btn-outline-info btn-sm  col-sm-6 btn-edit editBtn" ><i title="View" class="mdi mdi-eye""></i><span class="hidden-md hidden-sm hidden-xs"> </span></a>' +
+                                '</td>';
+                        rowNode = datatable.row.add(r);
+                    });
+                    rowNode.draw().node();
+                }
+                var total = datatable.column(2).data().sum();
+                $('#totalcost').html('GHS ' + total.toFixed(2));
+                console.log('AMount' + total);
+                $('.loader').removeClass('be-loading-active');
+            }
+
+
+
+        });
+    });
+
+    function viewCarDetail(id) {
+
+
+        $('#cainfoModal').modal('show');
+    }
+
+</script>
+@endsection

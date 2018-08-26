@@ -84,10 +84,8 @@ $('#loginForm').submit(function (e) {
 
             if (data.status == 0) {
                 window.location = "dashboard";
-                
+
             } else {
-
-
 
                 $('#errordiv').show();
                 $('#errormsg').html(data.message);
