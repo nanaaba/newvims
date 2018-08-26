@@ -329,7 +329,7 @@ $trips = json_decode($trips, true);
                                                             . $value['vehicle']['frontPlateNo']
                                                             . '</td>'
                                                             . '<td>'
-                                                            . $value['driver']['othernames'] . ' ' . $value['driver']['surname']
+                                                            .  $value['driver']['surname']
                                                             . '</td>'
                                                             . '<td>'
                                                             . $value['checkInDate']
@@ -623,18 +623,8 @@ $trips = json_decode($trips, true);
 <!--<script type="text/javascript" src="{{ asset('js/custom.js')}}"></script>-->
 
 <script type="text/javascript">
-    $('#tripsTbl').DataTable({
-        "columnDefs": [
-
-            {"width": "10%", "targets": 0},
-            {"width": "15%", "targets": 1},
-            {"width": "20%", "targets": 2},
-            {"width": "30%", "targets": 3},
-            {"width": "15%", "targets": 4},
-            {"width": "10%", "targets": 5}
-        ]
-    });
-    // $('#tabs').tabs();
+    $('#tripsTbl').DataTable();
+   $('#tabs').tabs();
     getSettings();
     // getTVISettings();
     getDrivers();

@@ -668,50 +668,49 @@ $driver = $data['driver'];
 <script type="text/javascript" src="<?php echo e(asset('js/custom.js')); ?>"></script>
 <script type="text/javascript">
 
-   // $('#tabs').tabs();
+// $('#tabs').tabs();
 
-    $(".disabledform :input").prop("disabled", true);
+$(".disabledform :input").prop("disabled", true);
 
 //    $('.datepicker').datepicker({
 //        format: 'dd-mm-yyyy'
 //    });
-    $('#updatetripForm').on('submit', function (e) {
-        e.preventDefault();
-        var formData = $(this).serialize();
-        console.log('server data: ' + formData);
-        $('#loaderModal').modal('show');
+$('#updatetripForm').on('submit', function (e) {
+    e.preventDefault();
+    var formData = $(this).serialize();
+    console.log('server data: ' + formData);
+    $('#loaderModal').modal('show');
 
-        $.ajax({
-            url: "<?php echo e(url('trips/new')); ?>",
-            type: "POST",
-            data: formData,
-            dataType: "json",
-            success: function (data) {
-                $('#loaderModal').modal('hide');
+    $.ajax({
+        url: "<?php echo e(url('trips/new')); ?>",
+        type: "POST",
+        data: formData,
+        dataType: "json",
+        success: function (data) {
+            $('#loaderModal').modal('hide');
 
-                console.log(data);
-                var status = data.status;
-                console.log('status is :' + status);
+            var status = data.status;
+            console.log('status is :' + status);
 
-                if (status == 0) {
-                    $('#successmsg').html(data.message);
-                    $('#sucessdiv').show();
-                } else {
-                    $('#errormsg').html(data.message);
-                    $('#errordiv').show();
-                }
-                $(window).scrollTop(0);
-
-            },
-            error: function (jXHR, textStatus, errorThrown) {
-                $('input:submit').removeAttr("disabled");
-                $('#errordiv').html('Contact System Administrator');
-                $('#errormsg').show();
+            if (status == 0) {
+                $('#successmsg').html(data.message);
+                $('#sucessdiv').show();
+            } else {
+                $('#errormsg').html(data.message);
+                $('#errordiv').show();
             }
-        });
+            $(window).scrollTop(0);
 
-
+        },
+        error: function (jXHR, textStatus, errorThrown) {
+            $('input:submit').removeAttr("disabled");
+            $('#errordiv').html('Contact System Administrator');
+            $('#errormsg').show();
+        }
     });
+
+
+});
 </script>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('layouts.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

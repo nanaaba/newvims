@@ -143,7 +143,7 @@
 
                     $('.drivers').append($('<option>', {
                         value: item.driverRegNo,
-                        text: item.othernames + ' ' + item.surname
+                        text:  item.surname
                     }));
                 });
 
