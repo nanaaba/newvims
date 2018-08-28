@@ -112,7 +112,7 @@
         // $('#loaderModal').modal('show');
 
         $.ajax({
-            url: "{{url('drivers/getall')}}",
+            url: "{{url('drivers/getblacklisted')}}",
             type: "GET",
             dataType: 'json',
             success: function (data) {

@@ -113,7 +113,7 @@
 
 //
 //
-    $('.select2').select();
+    $('.select2').select2();
     $('#retrieveCases').click(function () {
 
         var agentId = $('#agents').val();

@@ -117,12 +117,12 @@
                                         Report
                                     </a>
                                 </li>-->
-                <li class="nav-item {{ Request::is('audits*') ? 'active' : '' }}">
+<!--                <li class="nav-item {{ Request::is('audits*') ? 'active' : '' }}">
                     <a class="nav-link" href="{{ url('audits') }}">
                         <i class="fa fa-lg fa-fw fa-clipboard"></i>
                         Audit Logs
                     </a>
-                </li>
+                </li>-->
                 <?php
             }
             ?>

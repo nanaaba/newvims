@@ -46,31 +46,60 @@
         <div class="row">
             <div class="col-md-12">
 
-            <div class="card">
-                <div class="card-header">
-                    <i class="fa fa-edit"></i> Audit Logs
+                <div class="card">
+                    <div class="card-header">
+                        <i class="fa fa-edit"></i> Audit Logs
+
+                    </div>
+
+                    <?php
+                    if (sizeof($data) > 0) {
+                        ?>
+                        <div class="card-body table-responsive">
+                            <table id="usersTbl" class="table table-condensed table-hover table-bordered table-striped">
+                                <thead>
+                                    <tr>
+
+                                        <th>User</th>  
+                                        <th>Activity</th>  
+                                        <th>Remarks</th>  
+
+                                        <th>Date Created</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+                                    foreach ($data as $value) {
+                                        echo '<tr>'
+                                        . '<td>'
+                                        . $value['userName']
+                                        . '</td>'
+                                        . '<td>'
+                                        . $value['activity']
+                                        . '</td>'
+                                        . '<td>'
+                                        . $value['remarks']
+                                        . '</td>'
+                                        . '<td>'
+                                        . $value['timeInserted']
+                                        . '</td>'
+                                        . '<td><a   href="../../trip/' . $value['tripNo'] . '"    type="button" class="btn btn-success" > <i class="fa fa-search-plus "></i>  </a></td> '
+                                        . '</tr>';
+                                    }
+                                    ?>
+
+                                </tbody>
+                            </table>
+
+                        </div>
+                        <?php
+                    } else {
+                        echo 'No audits';
+                    }
+                    ?>
 
                 </div>
-                <div class="card-body table-responsive">
-                       <table id="usersTbl" class="table table-condensed table-hover table-bordered table-striped">
-                            <thead>
-                                <tr>
-
-                                    <th>User</th>  
-                                    <th>Activity</th>  
-                                    
-                                    <th>Date Created</th>
-                                   
-                                </tr>
-                            </thead>
-                            <tbody>
-
-
-                            </tbody>
-                        </table>
-                 
-                </div>
-            </div>
 
 
             </div>
@@ -94,7 +123,7 @@
 @section('customjs')
 
 <script type="text/javascript">
-   
+
 
     $('#roles').change(function () {
 
@@ -109,11 +138,11 @@
     });
 
 
-  
+
     var datatable = $('#usersTbl').DataTable();
 
 
-   
+
     function resetPassword(id) {
         $('#itemid').val(id);
         $('#resetModal').modal('show');

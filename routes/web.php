@@ -60,10 +60,7 @@ Route::group(['middleware' => 'check-userauth'], function () {
             return view('generalreport');
         });
 
-        Route::get('/audits', function () {
 
-            return view('auditslogs');
-        });
 
         Route::get('drivers/new', 'DriverController@showdrivers');
         Route::get('vehicles/new', 'VehicleController@showvehicle');
@@ -85,6 +82,8 @@ Route::group(['middleware' => 'check-userauth'], function () {
     Route::get('cases/all', 'ConfigurationController@showcases');
     Route::get('cases/agents', 'ConfigurationController@showagentcases');
     Route::get('agentcases/{agentid}', 'ConfigurationController@getAgentCases');
+    Route::get('audits', 'ConfigurationController@showaudits');
+
 
     Route::get('drivers/all', 'DriverController@showalldrivers');
     Route::get('drivers/assign', 'DriverController@showassignvehicles');
@@ -101,6 +100,8 @@ Route::group(['middleware' => 'check-userauth'], function () {
 
 
     Route::get('drivers/getall', 'DriverController@getDrivers');
+    Route::get('drivers/getblacklisted', 'DriverController@getBlackelistedDrivers');
+
     Route::get('drivers/information/{driverid}', 'DriverController@getDriverInformation');
     Route::post('driver/new', 'DriverController@saveDriver');
     Route::get('drivers/vehicles', 'DriverController@getDriversVehicles');

@@ -45,6 +45,13 @@
 
                         <?php
                         foreach ($data as $value) {
+
+                            if ($value['status'] == "Open") {
+                                $status_color = "success";
+                            } else {
+                                $status_color = "danger";
+                            }
+
                             echo '<tr>'
                             . '<td>'
                             . $value['frontPlate']
@@ -70,7 +77,7 @@
                             . '<td>'
                             . $value['daysOverStayed']
                             . '</td>'
-                            . '<td> <span class="badge badge-danger">' . $value['status'] . '</span>'
+                            . '<td> <span class="badge badge-'.$status_color.'">' . $value['status'] . '</span>'
                             . '</td>'
                             . '<td>'
                             . $value['reportedBy']

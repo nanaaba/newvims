@@ -110,7 +110,7 @@
         // $('#loaderModal').modal('show');
 
         $.ajax({
-            url: "<?php echo e(url('drivers/getall')); ?>",
+            url: "<?php echo e(url('drivers/getblacklisted')); ?>",
             type: "GET",
             dataType: 'json',
             success: function (data) {
@@ -125,7 +125,7 @@
                     console.log("NO DATA!");
                 } else {
                     $.each(dataSet, function (key, value) {
-                        var name = value.othernames + ' ' + value.surname;
+                        var name =  value.surname;
 
                         var j = -1;
                         var r = new Array();

@@ -37,7 +37,7 @@
                                         <option value="">Select ---</option>
                                         <?php
                                         foreach ($data as $value) {
-                                            echo ' <option value="'. $value['userId'] .' ">' . $value['othernames'] . '' . $value['surname'] . '</option>';
+                                            echo ' <option value="' . $value['userId'] . ' ">' . $value['othernames'] . '' . $value['surname'] . '</option>';
                                         }
                                         ?>
                                     </select>
@@ -88,6 +88,8 @@
                             <th>Owner</th>
                             <th>Days OverStayed</th>
                             <th>Status</th>
+                            <th>Reported By</th>
+
                         </tr>
                     </thead>
                     <tbody>
@@ -109,11 +111,11 @@
 
 //
 //
-$('.select2').select();
+    $('.select2').select2();
     $('#retrieveCases').click(function () {
-        
+
         var agentId = $('#agents').val();
-        
+
         getAgentCases(agentId);
     });
 
@@ -243,8 +245,9 @@ $('.select2').select();
                         r[++j] = '<td class="subject">' + value.owner + '</td>';
                         r[++j] = '<td class="subject">' + value.daysOverStayed + '</td>';
                         r[++j] = '<td class="subject"><span class="badge badge-danger">' + value.status + '</span></td>';
+                        r[++j] = '<td class="subject">' + value.reportedBy + '</td>';
 
-                       
+
                         rowNode = datatable.row.add(r);
                     });
                     rowNode.draw().node();

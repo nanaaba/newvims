@@ -13,6 +13,8 @@ use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Redirect;
+use App\Http\Controllers\ConfigurationController;
+
 
 class DashboardController extends Controller {
 
@@ -20,10 +22,21 @@ class DashboardController extends Controller {
 
         $dashboard_data = $this->dashboardData();
        
-        if ($dashboard_data['status'] == 0) {
-            $dataArray = $dashboard_data['data'];
+         $config = new ConfigurationController();
+        
+         $cases_data = $config->getCases();
 
-            return view('dashboard')->with('data', $dataArray);
+
+//        if ($cases_data['status'] == 0) {
+//            $dataArray = $cases_data['data'];
+//
+//            return view('cases')->with('data', $dataArray);
+//        }
+        if ($dashboard_data['status'] == 0 && $cases_data['status'] == 0) {
+            $dataArray = $dashboard_data['data'];
+            $cases = $cases_data['data'];
+
+            return view('dashboard')->with('data', $dataArray)->with("cases",$cases);
         }
         return redirect('errorpage')->with('errordata', $dashboard_data['message']);
     }
