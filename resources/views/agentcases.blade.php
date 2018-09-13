@@ -39,7 +39,7 @@
                                         <option value="">Select ---</option>
                                         <?php
                                         foreach ($data as $value) {
-                                            echo ' <option value="' . $value['userId'] . ' ">' . $value['othernames'] . '' . $value['surname'] . '</option>';
+                                            echo ' <option value="' . $value['userId'] . ' ">' . $value['othernames'] . ' ' . $value['surname'] . '</option>';
                                         }
                                         ?>
                                     </select>

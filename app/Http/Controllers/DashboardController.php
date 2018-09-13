@@ -44,7 +44,7 @@ class DashboardController extends Controller {
     public function dashboardData() {
         $url = config('constants.TEST_URL');
 
-        $baseurl = $url . 'dashboard';
+        $baseurl = $url . 'dashboard/counters/yearly';
 
         $client = new Client([
             'headers' => [

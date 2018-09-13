@@ -32,7 +32,7 @@
                     <div class="h1 text-muted text-right mb-4">
                         <i class="fa fa-bus"></i>
                     </div>
-                    <div class="h4 mb-0">{{$data['carsEntered']['year']}}</div>
+                    <div class="h4 mb-0">{{$data['newTvi']}}</div>
                     <small class="text-muted text-uppercase font-weight-bold">New TVI Entry</small>
                     <div class="progress progress-xs mt-3 mb-0">
                         <div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
@@ -44,7 +44,7 @@
                     <div class="h1 text-muted text-right mb-4">
                         <i class="fa fa-bus"></i>
                     </div>
-                    <div class="h4 mb-0">{{$data['carsExpiring']['year']}}</div>
+                    <div class="h4 mb-0">{{$data['exitedTvi']}}</div>
                     <small class="text-muted text-uppercase font-weight-bold">Exited TVI</small>
                     <div class="progress progress-xs mt-3 mb-0">
                         <div class="progress-bar bg-danger" role="progressbar" style="width: 100%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
@@ -56,7 +56,7 @@
                     <div class="h1 text-muted text-right mb-4">
                         <i class="fa fa-bus"></i>
                     </div>
-                    <div class="h4 mb-0">{{$data['carsOverStayed']['year']}}</div>
+                    <div class="h4 mb-0">{{$data['overStayedTvi']}}</div>
                     <small class="text-muted text-uppercase font-weight-bold"> Overstayed TVI</small>
                     <div class="progress progress-xs mt-3 mb-0">
                         <div class="progress-bar bg-danger" role="progressbar" style="width: 100%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
@@ -68,7 +68,7 @@
                     <div class="h1 text-muted text-right mb-4">
                         <i class="icon-people"></i>
                     </div>
-                    <div class="h4 mb-0">2101</div>
+                    <div class="h4 mb-0">{{$data['blackListed']}}</div>
                     <small class="text-muted text-uppercase font-weight-bold">BlackListed Drivers</small>
                     <div class="progress progress-xs mt-3 mb-0">
                         <div class="progress-bar bg-black" role="progressbar" style="width: 100%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
@@ -80,7 +80,7 @@
                     <div class="h1 text-muted text-right mb-4">
                         <i class="fa fa-bus"></i>
                     </div>
-                    <div class="h4 mb-0">{{$data['carsExited']['year']}}</div>
+                    <div class="h4 mb-0">{{$data['reportedCases']}}</div>
                     <small class="text-muted text-uppercase font-weight-bold">Reported Cases</small>
                     <div class="progress progress-xs mt-3 mb-0">
                         <div class="progress-bar bg-warning" role="progressbar" style="width: 100%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
