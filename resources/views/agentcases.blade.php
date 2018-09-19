@@ -30,9 +30,12 @@
 
                         <div class="row">
 
+                            <div class="col-sm-2">
+                                <label class=" control-label">Agents</label>
+
+                            </div>         
                             <div class="col-sm-4">
                                 <div class="form-group">
-                                    <label class=" control-label">Agents</label>
 
                                     <select class="select2 form-control " name="agents" id="agents" tabindex="-1" aria-hidden="true" required>
 
@@ -45,19 +48,13 @@
                                     </select>
 
                                 </div>
-                            </div>
-
-
-                            <div class="col-sm-6">
-
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-6 offset-6">
+                            </div>         
+                            <div class="col-sm-2">
                                 <button type="button" id="retrieveCases" class="btn btn-primary btn-block">
-                                    Retrieve Cases
+                                    Filter 
                                 </button>
-                            </div>
+                            </div>         
+
                         </div>
 
                     </div>

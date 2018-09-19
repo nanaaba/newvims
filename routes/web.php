@@ -11,7 +11,7 @@
   |
  */
 
-
+   Route::get("trends/{period}", "DashboardController@dashboardTrends");
 Route::get('/', function () {
 
     return view('login');
@@ -144,4 +144,5 @@ Route::group(['middleware' => 'check-userauth'], function () {
     Route::get("search", "ReportController@search");
 
     Route::get("graphapi", "DashboardController@graphApi");
+ 
 });

@@ -100,63 +100,48 @@
                                 <div class="small text-muted" style="margin-top:-10px;"><?php echo date('F Y') ?></div>
                             </div>
                             <div class="col-7">
-                                <button type="button" class="btn btn-primary float-right"><i class="icon-cloud-download"></i></button>
+<!--                                <button type="button" class="btn btn-primary float-right"><i class="icon-cloud-download"></i></button>
+                                -->
+                                
                                 <div class="btn-group btn-group-toggle float-right mr-3" data-toggle="buttons">
-                                    <label class="btn btn-outline-secondary">
-                                        <input type="radio" name="options" id="option1" autocomplete="off"> Day
-                                    </label>
+                                    <!-- class="btn btn-outline-secondary active"-->
                                     <label class="btn btn-outline-secondary active">
-                                        <input type="radio" name="options" id="option2" autocomplete="off" checked=""> Month
+                                        <input type="radio" name="trends" value="monthly" id="monthlytrends" checked > Month
                                     </label>
-                                    <label class="btn btn-outline-secondary">
-                                        <input type="radio" name="options" id="option3" autocomplete="off"> Year
+                                    <label class="btn btn-outline-secondary" >
+                                        <input type="radio" name="trends" value="yearly" id="yearlytrends" > Year
                                     </label>
                                 </div>
                             </div>
                         </div>
-                        <div class="chart-wrapper" style="height:298px;margin-top:40px;">
-                            <canvas id="main-chart" height="298"></canvas>
-                        </div>
+                        <!--                        <div class="chart-wrapper" style="height:298px;margin-top:40px;">
+                                                    <canvas id="results" height="298"></canvas>
+                                                </div>
+                        -->
+                        <canvas id="results"></canvas>
+
+
+
                     </div>
-                    <div class="card-footer">
-                        <ul>
-                            <li>
-                                <div class="text-muted">NEW TVI ENTRY</div>
-                                <strong>29.703 (40%)</strong>
-                                <div class="progress progress-xs mt-2">
-                                    <div class="progress-bar bg-success" role="progressbar" style="width: 40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </li>
-                            <li class="hidden-sm-down">
-                                <div class="text-muted">Unique or Distinct TVI Entry</div>
-                                <strong>24.093  (20%)</strong>
-                                <div class="progress progress-xs mt-2">
-                                    <div class="progress-bar bg-info" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="text-muted">Unique or Distinct TVI Exit</div>
-                                <strong>78.706 Views (60%)</strong>
-                                <div class="progress progress-xs mt-2">
-                                    <div class="progress-bar bg-warning" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </li>
-                            <li class="hidden-sm-down">
-                                <div class="text-muted">TVI Exit</div>
-                                <strong>22.123 Users (80%)</strong>
-                                <div class="progress progress-xs mt-2">
-                                    <div class="progress-bar bg-danger" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </li>
-                            <li class="hidden-sm-down">
-                                <div class="text-muted">Bounce Rate</div>
-                                <strong>40.15%</strong>
-                                <div class="progress progress-xs mt-2">
-                                    <div class="progress-bar" role="progressbar" style="width: 40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
+                    <!--                    <div class="card-footer">
+                                            <ul>
+                                                <li>
+                                                    <div class="text-muted">NEW TVI ENTRY</div>
+                                                    <strong>29.703 (40%)</strong>
+                                                    <div class="progress progress-xs mt-2">
+                                                        <div class="progress-bar bg-success" role="progressbar" style="width: 50%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    </div>
+                                                </li>
+                                                <li class="hidden-sm-down">
+                                                    <div class="text-muted">Exit TVI Entry</div>
+                                                    <strong>24.093  (20%)</strong>
+                                                    <div class="progress progress-xs mt-2">
+                                                        <div class="progress-bar bg-info" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    </div>
+                                                </li>
+                    
+                                            </ul>
+                                        </div>-->
                 </div>
                 <!--/.card-->
             </div>
@@ -164,81 +149,81 @@
         </div>
 
         <div class="row">
-             <div class="card">
-            <div class="card-header">
-                <i class="fa fa-edit"></i> Cases
+            <div class="card">
+                <div class="card-header">
+                    <i class="fa fa-edit"></i> Cases
 
-            </div>
-            <div class="card-body table-responsive">
-                <table id="agentsCasesTbl" class=" table table-condensed table-hover table-bordered table-striped">
-                    <thead>
+                </div>
+                <div class="card-body table-responsive">
+                    <table id="agentsCasesTbl" class=" table table-condensed table-hover table-bordered table-striped">
+                        <thead>
 
-                        <tr>
-                            <th>Front Plate</th>
-                            <th>Back Plate</th>
-                            <th>Country</th>
-                            <th>Driver RegNo</th>
-                            <th>Vehicle RegNo</th>
-                            <th>Vehicle Model</th>
-                            <th>Owner</th>
-                            <th>Days OverStayed</th>
-                            <th>Status</th>
-                            <th>Reported By</th>
+                            <tr>
+                                <th>Front Plate</th>
+                                <th>Back Plate</th>
+                                <th>Country</th>
+                                <th>Driver RegNo</th>
+                                <th>Vehicle RegNo</th>
+                                <th>Vehicle Model</th>
+                                <th>Owner</th>
+                                <th>Days OverStayed</th>
+                                <th>Status</th>
+                                <th>Reported By</th>
 
-                        </tr>
-                    </thead>
-                    <tbody>
+                            </tr>
+                        </thead>
+                        <tbody>
 
-                        <?php
-                        foreach ($cases as $value) {
+                            <?php
+                            foreach ($cases as $value) {
 
-                            if ($value['status'] == "Open") {
-                                $status_color = "success";
-                            } else {
-                                $status_color = "danger";
+                                if ($value['status'] == "Open") {
+                                    $status_color = "success";
+                                } else {
+                                    $status_color = "danger";
+                                }
+
+                                echo '<tr>'
+                                . '<td>'
+                                . $value['frontPlate']
+                                . '</td>'
+                                . '<td>'
+                                . $value['backPlate']
+                                . '</td>'
+                                . '<td>'
+                                . $value['country']
+                                . '</td>'
+                                . '<td>'
+                                . $value['driverRegNo']
+                                . '</td>'
+                                . '<td>'
+                                . $value['vehicleRegNo']
+                                . '</td>'
+                                . '<td>'
+                                . $value['vehicleModel']
+                                . '</td>'
+                                . '<td>'
+                                . $value['owner']
+                                . '</td>'
+                                . '<td>'
+                                . $value['daysOverStayed']
+                                . '</td>'
+                                . '<td> <span class="badge badge-' . $status_color . '">' . $value['status'] . '</span>'
+                                . '</td>'
+                                . '<td>'
+                                . $value['reportedBy']
+                                . '</td>'
+                                . '</tr>';
                             }
-
-                            echo '<tr>'
-                            . '<td>'
-                            . $value['frontPlate']
-                            . '</td>'
-                            . '<td>'
-                            . $value['backPlate']
-                            . '</td>'
-                            . '<td>'
-                            . $value['country']
-                            . '</td>'
-                            . '<td>'
-                            . $value['driverRegNo']
-                            . '</td>'
-                            . '<td>'
-                            . $value['vehicleRegNo']
-                            . '</td>'
-                            . '<td>'
-                            . $value['vehicleModel']
-                            . '</td>'
-                            . '<td>'
-                            . $value['owner']
-                            . '</td>'
-                            . '<td>'
-                            . $value['daysOverStayed']
-                            . '</td>'
-                            . '<td> <span class="badge badge-'.$status_color.'">' . $value['status'] . '</span>'
-                            . '</td>'
-                            . '<td>'
-                            . $value['reportedBy']
-                            . '</td>'
-                            . '</tr>';
-                        }
-                        ?>
-                    </tbody>
+                            ?>
+                        </tbody>
 
 
-                </table>
+                    </table>
+                </div>
             </div>
         </div>
-        </div>
-   </div>
+    </div>
 
 </div>
 <!-- /.conainer-fluid -->
@@ -251,11 +236,181 @@
 <script src="{{ asset('vendors/js/gauge.min.js')}}"></script>
 <script src="{{ asset('vendors/js/moment.min.js')}}"></script>
 <script src="{{ asset('vendors/js/daterangepicker.min.js')}}"></script>
-  <script src="{{ asset('js/views/main.js')}}"></script>
-  <script type="text/javascript">
-      
-          var datatable = $('#agentsCasesTbl').DataTable();
+<script src="{{ asset('js/views/main.js')}}"></script>
+<script type="text/javascript">
 
-      </script>
+var datatable = $('#agentsCasesTbl').DataTable();
+
+
+$("input[type=radio][name=trends]").change(function () {
+    if (this.value == "monthly") {
+
+        function getMonthlyTrends() {
+
+          
+            return    $.ajax({
+                url: "trends/monthly",
+                type: "GET",
+                dataType: 'json'
+            });
+        }
+
+        $.when(getMonthlyTrends()).done(function (response) {
+
+        var dataSet = response.data;
+            console.log();
+            var newtvis = dataSet.new;
+            var exittvis = dataSet.exited;
+            var periods = dataSet.period;
+
+            var ctx = document.getElementById("results");
+            ;
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: periods,
+                    datasets: [
+                        {
+                            label: 'New TVis',
+                            "borderColor": 'rgba(54, 162, 235, 1)',
+                            pointHoverBackgroundColor: '#fff',
+                            borderWidth: 2,
+                            data: newtvis
+                        },
+                        {
+                            label: 'Exit Tvis',
+                            "borderColor": 'rgb(0, 128, 0)',
+                            pointHoverBackgroundColor: '#fff',
+                            borderWidth: 2,
+                            data: exittvis
+                        }
+                    ]
+                }
+            });
+
+
+        });
+
+    } else {
+
+
+  function getYearlyTrend() {
+       
+        return    $.ajax({
+            url: "trends/yearly",
+            type: "GET",
+            dataType: 'json'
+        });
+    }
+
+
+    $.when(getYearlyTrend()).done(function (response) {
+
+// the code here will be executed when all four ajax requests resolve.
+// a1, a2, a3 and a4 are lists of length 3 containing the response text,
+// status, and jqXHR object for each of the four ajax calls respectively.
+        var dataSet = response.data;
+        console.log();
+        var newtvis = dataSet.new;
+        var exittvis = dataSet.exited;
+        var periods = dataSet.period;
+
+        console.log('period datanknkn her: ' + periods);
+
+
+
+
+        // newtvis = newtvis.map(Number);
+//    exittvis = exittvis.map(Number);
+//    console.log('figures: ' + exittvis);
+//    console.log('data:' + periods);
+
+        console.log('charts.............');
+
+        var ctx = document.getElementById("results");
+        ;
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: periods,
+                datasets: [
+                    {
+                        label: 'New TVis',
+                        "borderColor": 'rgba(54, 162, 235, 1)',
+                        pointHoverBackgroundColor: '#fff',
+                        borderWidth: 2,
+                        data: newtvis
+                    },
+                    {
+                        label: 'Exit Tvis',
+                        "borderColor": 'rgb(0, 128, 0)',
+                        pointHoverBackgroundColor: '#fff',
+                        borderWidth: 2,
+                        data: exittvis
+                    }
+                ]
+            }
+        });
+
+
+    });
+
+    }
+});
+
+
+
+  function getMonthlyTrends() {
+
+     
+
+            return    $.ajax({
+                url: "trends/monthly",
+                type: "GET",
+                dataType: 'json'
+            });
+        }
+
+        $.when(getMonthlyTrends()).done(function (response) {
+
+        var dataSet = response.data;
+            console.log();
+            var newtvis = dataSet.new;
+            var exittvis = dataSet.exited;
+            var periods = dataSet.period;
+
+            var ctx = document.getElementById("results");
+            ;
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: periods,
+                    datasets: [
+                        {
+                            label: 'New TVis',
+                            "borderColor": 'rgba(54, 162, 235, 1)',
+                            pointHoverBackgroundColor: '#fff',
+                            borderWidth: 2,
+                            data: newtvis
+                        },
+                        {
+                            label: 'Exit Tvis',
+                            "borderColor": 'rgb(0, 128, 0)',
+                            pointHoverBackgroundColor: '#fff',
+                            borderWidth: 2,
+                            data: exittvis
+                        }
+                    ]
+                }
+            });
+
+
+        });
+
+
+
+
+
+</script>
 @endsection
 

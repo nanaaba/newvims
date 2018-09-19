@@ -15,16 +15,15 @@ use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Redirect;
 use App\Http\Controllers\ConfigurationController;
 
-
 class DashboardController extends Controller {
 
     public function showDashboard() {
 
         $dashboard_data = $this->dashboardData();
-       
-         $config = new ConfigurationController();
-        
-         $cases_data = $config->getCases();
+
+        $config = new ConfigurationController();
+
+        $cases_data = $config->getCases();
 
 
 //        if ($cases_data['status'] == 0) {
@@ -36,7 +35,7 @@ class DashboardController extends Controller {
             $dataArray = $dashboard_data['data'];
             $cases = $cases_data['data'];
 
-            return view('dashboard')->with('data', $dataArray)->with("cases",$cases);
+            return view('dashboard')->with('data', $dataArray)->with("cases", $cases);
         }
         return redirect('errorpage')->with('errordata', $dashboard_data['message']);
     }
@@ -60,13 +59,13 @@ class DashboardController extends Controller {
 
             return json_decode($body, true);
         } catch (\RequestException $e) {
-            $data = array('status' => 1, 'message' => "Request Exception: " );
+            $data = array('status' => 1, 'message' => "Request Exception: ");
             return $data;
         } catch (\ClientException $e) {
-            $data = array('status' => 1, 'message' => "Client Exception:" );
+            $data = array('status' => 1, 'message' => "Client Exception:");
             return $data;
         } catch (\Exception $e) {
-            $data = array('status' => 1, 'message' => "Internal Server Error: " );
+            $data = array('status' => 1, 'message' => "Internal Server Error: ");
             return $data;
         }
     }
@@ -116,6 +115,38 @@ class DashboardController extends Controller {
             "message" => "Dashboard Api Error"
         );
         return \GuzzleHttp\json_encode($result);
+    }
+
+    
+    
+       public function dashboardTrends($period) {
+        $url = config('constants.TEST_URL');
+
+        $baseurl = $url . 'dashboard/trends/'.$period;
+
+        $client = new Client([
+            'headers' => [
+                'Accept' => 'application/json',
+                'Authorization' => 'Bearer ' . session('token')
+            ],
+            'http_errors' => false
+        ]);
+        try {
+
+            $response = $client->request('GET', $baseurl);
+            $body = $response->getBody();
+
+            return json_decode($body, true);
+        } catch (\RequestException $e) {
+            $data = array('status' => 1, 'message' => "Request Exception: " );
+            return $data;
+        } catch (\ClientException $e) {
+            $data = array('status' => 1, 'message' => "Client Exception:" );
+            return $data;
+        } catch (\Exception $e) {
+            $data = array('status' => 1, 'message' => "Internal Server Error: " );
+            return $data;
+        }
     }
 
 }
