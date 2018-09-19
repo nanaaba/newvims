@@ -35,7 +35,7 @@
                             <div class="col-sm-4">
                                 <div class="form-group">
 
-                                    <select class="select2 form-control " name="agents" id="agents" tabindex="-1" aria-hidden="true" required>
+                                    <select class="form-control" data-live-search="true" name="agents" id="agents" tabindex="-1" aria-hidden="true" required>
 
                                         <option value="">Select ---</option>
                                         <?php
@@ -49,7 +49,7 @@
                             </div>         
                             <div class="col-sm-2">
                                 <button type="button" id="retrieveCases" class="btn btn-primary btn-block">
-                                    Retrieve 
+                                    Filter 
                                 </button>
                             </div>         
 
