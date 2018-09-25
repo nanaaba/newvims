@@ -95,10 +95,12 @@
                         <div class="row">
                             <div class="col-5">
                                 <h4 class="card-title">Traffic</h4>
-                                <div class="small text-muted" style="margin-top:-10px;"><?php echo date('F Y') ?></div>
+<!--                                <div class="small text-muted" style="margin-top:-10px;"><?php echo date('F Y') ?></div>-->
                             </div>
                             <div class="col-7">
-                                <button type="button" class="btn btn-primary float-right"><i class="icon-cloud-download"></i></button>
+<!--                                <button type="button" class="btn btn-primary float-right"><i class="icon-cloud-download"></i></button>
+                                -->
+                                
                                 <div class="btn-group btn-group-toggle float-right mr-3" data-toggle="buttons">
                                     <!-- class="btn btn-outline-secondary active"-->
                                     <label class="btn btn-outline-secondary active">
@@ -243,8 +245,7 @@ $("input[type=radio][name=trends]").change(function () {
 
         function getMonthlyTrends() {
 
-            alert('monthly');
-
+          
             return    $.ajax({
                 url: "trends/monthly",
                 type: "GET",
@@ -261,22 +262,22 @@ $("input[type=radio][name=trends]").change(function () {
             var periods = dataSet.period;
 
             var ctx = document.getElementById("results");
-            ;
+            //rgb(0, 128, 0)
             new Chart(ctx, {
                 type: 'line',
                 data: {
                     labels: periods,
                     datasets: [
                         {
-                            label: 'New TVis',
-                            "borderColor": 'rgba(54, 162, 235, 1)',
+                            label: 'TVI New ',
+                            "borderColor": 'rgb(0, 128, 0)',
                             pointHoverBackgroundColor: '#fff',
                             borderWidth: 2,
                             data: newtvis
                         },
                         {
-                            label: 'Exit Tvis',
-                            "borderColor": 'rgb(0, 128, 0)',
+                            label: 'Exited Traffic',
+                            "borderColor": 'rgb(255,0,0)',
                             pointHoverBackgroundColor: '#fff',
                             borderWidth: 2,
                             data: exittvis
@@ -292,7 +293,7 @@ $("input[type=radio][name=trends]").change(function () {
 
 
   function getYearlyTrend() {
-        alert('yearly');
+       
         return    $.ajax({
             url: "trends/yearly",
             type: "GET",
@@ -332,15 +333,15 @@ $("input[type=radio][name=trends]").change(function () {
                 labels: periods,
                 datasets: [
                     {
-                        label: 'New TVis',
-                        "borderColor": 'rgba(54, 162, 235, 1)',
+                     label: 'TVI New ',
+                        "borderColor": 'rgb(0, 128, 0)',
                         pointHoverBackgroundColor: '#fff',
                         borderWidth: 2,
                         data: newtvis
                     },
                     {
-                        label: 'Exit Tvis',
-                        "borderColor": 'rgb(0, 128, 0)',
+                       label: 'Exited Traffic',
+                        "borderColor": 'rgb(255,0,0)',
                         pointHoverBackgroundColor: '#fff',
                         borderWidth: 2,
                         data: exittvis
@@ -359,7 +360,7 @@ $("input[type=radio][name=trends]").change(function () {
 
   function getMonthlyTrends() {
 
-            alert('monthly');
+     
 
             return    $.ajax({
                 url: "trends/monthly",
@@ -384,15 +385,15 @@ $("input[type=radio][name=trends]").change(function () {
                     labels: periods,
                     datasets: [
                         {
-                            label: 'New TVis',
-                            "borderColor": 'rgba(54, 162, 235, 1)',
+                             label: 'TVI New ',
+                            "borderColor": 'rgb(0, 128, 0)',
                             pointHoverBackgroundColor: '#fff',
                             borderWidth: 2,
                             data: newtvis
                         },
                         {
-                            label: 'Exit Tvis',
-                            "borderColor": 'rgb(0, 128, 0)',
+                         label: 'Exited Traffic',
+                            "borderColor": 'rgb(255,0,0)',
                             pointHoverBackgroundColor: '#fff',
                             borderWidth: 2,
                             data: exittvis

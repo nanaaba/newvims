@@ -97,7 +97,7 @@
                         <div class="row">
                             <div class="col-5">
                                 <h4 class="card-title">Traffic</h4>
-                                <div class="small text-muted" style="margin-top:-10px;"><?php echo date('F Y') ?></div>
+<!--                                <div class="small text-muted" style="margin-top:-10px;"><?php echo date('F Y') ?></div>-->
                             </div>
                             <div class="col-7">
 <!--                                <button type="button" class="btn btn-primary float-right"><i class="icon-cloud-download"></i></button>
@@ -264,22 +264,22 @@ $("input[type=radio][name=trends]").change(function () {
             var periods = dataSet.period;
 
             var ctx = document.getElementById("results");
-            ;
+            //rgb(0, 128, 0)
             new Chart(ctx, {
                 type: 'line',
                 data: {
                     labels: periods,
                     datasets: [
                         {
-                            label: 'New TVis',
-                            "borderColor": 'rgba(54, 162, 235, 1)',
+                            label: 'TVI New ',
+                            "borderColor": 'rgb(0, 128, 0)',
                             pointHoverBackgroundColor: '#fff',
                             borderWidth: 2,
                             data: newtvis
                         },
                         {
-                            label: 'Exit Tvis',
-                            "borderColor": 'rgb(0, 128, 0)',
+                            label: 'Exited Traffic',
+                            "borderColor": 'rgb(255,0,0)',
                             pointHoverBackgroundColor: '#fff',
                             borderWidth: 2,
                             data: exittvis
@@ -335,15 +335,15 @@ $("input[type=radio][name=trends]").change(function () {
                 labels: periods,
                 datasets: [
                     {
-                        label: 'New TVis',
-                        "borderColor": 'rgba(54, 162, 235, 1)',
+                     label: 'TVI New ',
+                        "borderColor": 'rgb(0, 128, 0)',
                         pointHoverBackgroundColor: '#fff',
                         borderWidth: 2,
                         data: newtvis
                     },
                     {
-                        label: 'Exit Tvis',
-                        "borderColor": 'rgb(0, 128, 0)',
+                       label: 'Exited Traffic',
+                        "borderColor": 'rgb(255,0,0)',
                         pointHoverBackgroundColor: '#fff',
                         borderWidth: 2,
                         data: exittvis
@@ -387,15 +387,15 @@ $("input[type=radio][name=trends]").change(function () {
                     labels: periods,
                     datasets: [
                         {
-                            label: 'New TVis',
-                            "borderColor": 'rgba(54, 162, 235, 1)',
+                             label: 'TVI New ',
+                            "borderColor": 'rgb(0, 128, 0)',
                             pointHoverBackgroundColor: '#fff',
                             borderWidth: 2,
                             data: newtvis
                         },
                         {
-                            label: 'Exit Tvis',
-                            "borderColor": 'rgb(0, 128, 0)',
+                         label: 'Exited Traffic',
+                            "borderColor": 'rgb(255,0,0)',
                             pointHoverBackgroundColor: '#fff',
                             borderWidth: 2,
                             data: exittvis

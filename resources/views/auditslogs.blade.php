@@ -84,8 +84,7 @@
                                         . '<td>'
                                         . $value['timeInserted']
                                         . '</td>'
-                                        . '<td><a   href="../../trip/' . $value['tripNo'] . '"    type="button" class="btn btn-success" > <i class="fa fa-search-plus "></i>  </a></td> '
-                                        . '</tr>';
+                                         . '</tr>';
                                     }
                                     ?>
 

@@ -22,7 +22,7 @@
 
         <div class="card">
             <div class="card-header">
-                <i class="fa fa-edit"></i> Cases
+                <i class="fa fa-edit"></i>Reported Cases
 
             </div>
             <div class="card-body table-responsive">

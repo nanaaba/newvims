@@ -19,7 +19,9 @@ class ConfigurationController extends Controller {
     public function showaudits() {
 
         $data = $this->getAudits();
-
+//        print_r($data);
+//        return;
+//        
         
         if ($data['status'] == 0) {
             $dataArray = $data['data'];
@@ -303,7 +305,7 @@ class ConfigurationController extends Controller {
             $response = $client->request('GET', $baseurl);
             $body = $response->getBody();
 
-            return json_encode($body);;
+            return json_decode($body,true);
         } catch (\RequestException $e) {
             $data = array('status' => 1, 'message' => "Request Exception");
             return json_encode($data);

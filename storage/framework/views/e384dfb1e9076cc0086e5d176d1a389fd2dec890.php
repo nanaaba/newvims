@@ -27,12 +27,11 @@
 
 
                         <div class="row">
-
-                            <div class="col-sm-2">
+                            <div class="col-sm-1">
                                 <label class=" control-label">Agents</label>
-
                             </div>         
-                            <div class="col-sm-4">
+                            <div class="col-sm-3">
+                                
                                 <div class="form-group">
 
                                     <select class="form-control" data-live-search="true" name="agents" id="agents" tabindex="-1" aria-hidden="true" required>
@@ -40,7 +39,7 @@
                                         <option value="">Select ---</option>
                                         <?php
                                         foreach ($data as $value) {
-                                            echo ' <option value="' . $value['userId'] . ' ">' . $value['othernames'] . ' ' . $value['surname'] . '</option>';
+                                            echo ' <option value="' . $value['userId'] . ' ">' . $value['othernames'] . '  ' .' '. $value['surname'] . '</option>';
                                         }
                                         ?>
                                     </select>
