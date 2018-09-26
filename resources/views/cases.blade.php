@@ -38,6 +38,7 @@
                             <th>Vehicle Model</th>
                             <th>Owner</th>
                             <th>Days OverStayed</th>
+                              <th>Reported Date</th>
                             <th>Status</th>
                             <th>Reported By</th>
 
@@ -79,6 +80,9 @@
                             . '<td>'
                             . $value['daysOverStayed']
                             . '</td>'
+                                     . '<td>'
+                                . $value['timeReported']
+                                . '</td>'
                             . '<td> <span class="badge badge-'.$status_color.'">' . $value['status'] . '</span>'
                             . '</td>'
                             . '<td>'
@@ -123,6 +127,7 @@
 //                .appendTo($('.col-sm-6:eq(0)', datatable.table().container()));
 
     var datatable = $('#agentsCasesTbl').DataTable({
+         "ordering": false,
         lengthChange: false,
         buttons: [
             {extend: 'copyHtml5', footer: true},

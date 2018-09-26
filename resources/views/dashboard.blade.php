@@ -102,7 +102,7 @@
                             <div class="col-7">
 <!--                                <button type="button" class="btn btn-primary float-right"><i class="icon-cloud-download"></i></button>
                                 -->
-                                
+
                                 <div class="btn-group btn-group-toggle float-right mr-3" data-toggle="buttons">
                                     <!-- class="btn btn-outline-secondary active"-->
                                     <label class="btn btn-outline-secondary active">
@@ -167,6 +167,7 @@
                                 <th>Vehicle Model</th>
                                 <th>Owner</th>
                                 <th>Days OverStayed</th>
+                                 <th>Reported Date</th>
                                 <th>Status</th>
                                 <th>Reported By</th>
 
@@ -208,6 +209,9 @@
                                 . '<td>'
                                 . $value['daysOverStayed']
                                 . '</td>'
+                                . '<td>'
+                                . $value['timeReported']
+                                . '</td>'
                                 . '<td> <span class="badge badge-' . $status_color . '">' . $value['status'] . '</span>'
                                 . '</td>'
                                 . '<td>'
@@ -239,7 +243,7 @@
 <script src="{{ asset('js/views/main.js')}}"></script>
 <script type="text/javascript">
 
-var datatable = $('#agentsCasesTbl').DataTable();
+var datatable = $('#agentsCasesTbl').DataTable({"ordering": false});
 
 
 $("input[type=radio][name=trends]").change(function () {
@@ -247,7 +251,7 @@ $("input[type=radio][name=trends]").change(function () {
 
         function getMonthlyTrends() {
 
-          
+
             return    $.ajax({
                 url: "trends/monthly",
                 type: "GET",
@@ -257,7 +261,7 @@ $("input[type=radio][name=trends]").change(function () {
 
         $.when(getMonthlyTrends()).done(function (response) {
 
-        var dataSet = response.data;
+            var dataSet = response.data;
             console.log();
             var newtvis = dataSet.new;
             var exittvis = dataSet.exited;
@@ -294,90 +298,38 @@ $("input[type=radio][name=trends]").change(function () {
     } else {
 
 
-  function getYearlyTrend() {
-       
-        return    $.ajax({
-            url: "trends/yearly",
-            type: "GET",
-            dataType: 'json'
-        });
-    }
-
-
-    $.when(getYearlyTrend()).done(function (response) {
-
-// the code here will be executed when all four ajax requests resolve.
-// a1, a2, a3 and a4 are lists of length 3 containing the response text,
-// status, and jqXHR object for each of the four ajax calls respectively.
-        var dataSet = response.data;
-        console.log();
-        var newtvis = dataSet.new;
-        var exittvis = dataSet.exited;
-        var periods = dataSet.period;
-
-        console.log('period datanknkn her: ' + periods);
-
-
-
-
-        // newtvis = newtvis.map(Number);
-//    exittvis = exittvis.map(Number);
-//    console.log('figures: ' + exittvis);
-//    console.log('data:' + periods);
-
-        console.log('charts.............');
-
-        var ctx = document.getElementById("results");
-        ;
-        new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: periods,
-                datasets: [
-                    {
-                     label: 'TVI New ',
-                        "borderColor": 'rgb(0, 128, 0)',
-                        pointHoverBackgroundColor: '#fff',
-                        borderWidth: 2,
-                        data: newtvis
-                    },
-                    {
-                       label: 'Exited Traffic',
-                        "borderColor": 'rgb(255,0,0)',
-                        pointHoverBackgroundColor: '#fff',
-                        borderWidth: 2,
-                        data: exittvis
-                    }
-                ]
-            }
-        });
-
-
-    });
-
-    }
-});
-
-
-
-  function getMonthlyTrends() {
-
-     
+        function getYearlyTrend() {
 
             return    $.ajax({
-                url: "trends/monthly",
+                url: "trends/yearly",
                 type: "GET",
                 dataType: 'json'
             });
         }
 
-        $.when(getMonthlyTrends()).done(function (response) {
 
-        var dataSet = response.data;
+        $.when(getYearlyTrend()).done(function (response) {
+
+// the code here will be executed when all four ajax requests resolve.
+// a1, a2, a3 and a4 are lists of length 3 containing the response text,
+// status, and jqXHR object for each of the four ajax calls respectively.
+            var dataSet = response.data;
             console.log();
             var newtvis = dataSet.new;
             var exittvis = dataSet.exited;
             var periods = dataSet.period;
+
+            console.log('period datanknkn her: ' + periods);
+
+
+
+
+            // newtvis = newtvis.map(Number);
+//    exittvis = exittvis.map(Number);
+//    console.log('figures: ' + exittvis);
+//    console.log('data:' + periods);
+
+            console.log('charts.............');
 
             var ctx = document.getElementById("results");
             ;
@@ -387,14 +339,14 @@ $("input[type=radio][name=trends]").change(function () {
                     labels: periods,
                     datasets: [
                         {
-                             label: 'TVI New ',
+                            label: 'TVI New ',
                             "borderColor": 'rgb(0, 128, 0)',
                             pointHoverBackgroundColor: '#fff',
                             borderWidth: 2,
                             data: newtvis
                         },
                         {
-                         label: 'Exited Traffic',
+                            label: 'Exited Traffic',
                             "borderColor": 'rgb(255,0,0)',
                             pointHoverBackgroundColor: '#fff',
                             borderWidth: 2,
@@ -406,6 +358,58 @@ $("input[type=radio][name=trends]").change(function () {
 
 
         });
+
+    }
+});
+
+
+
+function getMonthlyTrends() {
+
+
+
+    return    $.ajax({
+        url: "trends/monthly",
+        type: "GET",
+        dataType: 'json'
+    });
+}
+
+$.when(getMonthlyTrends()).done(function (response) {
+
+    var dataSet = response.data;
+    console.log();
+    var newtvis = dataSet.new;
+    var exittvis = dataSet.exited;
+    var periods = dataSet.period;
+
+    var ctx = document.getElementById("results");
+    ;
+    new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: periods,
+            datasets: [
+                {
+                    label: 'TVI New ',
+                    "borderColor": 'rgb(0, 128, 0)',
+                    pointHoverBackgroundColor: '#fff',
+                    borderWidth: 2,
+                    data: newtvis
+                },
+                {
+                    label: 'Exited Traffic',
+                    "borderColor": 'rgb(255,0,0)',
+                    pointHoverBackgroundColor: '#fff',
+                    borderWidth: 2,
+                    data: exittvis
+                }
+            ]
+        }
+    });
+
+
+});
 
 
 

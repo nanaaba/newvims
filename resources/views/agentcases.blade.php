@@ -33,7 +33,7 @@
                                 <label class=" control-label">Agents</label>
                             </div>         
                             <div class="col-sm-3">
-                                
+
                                 <div class="form-group">
 
                                     <select class="form-control" data-live-search="true" name="agents" id="agents" tabindex="-1" aria-hidden="true" required>
@@ -41,7 +41,7 @@
                                         <option value="">Select ---</option>
                                         <?php
                                         foreach ($data as $value) {
-                                            echo ' <option value="' . $value['userId'] . ' ">' . $value['othernames'] . '  ' .' '. $value['surname'] . '</option>';
+                                            echo ' <option value="' . $value['userId'] . ' ">' . $value['othernames'] . '  ' . ' ' . $value['surname'] . '</option>';
                                         }
                                         ?>
                                     </select>
@@ -85,7 +85,7 @@
                             <th>Vehicle Model</th>
                             <th>Owner</th>
                             <th>Days OverStayed</th>
-                            <th>Status</th>
+                            <th>Reported Date</th>
                             <th>Reported By</th>
 
                         </tr>
@@ -139,6 +139,7 @@
 //                .appendTo($('.col-sm-6:eq(0)', datatable.table().container()));
 
     var datatable = $('#agentsCasesTbl').DataTable({
+        "ordering": false,
         lengthChange: false,
         buttons: [
             {extend: 'copyHtml5', footer: true},
@@ -242,6 +243,8 @@
                         r[++j] = '<td class="subject">' + value.vehicleModel + '</td>';
                         r[++j] = '<td class="subject">' + value.owner + '</td>';
                         r[++j] = '<td class="subject">' + value.daysOverStayed + '</td>';
+                        r[++j] = '<td class="subject">' + value.timeReported + '</td>';
+
                         r[++j] = '<td class="subject"><span class="badge badge-danger">' + value.status + '</span></td>';
                         r[++j] = '<td class="subject">' + value.reportedBy + '</td>';
 
