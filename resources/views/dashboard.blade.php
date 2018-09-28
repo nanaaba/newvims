@@ -96,7 +96,7 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-5">
-                                <h4 class="card-title">Traffic</h4>
+                                <h4 class="card-title">TVI New & Exited Traffic</h4>
 <!--                                <div class="small text-muted" style="margin-top:-10px;"><?php echo date('F Y') ?></div>-->
                             </div>
                             <div class="col-7">
@@ -151,7 +151,7 @@
         <div class="row">
             <div class="card">
                 <div class="card-header">
-                    <i class="fa fa-edit"></i> Cases
+                    <i class="fa fa-edit"></i> Reported Cases
 
                 </div>
                 <div class="card-body table-responsive">
